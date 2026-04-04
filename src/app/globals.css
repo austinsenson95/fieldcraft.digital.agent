@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand Colors */
+  --color-field-deep: #0F2B1E;
+  --color-field-verdant: #1D9E75;
+  --color-field-mint: #5DCAA5;
+  --color-field-soft-teal: #9FE1CB;
+  --color-field-deep-teal: #085041;
+  --color-field-parchment: #F5F1EB;
+  --color-field-obsidian: #1A1A18;
+  --color-field-gold: #C8A96E;
+  --color-field-warm-gray: #E8E2D8;
+
+  /* Font Families — CSS vars set by next/font in layout.tsx */
+  --font-display: var(--font-satoshi), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
+  --font-accent: var(--font-instrument-serif), serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-field-deep);
+  color: var(--color-field-parchment);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography rules from brand DNA */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.5px;
+}
+
+/* Selection color */
+::selection {
+  background-color: color-mix(in srgb, var(--color-field-verdant), transparent 70%);
+  color: var(--color-field-parchment);
+}
+
+/* CTA button glow pulse */
+@keyframes cta-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(29, 158, 117, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(29, 158, 117, 0.2); }
+}
+
+.cta-glow {
+  animation: cta-glow 3s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cta-glow {
+    animation: none;
+    box-shadow: 0 0 20px rgba(29, 158, 117, 0.1);
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
