@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@fieldcraft/shared/*": ["../shared/src/*"]
     }
   },
   "include": [

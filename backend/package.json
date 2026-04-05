@@ -1,0 +1,20 @@
+{
+  "name": "@fieldcraft/backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@fieldcraft/shared": "*",
+    "hono": "^4.0.0",
+    "@hono/node-server": "^1.0.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.4.0"
+  }
+}
