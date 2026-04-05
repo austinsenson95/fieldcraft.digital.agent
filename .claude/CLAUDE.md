@@ -27,12 +27,16 @@
 |-----------|--------|-------|
 | Hero section | ✅ Complete | Three.js mesh + text + scroll indicator |
 | Navbar | ✅ Complete | Transparent → blur on scroll, mobile hamburger overlay |
-| Problem section | ⬜ Not started | — |
-| What We Build section | ⬜ Not started | — |
-| Personalization demo | ⬜ Not started | — |
-| How It Works section | ⬜ Not started | — |
-| About section | ⬜ Not started | — |
-| CTA section | ⬜ Not started | — |
+| Problem section | ✅ Complete | 3-line staggered fade-in, divider animation |
+| What We Build section | ✅ Complete | CSS 3D portal, scroll-linked rotation, floating labels, portal interior reveal |
+| PortalMockup | ✅ Complete | Reusable coded portal UI (sidebar + blueprint generator) |
+| How It Works section | ✅ Complete | Vertical connecting line with scaleY scroll animation, 3 steps |
+| Case Study section | ✅ Complete | PortalMockup + tech tags + metric cards |
+| About section | ✅ Complete | Avatar placeholder, bio, social links (inline SVGs) |
+| CTA section | ✅ Complete | Full-viewport, glow-pulse button, SVG wireframe bg |
+| Footer | ✅ Complete | Minimal, Obsidian bg, wordmark + copyright |
+| Personalization demo | ⬜ Not started | Phase 3 |
+| ScrollReveal | ✅ Complete | Reusable inView wrapper with direction/delay props |
 
 ## Known Issues
 - None yet
@@ -50,12 +54,21 @@
 
 ## File Map (Key Files)
 - `src/app/layout.tsx` — Root layout with font variables and metadata
-- `src/app/globals.css` — Tailwind v4 theme (brand colors, fonts), base styles, reduced motion
-- `src/app/page.tsx` — Home page (single-page scroll)
+- `src/app/globals.css` — Tailwind v4 theme (brand colors, fonts), base styles, reduced motion, CTA glow keyframes
+- `src/app/page.tsx` — Home page (all sections assembled in scroll order)
 - `src/components/hero/HeroSection.tsx` — Hero section with Three.js mesh, tagline, scroll indicator
 - `src/components/three/HeroMesh.tsx` — Three.js icosahedron wireframe with mouse parallax
 - `src/components/layout/Navbar.tsx` — Scroll-aware nav with mobile overlay
+- `src/components/layout/Footer.tsx` — Minimal footer (Obsidian bg)
+- `src/components/sections/ProblemSection.tsx` — 3-line problem statement with staggered reveal
+- `src/components/sections/PortalShowcase.tsx` — CSS 3D portal with scroll-linked rotation + label pills
+- `src/components/sections/ProcessSection.tsx` — 3-step process with animated connecting line
+- `src/components/sections/CaseStudySection.tsx` — Case study with PortalMockup, tech tags, metrics
+- `src/components/sections/AboutSection.tsx` — About Austin with avatar placeholder and social links
+- `src/components/sections/CTASection.tsx` — Full-viewport CTA with pulsing button + SVG bg
+- `src/components/interactive/PortalMockup.tsx` — Coded portal UI (sidebar + blueprint generator), reused in sections 3 & 5
+- `src/components/ui/ScrollReveal.tsx` — Reusable scroll-triggered fade/slide wrapper
 - `src/lib/fonts.ts` — Font loading config (Satoshi, DM Sans, Instrument Serif, JetBrains Mono)
-- `src/lib/animations.ts` — Shared animation constants (EASE, DURATION, STAGGER, variants)
+- `src/lib/animations.ts` — Shared animation constants + variants (fadeInUp, scaleIn, staggerContainer)
 - `src/lib/use-reduced-motion.ts` — Reduced motion preference hook
 - `src/lib/use-device-capability.ts` — Device capability detection hook
