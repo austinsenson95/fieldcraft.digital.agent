@@ -8,18 +8,21 @@ const steps = [
   {
     number: "01",
     title: "Discovery",
+    week: "Week 1–2",
     description:
-      "We map the invisible structure of your business. Not just what you sell \u2014 but how your audience thinks, what your delivery looks like, and where the leverage points are.",
+      "We map the invisible structure of your business. Not just what you sell — but how your audience thinks, what your delivery looks like, and where the leverage points are.",
   },
   {
     number: "02",
     title: "Architecture",
+    week: "Week 2–5",
     description:
-      "Your portal is engineered from your model. AI-powered blueprint generation, branded dashboards, automated delivery, payment integration \u2014 all built as one unified system.",
+      "Your portal is engineered from your model. AI-powered blueprint generation, branded dashboards, automated delivery, payment integration — all built as one unified system.",
   },
   {
     number: "03",
     title: "Delivery",
+    week: "Week 5–8",
     description:
       "You receive a living system, not a static website. Ongoing support, iteration, and the ability to evolve as your business grows.",
   },
@@ -54,7 +57,7 @@ export default function ProcessSection() {
           How it works
         </motion.p>
         <motion.h2
-          className="mb-16 font-display text-3xl font-medium text-field-obsidian md:mb-20 md:text-4xl"
+          className="mb-3 font-display text-3xl font-medium text-field-obsidian md:text-4xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -62,6 +65,15 @@ export default function ProcessSection() {
         >
           Three steps. Zero templates.
         </motion.h2>
+        <motion.p
+          className="mb-16 font-body text-base text-field-deep-teal/70 md:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15, ease: EASE.entrance }}
+        >
+          Typical projects run 4–8 weeks from kickoff to launch.
+        </motion.p>
 
         {/* Steps with connecting line */}
         <div className="relative pl-8 md:pl-12">
@@ -83,6 +95,18 @@ export default function ProcessSection() {
             ))}
           </div>
         </div>
+
+        {/* Pricing signal */}
+        <motion.p
+          className="mt-16 text-center font-body text-sm text-field-warm-gray/50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE.entrance }}
+        >
+          Fieldcraft portals are a premium, one-time investment — not a monthly
+          subscription. Projects typically start at ₹1,50,000.
+        </motion.p>
       </div>
     </section>
   );
@@ -113,7 +137,8 @@ function StepCard({
       {/* Dot on the line */}
       <div className="absolute -left-8 top-1 h-2 w-2 rounded-full bg-field-verdant md:-left-[42px]" />
 
-      <div className="font-mono text-sm text-field-verdant">
+      <div className="font-mono text-xs text-field-verdant/60">{step.week}</div>
+      <div className="mt-1 font-mono text-sm text-field-verdant">
         {step.number}
       </div>
       <h3 className="mt-1 font-display text-xl font-medium text-field-obsidian">

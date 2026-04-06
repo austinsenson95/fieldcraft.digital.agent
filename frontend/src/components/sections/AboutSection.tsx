@@ -67,8 +67,8 @@ export default function AboutSection() {
         animate={isInView ? { opacity: 1, y: 0 } : undefined}
         transition={{ duration: 0.8, ease: EASE.entrance }}
       >
-        {/* Avatar placeholder */}
-        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border-2 border-field-mint/30 bg-field-deep md:h-32 md:w-32">
+        {/* TODO: Replace with real photo — frontend/public/images/austin.webp */}
+        <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-br from-field-verdant/20 to-field-deep-teal/40 ring-2 ring-field-mint/20 ring-offset-2 ring-offset-field-deep md:h-32 md:w-32">
           <span className="font-display text-xl text-field-mint md:text-2xl">
             AS
           </span>

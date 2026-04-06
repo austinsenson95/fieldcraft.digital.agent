@@ -6,12 +6,62 @@ import { EASE } from "@/lib/animations";
 import PortalMockup from "@/components/interactive/PortalMockup";
 
 const featureLabels = [
-  "AI Blueprint Generator",
-  "Branded Dashboard",
-  "Automated Delivery",
-  "Payment Integration",
-  "Video Content Engine",
+  {
+    label: "AI Blueprint Generator",
+    benefit:
+      "Your audience answers a few questions. They get a custom roadmap — branded to you.",
+  },
+  {
+    label: "Branded Dashboard",
+    benefit:
+      "Your clients log in to a space that looks and feels like your brand, not a generic tool.",
+  },
+  {
+    label: "Automated Delivery",
+    benefit: "Content, resources, and assets delivered on schedule without manual work.",
+  },
+  {
+    label: "Payment Integration",
+    benefit: "Razorpay-powered billing built into the portal. No third-party checkout pages.",
+  },
+  {
+    label: "Video Content Engine",
+    benefit: "Personalised video content generated and delivered at scale.",
+  },
 ];
+
+function FeaturePill({
+  label,
+  benefit,
+  delay,
+  visible,
+}: {
+  label: string;
+  benefit: string;
+  delay: number;
+  visible: boolean;
+}) {
+  return (
+    <motion.div
+      className="group relative"
+      initial={{ opacity: 0, y: 20 }}
+      animate={visible ? { opacity: 1, y: 0 } : undefined}
+      transition={{ duration: 0.6, delay, ease: EASE.entrance }}
+    >
+      {/* Pill — always visible on mobile as a card, hover-expandable on desktop */}
+      <div className="rounded-xl border border-field-mint/20 bg-field-deep/80 px-4 py-2 transition-all duration-200 sm:rounded-full md:hover:rounded-xl md:hover:border-field-mint/30 md:hover:bg-field-deep/90">
+        <span className="block font-body text-xs text-field-soft-teal sm:text-sm">{label}</span>
+        {/* Benefit — always visible on mobile, revealed on hover on desktop */}
+        <p className="mt-1 font-body text-xs text-field-warm-gray/70 md:hidden md:group-hover:block">
+          {benefit}
+        </p>
+        <p className="mt-1 hidden max-h-0 overflow-hidden font-body text-xs text-field-warm-gray/70 transition-all duration-200 md:block md:max-h-0 md:opacity-0 md:group-hover:max-h-12 md:group-hover:opacity-100">
+          {benefit}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function PortalShowcase() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -105,25 +155,19 @@ export default function PortalShowcase() {
             </motion.div>
           </motion.div>
 
-          {/* Feature labels — below portal on all sizes */}
+          {/* Feature pills — cards on mobile, hover-expandable on desktop */}
           <div
             ref={labelsRef}
             className="mx-auto mt-8 flex max-w-2xl flex-wrap justify-center gap-2 md:gap-3"
           >
-            {featureLabels.map((label, i) => (
-              <motion.span
-                key={label}
-                className="rounded-full border border-field-mint/20 bg-field-deep/80 px-4 py-2 font-body text-xs text-field-soft-teal sm:text-sm"
-                initial={{ opacity: 0, y: 20 }}
-                animate={labelsInView ? { opacity: 1, y: 0 } : undefined}
-                transition={{
-                  duration: 0.6,
-                  delay: i * 0.1,
-                  ease: EASE.entrance,
-                }}
-              >
-                {label}
-              </motion.span>
+            {featureLabels.map((feature, i) => (
+              <FeaturePill
+                key={feature.label}
+                label={feature.label}
+                benefit={feature.benefit}
+                delay={i * 0.1}
+                visible={labelsInView}
+              />
             ))}
           </div>
         </div>

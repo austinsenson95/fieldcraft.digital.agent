@@ -80,6 +80,23 @@ export default function CaseStudySection() {
           ))}
         </div>
 
+        {/* Outcome / testimonial block */}
+        <motion.blockquote
+          className="mx-auto mb-12 max-w-2xl border-l-2 border-field-gold pl-6 md:mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : undefined}
+          transition={{ duration: 0.6, delay: 0.65, ease: EASE.entrance }}
+        >
+          <p className="font-accent text-xl italic leading-relaxed text-field-parchment md:text-2xl">
+            &ldquo;Built from scratch in 6 weeks. One portal. Zero templates.
+            Every feature engineered around one coach&rsquo;s exact business
+            model.&rdquo;
+          </p>
+          <footer className="mt-4 font-body text-sm text-field-warm-gray">
+            — Hamza C, Freedom Business Coach
+          </footer>
+        </motion.blockquote>
+
         {/* Metric cards */}
         <div className="grid gap-4 sm:grid-cols-3">
           {metrics.map((metric, i) => (
