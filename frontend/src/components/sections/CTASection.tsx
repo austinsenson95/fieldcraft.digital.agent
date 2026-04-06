@@ -77,10 +77,10 @@ export default function CTASection() {
         >
           Or just say hello &mdash;{" "}
           <a
-            href="mailto:hello@fieldcraft.digital"
+            href="mailto:austin@fieldcraft.digital"
             className="text-field-soft-teal underline transition-colors hover:text-field-mint"
           >
-            hello@fieldcraft.digital
+            austin@fieldcraft.digital
           </a>
         </motion.p>
       </div>

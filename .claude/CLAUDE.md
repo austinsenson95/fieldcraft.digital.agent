@@ -2,14 +2,15 @@
 
 ## Project State
 - **Current phase**: Phase 2 complete — All scroll sections built. Monorepo restructure complete.
-- **Last session**: 2026-04-05 — Monorepo restructure (frontend/backend/shared workspaces)
+- **Last session**: 2026-04-06 — Website review fixes (19 findings, Tiers 1–3 complete)
 - **Next priorities**:
   1. Deploy to Vercel and connect fieldcraft.digital domain
-  2. Phase 3: Interactive personalization demo section
-  3. Replace PortalMockup placeholder with real Hamza portal screenshot
-  4. Add real Calendly link to CTA button
-  5. Add Austin's photo to About section
-- **Blocking issues**: None
+  2. Replace SVG OG image with real PNG (1200x630) for proper social card support
+  3. Add real Calendly link to CTA button
+  4. Phase 3: Interactive personalization demo section
+  5. Replace PortalMockup placeholder with real Hamza portal screenshot
+- **Blocking issues**:
+  - [ ] Austin's headshot needed for About section — add as `frontend/public/images/austin.webp`, update AboutSection.tsx
 
 ## Project Structure
 This is a monorepo with npm workspaces:
@@ -49,7 +50,8 @@ This is a monorepo with npm workspaces:
 | Case Study section | ✅ Complete | PortalMockup + tech tags + metric cards |
 | About section | ✅ Complete | Avatar placeholder, bio, social links (inline SVGs) |
 | CTA section | ✅ Complete | Full-viewport, glow-pulse button, SVG wireframe bg |
-| Footer | ✅ Complete | Minimal, Obsidian bg, wordmark + copyright |
+| Footer | ✅ Complete | Expanded — tagline, email, social links, privacy, copyright |
+| DeliverablesSection | ✅ Complete | 4-item 2x2 grid, staggered fade-in |
 | Personalization demo | ⬜ Not started | Phase 3 |
 | ScrollReveal | ✅ Complete | Reusable inView wrapper with direction/delay props |
 
@@ -92,3 +94,25 @@ This is a monorepo with npm workspaces:
 - `shared/src/types/api.ts` — Shared request/response types
 - `shared/src/constants/brand.ts` — Brand colors, names, URLs
 - `backend/src/index.ts` — Hono server entry point
+- `frontend/src/components/sections/DeliverablesSection.tsx` — 4-item deliverables grid
+- `frontend/public/og/og-default.svg` — OG image placeholder (replace with PNG for production)
+
+## Session: Website Review Fixes — 2026-04-06
+### Changes
+- Added hero CTA button ("Start a Conversation") + secondary ghost link ("See how it works ↓")
+- Updated hero ICP copy: coaches, consultants, and creators who've outgrown their tools
+- Fixed Problem section initial opacity (0 → 0.15), added aria-label
+- Feature pills in Portal Showcase now show benefit descriptions (hover on desktop, always-visible on mobile)
+- Process section: added "4–8 weeks" timeline signal + week tags per step
+- Process section: added subdued pricing signal (₹1,50,000 starting price)
+- Case Study: added outcome blockquote with gold left border accent
+- About: upgraded avatar to gradient circle with ring styling
+- Created DeliverablesSection.tsx (4-item 2x2 grid) between CaseStudy and About
+- Nav: added scroll-linked active state (mint color + underline indicator)
+- Hero scroll indicator: fades out on scroll (>50px) or after 8 seconds
+- Standardized all contact email to austin@fieldcraft.digital
+- JSON-LD structured data added to layout.tsx
+- OG image metadata updated (SVG placeholder — replace with PNG before launch)
+- Twitter card type updated to summary_large_image
+- Footer expanded: tagline, email, social links, privacy policy, copyright
+- CLAUDE.md updated with session summary

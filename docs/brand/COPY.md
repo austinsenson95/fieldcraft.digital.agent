@@ -58,7 +58,7 @@ headline: "Ready to build something that's actually yours?"
 subtext: "Every Fieldcraft portal starts with a conversation."
 button_text: "Start a Conversation"
 button_url: "mailto:austin@fieldcraft.digital"
-secondary: "Or just say hello — hello@fieldcraft.digital"
+secondary: "Or just say hello — austin@fieldcraft.digital"
 
 ## Footer
 copyright: "© 2026 Fieldcraft Digital"

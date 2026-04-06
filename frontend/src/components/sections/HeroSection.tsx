@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { DURATION, EASE } from "@/lib/animations";
@@ -20,6 +20,19 @@ const HeroMesh = dynamic(() => import("@/components/three/HeroMesh"), {
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+
+  const [scrollIndicatorVisible, setScrollIndicatorVisible] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => setScrollIndicatorVisible(window.scrollY < 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Also hide after 8 seconds if user hasn't scrolled
+    const timer = setTimeout(() => setScrollIndicatorVisible(false), 8000);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(timer);
+    };
+  }, []);
 
   function scrollToSection(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -98,8 +111,8 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
         style={{ zIndex: 5 }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: DURATION.normal }}
+        animate={{ opacity: scrollIndicatorVisible ? 1 : 0 }}
+        transition={{ delay: scrollIndicatorVisible ? 1.8 : 0, duration: 1 }}
       >
         <span className="font-body text-xs uppercase tracking-widest text-field-mint/40">
           Scroll
