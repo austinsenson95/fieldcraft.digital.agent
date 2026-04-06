@@ -2,6 +2,7 @@
 
 ## Hero
 headline: "Engineered around you."
+subheadline: "Bespoke software portals for coaches, consultants, and creators who've outgrown their tools."
 
 ## Problem Section
 line_1: "Your business runs on systems designed for someone else."

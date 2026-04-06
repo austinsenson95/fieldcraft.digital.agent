@@ -21,6 +21,10 @@ const HeroMesh = dynamic(() => import("@/components/three/HeroMesh"), {
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
+  function scrollToSection(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
     <section
       ref={sectionRef}
@@ -54,18 +58,48 @@ export default function HeroSection() {
             delay: 0.8,
           }}
         >
-          Bespoke software portals for personal brands and solo businesses.
-          <br className="hidden sm:block" />
-          No templates. No compromises.
+          Bespoke software portals for coaches, consultants, and creators
+          who&apos;ve outgrown their tools.
         </motion.p>
+
+        {/* Primary CTA button */}
+        <motion.a
+          href="#contact"
+          className="mt-8 inline-block rounded-xl bg-field-verdant px-8 py-4 font-display text-base font-medium text-field-deep transition-all duration-300 hover:scale-[1.02] hover:bg-field-mint hover:shadow-[0_0_24px_rgba(93,202,165,0.3)] md:mt-10 md:text-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: DURATION.normal,
+            ease: EASE.entrance,
+            delay: 1.4,
+          }}
+        >
+          Start a Conversation
+        </motion.a>
+
+        {/* Secondary ghost link */}
+        <motion.button
+          onClick={() => scrollToSection("work")}
+          className="mt-4 cursor-pointer font-body text-sm text-field-soft-teal/60 transition-colors hover:text-field-soft-teal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: DURATION.normal,
+            ease: EASE.entrance,
+            delay: 1.6,
+          }}
+        >
+          See how it works ↓
+        </motion.button>
       </div>
 
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+        style={{ zIndex: 5 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.6, duration: DURATION.normal }}
+        transition={{ delay: 1.8, duration: DURATION.normal }}
       >
         <span className="font-body text-xs uppercase tracking-widest text-field-mint/40">
           Scroll
