@@ -87,8 +87,9 @@ export async function POST(req: NextRequest) {
     }
 
     // Send email via Resend
+    // Note: Resend free tier only sends to account owner until domain is verified
     const fromEmail = process.env.EMAIL_FROM ?? "onboarding@resend.dev";
-    const toEmail = process.env.EMAIL_TO ?? "austin@fieldcraft.digital";
+    const toEmail = process.env.EMAIL_TO ?? "austinsenson95@gmail.com";
 
     const { data, error } = await getResend().emails.send({
       from: fromEmail,
@@ -111,7 +112,7 @@ export async function POST(req: NextRequest) {
     if (error) {
       console.error("Resend error:", JSON.stringify(error));
       return NextResponse.json(
-        { success: false, error: `Email failed: ${error.name} — ${error.message}` },
+        { success: false, error: "Failed to send message. Please try again." },
         { status: 500 }
       );
     }
