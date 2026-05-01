@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/layout/Navbar";
 import { digitalProducts } from "@/lib/products";
 import { motion } from "framer-motion";
