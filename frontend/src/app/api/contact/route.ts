@@ -109,9 +109,9 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error("Resend error:", JSON.stringify(error));
       return NextResponse.json(
-        { success: false, error: "Failed to send message. Please try again." },
+        { success: false, error: `Email failed: ${error.name} — ${error.message}` },
         { status: 500 }
       );
     }
