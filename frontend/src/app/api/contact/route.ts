@@ -87,9 +87,12 @@ export async function POST(req: NextRequest) {
     }
 
     // Send email via Resend
+    const fromEmail = process.env.EMAIL_FROM ?? "onboarding@resend.dev";
+    const toEmail = process.env.EMAIL_TO ?? "austin@fieldcraft.digital";
+
     const { data, error } = await getResend().emails.send({
-      from: process.env.EMAIL_FROM ?? "Fieldcraft <hello@fieldcraft.digital>",
-      to: process.env.EMAIL_TO ?? "austin@fieldcraft.digital",
+      from: fromEmail,
+      to: toEmail,
       replyTo: email,
       subject: `New contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nSource: ${source ?? "website"}\n\nMessage:\n${message}`,
