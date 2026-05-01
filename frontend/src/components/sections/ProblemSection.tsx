@@ -29,7 +29,6 @@ export default function ProblemSection() {
   return (
     <section
       ref={ref}
-      aria-label="Problem statement"
       className="flex min-h-[80vh] items-center justify-center bg-field-deep px-6 md:min-h-screen md:px-8 lg:px-0"
     >
       <div className="flex max-w-[720px] flex-col items-center gap-6 text-center md:gap-8">
@@ -37,7 +36,7 @@ export default function ProblemSection() {
           <motion.p
             key={i}
             className={line.className}
-            initial={{ opacity: 0.15, y: 30 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : undefined}
             transition={{
               duration: 0.8,

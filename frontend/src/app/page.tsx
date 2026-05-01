@@ -1,27 +1,23 @@
-import HeroSection from "@/components/sections/HeroSection";
 import Navbar from "@/components/layout/Navbar";
-import ProblemSection from "@/components/sections/ProblemSection";
-import PortalShowcase from "@/components/sections/PortalShowcase";
+import HeroSection from "@/components/hero/HeroSection";
+import PhilosophySection from "@/components/sections/PhilosophySection";
+import FeaturesSection from "@/components/sections/FeaturesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import CaseStudySection from "@/components/sections/CaseStudySection";
-import DeliverablesSection from "@/components/sections/DeliverablesSection";
 import AboutSection from "@/components/sections/AboutSection";
-import CTASection from "@/components/sections/CTASection";
-import Footer from "@/components/layout/Footer";
+import CTAFooter from "@/components/sections/CTAFooter";
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <HeroSection />
-      <ProblemSection />
-      <PortalShowcase />
+      <PhilosophySection />
+      <FeaturesSection />
       <ProcessSection />
       <CaseStudySection />
-      <DeliverablesSection />
       <AboutSection />
-      <CTASection />
-      <Footer />
+      <CTAFooter />
     </main>
   );
 }

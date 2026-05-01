@@ -1,56 +1,31 @@
 import type { Metadata } from "next";
-import { satoshi, dmSans, instrumentSerif, jetbrainsMono } from "@/lib/fonts";
+import { geistSans, geistMono } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Fieldcraft Digital — Engineered around you.",
+  title: "Fieldcraft Digital — Bespoke Software Portals",
   description:
-    "Bespoke software portals for coaches, consultants, and creators who've outgrown their tools.",
+    "Engineered around you. No templates. No compromises. Bespoke software portals for personal brands and solo businesses.",
+  keywords: ["bespoke software", "personal brand", "solo business", "software portal", "Austin Senson"],
+  authors: [{ name: "Austin Senson" }],
   metadataBase: new URL("https://fieldcraft.digital"),
   openGraph: {
-    title: "Fieldcraft Digital — Engineered around you.",
-    description:
-      "Bespoke software portals for coaches, consultants, and creators who've outgrown their tools.",
+    title: "Fieldcraft Digital — Bespoke Software Portals",
+    description: "Engineered around you. No templates. No compromises.",
     url: "https://fieldcraft.digital",
     siteName: "Fieldcraft Digital",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og/og-default.svg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fieldcraft Digital — Engineered around you.",
-    description:
-      "Bespoke software portals for coaches, consultants, and creators who've outgrown their tools.",
-    images: ["/og/og-default.svg"],
+    title: "Fieldcraft Digital",
+    description: "Engineered around you.",
   },
-};
-
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "Fieldcraft Digital",
-  url: "https://fieldcraft.digital",
-  description:
-    "Bespoke software portals for coaches, consultants, and creators",
-  founder: {
-    "@type": "Person",
-    name: "Austin Senson",
-    jobTitle: "Software Architect",
-    url: "https://linkedin.com/in/austinsenson",
+  robots: {
+    index: true,
+    follow: true,
   },
-  areaServed: "Worldwide",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Bangalore",
-    addressCountry: "IN",
-  },
-  serviceType: [
-    "Custom Software Development",
-    "Web Application Development",
-    "AI-Powered Business Portals",
-  ],
-  priceRange: "$$$$",
 };
 
 export default function RootLayout({
@@ -61,16 +36,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </head>
-      <body>{children}</body>
+      <body className="bg-bg-primary text-text-primary">{children}</body>
     </html>
   );
 }
