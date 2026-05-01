@@ -80,7 +80,7 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.32, ease: EASE.entrance }}
           >
             <a
-              href="https://linkedin.com/in/austinsenson"
+              href="https://www.linkedin.com/in/austin-senson-19014018b/"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors duration-200 hover:text-text-secondary"
