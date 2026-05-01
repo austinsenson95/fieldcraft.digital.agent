@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   keywords: ["bespoke software", "personal brand", "solo business", "software portal", "Austin Senson"],
   authors: [{ name: "Austin Senson" }],
   metadataBase: new URL("https://fieldcraft.digital"),
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-icon.svg",
+  },
   openGraph: {
     title: "Fieldcraft Digital — Bespoke Software Portals",
     description: "Engineered around you. No templates. No compromises.",
