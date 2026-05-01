@@ -2,7 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy init — don't crash at build time if env var is missing
+let resend: Resend | null = null;
+function getResend(): Resend {
+  if (!resend) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) {
+      throw new Error("RESEND_API_KEY is not set");
+    }
+    resend = new Resend(key);
+  }
+  return resend;
+}
 
 // Simple in-memory rate limiter
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -76,7 +87,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Send email via Resend
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await getResend().emails.send({
       from: process.env.EMAIL_FROM ?? "Fieldcraft <hello@fieldcraft.digital>",
       to: process.env.EMAIL_TO ?? "austin@fieldcraft.digital",
       replyTo: email,
