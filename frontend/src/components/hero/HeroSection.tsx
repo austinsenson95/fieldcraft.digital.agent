@@ -52,6 +52,12 @@ export default function HeroSection() {
     return () => document.removeEventListener("visibilitychange", handleVisibility);
   }, []);
 
+  // Slow clouds by 33.3%
+  useEffect(() => {
+    if (!videoRef.current) return;
+    videoRef.current.playbackRate = 0.667;
+  }, []);
+
   return (
     <section
       ref={sectionRef}
