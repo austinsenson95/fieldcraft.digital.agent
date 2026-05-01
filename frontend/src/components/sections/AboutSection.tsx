@@ -89,7 +89,7 @@ export default function AboutSection() {
             </a>
             <span className="text-border-medium">·</span>
             <a
-              href="https://medium.com/@austinsenson"
+              href="https://medium.com/@austinsenson95"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors duration-200 hover:text-text-secondary"
