@@ -5,8 +5,21 @@ import { motion, useInView } from "framer-motion";
 import { EASE } from "@/lib/animations";
 import { digitalProducts } from "@/lib/products";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import LoginGate from "@/components/auth/LoginGate";
 
-function ProductCard({ product, index }: { product: typeof digitalProducts[0]; index: number }) {
+function ProductCard({ product, index, isAuthenticated }: { product: typeof digitalProducts[0]; index: number; isAuthenticated: boolean }) {
+  const link = (
+    <a
+      href={product.stripeLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="rounded-full bg-accent px-5 py-2.5 font-[family-name:var(--font-geist-mono)] text-sm font-medium text-bg-primary transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover"
+    >
+      Buy Now
+    </a>
+  );
+
   return (
     <motion.div
       className="group relative flex flex-col rounded-2xl border border-text-muted/10 bg-bg-secondary p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
@@ -66,14 +79,16 @@ function ProductCard({ product, index }: { product: typeof digitalProducts[0]; i
         <span className="font-[family-name:var(--font-geist-mono)] text-2xl font-semibold text-text-primary">
           ${product.price}
         </span>
-        <a
-          href={product.stripeLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="rounded-full bg-accent px-5 py-2.5 font-[family-name:var(--font-geist-mono)] text-sm font-medium text-bg-primary transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover"
-        >
-          Buy Now
-        </a>
+        <LoginGate isAuthenticated={isAuthenticated}>
+          <a
+            href={product.stripeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-accent px-5 py-2.5 font-[family-name:var(--font-geist-mono)] text-sm font-medium text-bg-primary transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover"
+          >
+            Buy Now
+          </a>
+        </LoginGate>
       </div>
     </motion.div>
   );
@@ -82,6 +97,8 @@ function ProductCard({ product, index }: { product: typeof digitalProducts[0]; i
 export default function ShopSection() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const { data: session } = useSession();
+  const isAuthenticated = !!session?.user;
 
   return (
     <section
@@ -109,7 +126,7 @@ export default function ShopSection() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {digitalProducts.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+            <ProductCard key={product.id} product={product} index={index} isAuthenticated={isAuthenticated} />
           ))}
         </div>
 
