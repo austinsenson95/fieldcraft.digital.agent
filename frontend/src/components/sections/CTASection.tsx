@@ -3,15 +3,10 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE } from "@/lib/animations";
-import { useSession } from "next-auth/react";
-import LoginGate from "@/components/auth/LoginGate";
 
 export default function CTASection() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const { data: session } = useSession();
-  const isAuthenticated = !!session?.user;
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",

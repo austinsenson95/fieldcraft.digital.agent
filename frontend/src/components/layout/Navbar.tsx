@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
+  { label: "Work", href: "/#work" },
+  { label: "Process", href: "/#process" },
   { label: "Products", href: "/products" },
-  { label: "About", href: "#about" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/#about" },
 ];
 
 export default function Navbar() {
@@ -56,8 +58,8 @@ export default function Navbar() {
         }}
       >
         {/* Left: Brand */}
-        <a
-          href="#"
+        <Link
+          href="/"
           className="flex items-center gap-2.5 font-[family-name:var(--font-geist-mono)] text-sm tracking-wide text-text-primary"
         >
           <span className="relative flex h-2 w-2">
@@ -65,18 +67,18 @@ export default function Navbar() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-mint" />
           </span>
           Fieldcraft
-        </a>
+        </Link>
 
         {/* Center: Desktop nav links */}
         <div className="hidden items-center gap-7 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="font-[family-name:var(--font-geist-mono)] text-xs tracking-[0.15em] uppercase text-text-tertiary transition-colors duration-200 hover:text-text-primary"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -94,12 +96,13 @@ export default function Navbar() {
               {Math.round(scrollProgress * 100).toString().padStart(2, "0")}
             </span>
           </div>
-          <a
-            href="#contact"
-            className="rounded-full border border-border-medium px-4 py-1.5 font-[family-name:var(--font-geist-mono)] text-xs tracking-wider text-text-secondary transition-all duration-200 hover:border-accent hover:text-accent"
+          <Link
+            href="/brief"
+            data-event="book_call_click"
+            className="rounded-full bg-accent px-4 py-1.5 font-[family-name:var(--font-geist-mono)] text-xs tracking-wider text-bg-primary transition-all duration-200 hover:bg-accent-hover"
           >
-            Start a Conversation
-          </a>
+            Book a Field Brief
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -143,11 +146,8 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             {NAV_LINKS.map((link, i) => (
-              <motion.a
+              <motion.div
                 key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="font-[family-name:var(--font-geist-sans)] text-3xl text-text-primary"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -157,24 +157,34 @@ export default function Navbar() {
                   delay: i * 0.08,
                 }}
               >
-                {link.label}
-              </motion.a>
+                <Link
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="font-[family-name:var(--font-geist-sans)] text-3xl text-text-primary"
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
-            <motion.a
-              href="#contact"
-              onClick={() => setMobileOpen(false)}
-              className="mt-4 rounded-full border border-border-medium px-6 py-3 font-[family-name:var(--font-geist-mono)] text-lg text-text-secondary"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{
                 duration: 0.5,
                 ease: [0.16, 1, 0.3, 1],
-                delay: 0.24,
+                delay: 0.4,
               }}
             >
-              Start a Conversation
-            </motion.a>
+              <Link
+                href="/brief"
+                onClick={() => setMobileOpen(false)}
+                data-event="book_call_click"
+                className="mt-4 rounded-full bg-accent px-6 py-3 font-[family-name:var(--font-geist-mono)] text-lg text-bg-primary"
+              >
+                Book a Field Brief
+              </Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

@@ -5,8 +5,6 @@ import { motion, useInView } from "framer-motion";
 import { EASE } from "@/lib/animations";
 import { digitalProducts } from "@/lib/products";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
-import LoginGate from "@/components/auth/LoginGate";
 import Image from "next/image";
 
 const productImages: Record<string, string> = {
@@ -15,7 +13,7 @@ const productImages: Record<string, string> = {
   "productized-service-guide": "/images/product-guide.jpg",
 };
 
-function ProductCard({ product, index, isAuthenticated }: { product: typeof digitalProducts[0]; index: number; isAuthenticated: boolean }) {
+function ProductCard({ product, index }: { product: typeof digitalProducts[0]; index: number }) {
   const image = productImages[product.id] || "/images/product-guide.jpg";
 
   return (
@@ -66,16 +64,16 @@ function ProductCard({ product, index, isAuthenticated }: { product: typeof digi
           <span className="font-[family-name:var(--font-geist-mono)] text-2xl font-semibold text-text-primary">
             ${product.price}
           </span>
-          <LoginGate isAuthenticated={isAuthenticated}>
-            <a
-              href={product.stripeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-accent px-5 py-2.5 font-[family-name:var(--font-geist-mono)] text-sm font-medium text-bg-primary transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover"
-            >
-              Buy Now
-            </a>
-          </LoginGate>
+          <a
+            href={product.gumroadLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-event="product_purchase_click"
+            data-product={product.id}
+            className="rounded-full bg-accent px-5 py-2.5 font-[family-name:var(--font-geist-mono)] text-sm font-medium text-bg-primary transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover"
+          >
+            Buy Now
+          </a>
         </div>
       </div>
     </motion.div>
@@ -85,8 +83,6 @@ function ProductCard({ product, index, isAuthenticated }: { product: typeof digi
 export default function ShopSection() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const sessionResult = useSession();
-  const isAuthenticated = !!(sessionResult?.data?.user);
 
   return (
     <section
@@ -112,7 +108,7 @@ export default function ShopSection() {
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {digitalProducts.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} isAuthenticated={isAuthenticated} />
+            <ProductCard key={product.id} product={product} index={index} />
           ))}
         </div>
 

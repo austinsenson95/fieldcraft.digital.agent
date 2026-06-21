@@ -104,7 +104,8 @@ export default function HeroSection() {
             </motion.p>
 
             <motion.a
-              href="#contact"
+              href="/brief"
+              data-event="book_call_click"
               className="mt-10 inline-block rounded-full bg-accent px-7 py-3.5 font-[family-name:var(--font-geist-mono)] text-sm tracking-wider text-bg-primary transition-all duration-200 ease-out hover:scale-[1.02] hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/20"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -114,7 +115,7 @@ export default function HeroSection() {
                 delay: 0.65,
               }}
             >
-              Start a Conversation
+              Book a Field Brief
             </motion.a>
           </motion.div>
         </div>
