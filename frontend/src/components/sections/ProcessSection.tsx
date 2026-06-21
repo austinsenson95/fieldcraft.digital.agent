@@ -28,7 +28,6 @@ const steps = [
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start 0.8", "end 0.6"],
@@ -44,7 +43,7 @@ export default function ProcessSection() {
     >
       <div className="mx-auto max-w-5xl">
         <motion.p
-          className="mb-4 font-[family-name:var(--font-geist-mono)] text-xs tracking-[0.12em] text-text-muted uppercase"
+          className="os-label mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -117,18 +116,25 @@ function StepCard({
         }`}
       >
         <div
-          className={`font-[family-name:var(--font-geist-mono)] text-4xl font-light text-text-muted md:text-5xl ${
-            isLeft ? "md:text-right" : "md:text-left"
+          className={`glass-card rounded-xl p-6 md:p-8 ${
+            isLeft ? "md:ml-auto" : "md:mr-auto"
           }`}
+          style={{ maxWidth: "420px" }}
         >
-          {step.number}
+          <div
+            className={`font-[family-name:var(--font-geist-mono)] text-4xl font-light text-text-muted md:text-5xl ${
+              isLeft ? "md:text-right" : "md:text-left"
+            }`}
+          >
+            {step.number}
+          </div>
+          <h3 className="mt-4 font-[family-name:var(--font-geist-sans)] text-xl text-text-primary md:text-2xl">
+            {step.title}
+          </h3>
+          <p className="mt-3 text-base leading-relaxed text-text-secondary">
+            {step.description}
+          </p>
         </div>
-        <h3 className="mt-4 font-[family-name:var(--font-geist-sans)] text-xl text-text-primary md:text-2xl">
-          {step.title}
-        </h3>
-        <p className="mt-3 max-w-[400px] text-base leading-relaxed text-text-secondary">
-          {step.description}
-        </p>
       </div>
 
       {/* Connector dot */}

@@ -11,7 +11,7 @@ export default function PhilosophySection() {
   return (
     <section
       ref={ref}
-      className="border-t border-border-subtle bg-bg-secondary px-6 py-24 md:px-10 md:py-32 lg:px-16"
+      className="relative border-t border-border-subtle bg-bg-secondary px-6 py-24 md:px-10 md:py-32 lg:px-16"
     >
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[55%_45%] md:gap-16 lg:gap-24">
         {/* Left column */}
@@ -20,9 +20,7 @@ export default function PhilosophySection() {
           animate={isInView ? { opacity: 1, x: 0 } : undefined}
           transition={{ duration: 0.7, ease: EASE.entrance }}
         >
-          <p className="mb-8 font-[family-name:var(--font-geist-mono)] text-xs tracking-[0.12em] text-text-muted uppercase">
-            PHILOSOPHY
-          </p>
+          <p className="os-label mb-8">PHILOSOPHY</p>
           <h2 className="font-[family-name:var(--font-geist-sans)] text-2xl leading-snug tracking-tight text-text-primary md:text-3xl lg:text-4xl">
             Your business runs on systems designed for someone else. Templates. Plugins. Workarounds.
           </h2>

@@ -27,64 +27,61 @@ export default function CTAFooter() {
         className="bg-bg-primary px-6 pt-32 pb-24 text-center md:px-10 md:pt-40 md:pb-32 lg:px-16"
       >
         <div className="mx-auto max-w-[640px]">
-          <motion.h2
-            className="font-[family-name:var(--font-geist-sans)] text-3xl tracking-tight text-text-primary md:text-4xl"
+          <motion.div
+            className="glass rounded-2xl p-10 md:p-14"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.8, ease: EASE.entrance }}
           >
-            Ready to build something that&rsquo;s actually yours?
-          </motion.h2>
+            <h2 className="font-[family-name:var(--font-geist-sans)] text-3xl tracking-tight text-text-primary md:text-4xl">
+              Ready to build something that&rsquo;s actually yours?
+            </h2>
 
-          <motion.p
-            className="mt-6 text-lg text-text-secondary"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.8, delay: 0.15, ease: EASE.entrance }}
-          >
-            Every Fieldcraft portal starts with a conversation.
-          </motion.p>
+            <p className="mt-6 text-lg text-text-secondary">
+              Every Fieldcraft portal starts with a conversation.
+            </p>
 
-          <motion.div
-            className="relative mt-10 inline-block"
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : undefined}
-            transition={{ duration: 0.8, delay: 0.3, ease: EASE.entrance }}
-          >
-            <a
-              href="mailto:hello@fieldcraft.digital"
-              onClick={(e) => {
-                e.preventDefault();
-                handleCopy();
-              }}
-              className="font-[family-name:var(--font-geist-mono)] text-xl text-accent transition-colors hover:text-accent-hover"
+            <motion.div
+              className="relative mt-10 inline-block"
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : undefined}
+              transition={{ duration: 0.8, delay: 0.15, ease: EASE.entrance }}
             >
-              hello@fieldcraft.digital
-            </a>
+              <a
+                href="mailto:hello@fieldcraft.digital"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleCopy();
+                }}
+                className="font-[family-name:var(--font-geist-mono)] text-xl text-accent transition-colors hover:text-accent-hover"
+              >
+                hello@fieldcraft.digital
+              </a>
 
-            <AnimatePresence>
-              {copied && (
-                <motion.span
-                  className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-text-muted"
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Copied to clipboard
-                </motion.span>
-              )}
-            </AnimatePresence>
+              <AnimatePresence>
+                {copied && (
+                  <motion.span
+                    className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs text-text-muted"
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Copied to clipboard
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
+            <motion.p
+              className="mt-10 text-sm text-text-tertiary"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : undefined}
+              transition={{ duration: 0.6, delay: 0.45, ease: EASE.entrance }}
+            >
+              Or just say hello
+            </motion.p>
           </motion.div>
-
-          <motion.p
-            className="mt-10 text-sm text-text-tertiary"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : undefined}
-            transition={{ duration: 0.6, delay: 0.45, ease: EASE.entrance }}
-          >
-            Or just say hello
-          </motion.p>
         </div>
       </section>
 

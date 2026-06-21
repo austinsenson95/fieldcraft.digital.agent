@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { geistSans, geistMono } from "@/lib/fonts";
 import "./globals.css";
+import AuthProvider from "@/components/auth/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Fieldcraft Digital — Bespoke Software Portals",
@@ -43,7 +44,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-bg-primary text-text-primary">{children}</body>
+      <body className="bg-bg-primary text-text-primary">
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

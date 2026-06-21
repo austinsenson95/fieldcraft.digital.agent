@@ -1,0 +1,195 @@
+- main [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Fieldcraft" [ref=e4] [cursor=pointer]:
+      - /url: "#"
+      - text: Fieldcraft
+    - generic [ref=e8]:
+      - link "Work" [ref=e9] [cursor=pointer]:
+        - /url: "#work"
+      - link "Process" [ref=e10] [cursor=pointer]:
+        - /url: "#process"
+      - link "Products" [ref=e11] [cursor=pointer]:
+        - /url: /products
+      - link "About" [ref=e12] [cursor=pointer]:
+        - /url: "#about"
+    - generic [ref=e13]:
+      - generic [ref=e16]: "00"
+      - link "Start a Conversation" [ref=e17] [cursor=pointer]:
+        - /url: "#contact"
+  - generic [ref=e18]:
+    - generic [ref=e24]:
+      - paragraph [ref=e25]: BESPOKE SOFTWARE PORTALS
+      - heading "Engineered around you." [level=1] [ref=e26]
+      - paragraph [ref=e27]: No templates. No compromises.
+      - paragraph [ref=e28]: Fieldcraft Digital builds software portals tailored to how your business actually works.
+      - link "Start a Conversation" [ref=e29] [cursor=pointer]:
+        - /url: "#contact"
+    - generic:
+      - generic:
+        - generic: drag
+        - text: warp the field
+      - generic:
+        - generic: click
+        - text: release energy
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - paragraph [ref=e36]: PHILOSOPHY
+      - heading "Your business runs on systems designed for someone else. Templates. Plugins. Workarounds." [level=2] [ref=e37]
+    - generic [ref=e38]:
+      - img [ref=e39]
+      - paragraph [ref=e46]: What if your software actually thought like your business?
+  - generic [ref=e48]:
+    - paragraph [ref=e49]: WHAT WE BUILD
+    - heading "Software that thinks like your business." [level=2] [ref=e50]
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - img "Your Portal" [ref=e54]
+        - generic [ref=e56]:
+          - heading "Your Portal" [level=3] [ref=e57]
+          - paragraph [ref=e58]: A unified command centre for your business — built from your model, not a template.
+      - generic [ref=e59]:
+        - img "AI Blueprint Generator" [ref=e61]
+        - generic [ref=e63]:
+          - heading "AI Blueprint Generator" [level=3] [ref=e64]
+          - paragraph [ref=e65]: Map your offer structure, content pillars, and delivery sequence in minutes.
+      - generic [ref=e66]:
+        - img "Branded Dashboard" [ref=e68]
+        - generic [ref=e70]:
+          - heading "Branded Dashboard" [level=3] [ref=e71]
+          - paragraph [ref=e72]: A clean, custom interface that feels like your brand — not a SaaS clone.
+      - generic [ref=e73]:
+        - img "Automated Delivery" [ref=e75]
+        - generic [ref=e77]:
+          - heading "Automated Delivery" [level=3] [ref=e78]
+          - paragraph [ref=e79]: Drip content, trigger sequences, and manage access without manual work.
+      - generic [ref=e80]:
+        - img "Payment Integration" [ref=e82]
+        - generic [ref=e84]:
+          - heading "Payment Integration" [level=3] [ref=e85]
+          - paragraph [ref=e86]: Razorpay, Stripe, or your preferred gateway — wired into the experience.
+      - generic [ref=e87]:
+        - img "Video Content Engine" [ref=e89]
+        - generic [ref=e91]:
+          - heading "Video Content Engine" [level=3] [ref=e92]
+          - paragraph [ref=e93]: Remotion-powered video generation for personalised client content.
+  - generic [ref=e95]:
+    - paragraph [ref=e96]: HOW IT WORKS
+    - heading "Three steps. Zero templates." [level=2] [ref=e97]
+    - generic [ref=e101]:
+      - generic [ref=e104]:
+        - generic [ref=e105]: "01"
+        - heading "Discovery" [level=3] [ref=e106]
+        - paragraph [ref=e107]: We map the invisible structure of your business. Not just what you sell — but how your audience thinks, what your delivery looks like, and where the leverage points are.
+      - generic [ref=e112]:
+        - generic [ref=e113]: "02"
+        - heading "Architecture" [level=3] [ref=e114]
+        - paragraph [ref=e115]: Your portal is engineered from your model. AI-powered blueprint generation, branded dashboards, automated delivery, payment integration — all built as one unified system.
+      - generic [ref=e120]:
+        - generic [ref=e121]: "03"
+        - heading "Delivery" [level=3] [ref=e122]
+        - paragraph [ref=e123]: You receive a living system, not a static website. Ongoing support, iteration, and the ability to evolve as your business grows.
+  - generic [ref=e128]:
+    - img "Freedom Business Engine portal" [ref=e131]
+    - generic [ref=e133]:
+      - paragraph [ref=e134]: RECENT WORK
+      - heading "Freedom Business Engine" [level=3] [ref=e135]
+      - paragraph [ref=e136]: A personalised portal for a freedom business coach — AI-powered blueprint generation, branded content delivery, and integrated payments.
+      - generic [ref=e137]:
+        - generic [ref=e138]: Next.js
+        - generic [ref=e139]: Claude API
+        - generic [ref=e140]: Razorpay
+        - generic [ref=e141]: Remotion
+        - generic [ref=e142]: Supabase
+      - link "View Case Study →" [ref=e143] [cursor=pointer]:
+        - /url: "#"
+  - generic [ref=e145]:
+    - generic [ref=e146]:
+      - paragraph [ref=e147]: Digital Products
+      - heading "Tools that shortcut the journey" [level=2] [ref=e148]
+      - paragraph [ref=e149]: Not courses. Not hype. Just the exact templates, systems, and playbooks I use to run my business.
+    - generic [ref=e150]:
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - img "Personal Brand Starter Kit" [ref=e153]
+          - generic [ref=e155]: Bestseller
+        - generic [ref=e156]:
+          - heading "Personal Brand Starter Kit" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Everything you need to launch your personal brand in 7 days
+          - list [ref=e159]:
+            - listitem [ref=e160]:
+              - img [ref=e161]
+              - text: Brand positioning worksheet
+            - listitem [ref=e163]:
+              - img [ref=e164]
+              - text: 30-day content calendar template
+            - listitem [ref=e166]:
+              - img [ref=e167]
+              - text: Bio & headline formulas
+          - generic [ref=e169]:
+            - generic [ref=e170]: $49
+            - link "Buy Now" [ref=e172] [cursor=pointer]:
+              - /url: https://buy.stripe.com/test_placeholder_1
+      - generic [ref=e173]:
+        - img "Solo Operator Blueprint" [ref=e175]
+        - generic [ref=e177]:
+          - heading "Solo Operator Blueprint" [level=3] [ref=e178]
+          - paragraph [ref=e179]: Systems that let one person run a $10K/month business
+          - list [ref=e180]:
+            - listitem [ref=e181]:
+              - img [ref=e182]
+              - text: Client onboarding flow (Notion + Airtable)
+            - listitem [ref=e184]:
+              - img [ref=e185]
+              - text: Project scoping template
+            - listitem [ref=e187]:
+              - img [ref=e188]
+              - text: Pricing & proposal framework
+          - generic [ref=e190]:
+            - generic [ref=e191]: $79
+            - link "Buy Now" [ref=e193] [cursor=pointer]:
+              - /url: https://buy.stripe.com/test_placeholder_2
+      - generic [ref=e194]:
+        - img "Productized Service Guide" [ref=e196]
+        - generic [ref=e198]:
+          - heading "Productized Service Guide" [level=3] [ref=e199]
+          - paragraph [ref=e200]: Turn your freelancing into a product business
+          - list [ref=e201]:
+            - listitem [ref=e202]:
+              - img [ref=e203]
+              - text: Service → product mapping framework
+            - listitem [ref=e205]:
+              - img [ref=e206]
+              - text: Pricing psychology breakdown
+            - listitem [ref=e208]:
+              - img [ref=e209]
+              - text: Landing page copy template
+          - generic [ref=e211]:
+            - generic [ref=e212]: $39
+            - link "Buy Now" [ref=e214] [cursor=pointer]:
+              - /url: https://buy.stripe.com/test_placeholder_3
+    - link "View all products" [ref=e216] [cursor=pointer]:
+      - /url: /products
+      - text: View all products
+      - img [ref=e217]
+  - generic [ref=e220]:
+    - img "Austin Senson" [ref=e223]
+    - generic [ref=e224]:
+      - paragraph [ref=e225]: ABOUT
+      - heading "Austin Senson" [level=2] [ref=e226]
+      - paragraph [ref=e227]: Firmware engineer turned software architect.
+      - paragraph [ref=e228]: I build systems that think like the businesses they serve. Based in Bangalore. Building globally.
+      - generic [ref=e229]:
+        - link "LinkedIn" [ref=e230] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/austin-senson-19014018b/
+        - link "Writing @austinxalchemy" [ref=e231] [cursor=pointer]:
+          - /url: https://medium.com/@austinsenson95
+  - generic [ref=e234]:
+    - heading "Ready to build something that’s actually yours?" [level=2] [ref=e235]
+    - paragraph [ref=e236]: Every Fieldcraft portal starts with a conversation.
+    - link "hello@fieldcraft.digital" [ref=e238] [cursor=pointer]:
+      - /url: mailto:hello@fieldcraft.digital
+    - paragraph [ref=e239]: Or just say hello
+  - generic [ref=e241]:
+    - generic [ref=e242]: © 2026 Fieldcraft Digital
+    - img [ref=e243]
+    - generic [ref=e246]: Hand-coded in Bangalore

@@ -1,0 +1,4 @@
+[     155ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/react-dom_client.js?v=07f13468:20102
+[     255ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0
+[   77571ms] [ERROR] WebSocket connection to 'ws://localhost:3000/?token=QaASwBz3z_Ho' failed:  @ http://localhost:3000/@vite/client:744
+[   77571ms] [LOG] [vite] server connection lost. Polling for restart... @ http://localhost:3000/@vite/client:864

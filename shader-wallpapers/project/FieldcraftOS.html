@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fieldcraft OS · Shader Wallpapers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0F2B1E;
+    --bg-2: #143326;
+    --parch: #F5F1EB;
+    --parch-70: rgba(245,241,235,.70);
+    --parch-45: rgba(245,241,235,.45);
+    --parch-25: rgba(245,241,235,.25);
+    --parch-12: rgba(245,241,235,.12);
+    --parch-08: rgba(245,241,235,.08);
+    --verdant: #1D9E75;
+    --mint: #5DCAA5;
+    --gold: #C8A96E;
+    --sans: 'Geist', system-ui, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--parch);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    cursor: crosshair;
+  }
+  #stage { position: fixed; inset: 0; z-index: 0; }
+  #gl { width: 100%; height: 100%; display: block; }
+
+  /* ───────── Top bar ───────── */
+  .topbar {
+    position: fixed; inset: 0 0 auto 0; height: 44px; z-index: 5;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 0 18px;
+    background: linear-gradient(to bottom, rgba(15,43,30,.55), rgba(15,43,30,.15));
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    border-bottom: 1px solid var(--parch-08);
+    pointer-events: auto;
+    user-select: none;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--parch-70);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .brand .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--mint); box-shadow: 0 0 12px var(--mint);
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100%{ opacity:1; transform: scale(1); }
+    50%{ opacity:.55; transform: scale(.85); }
+  }
+  .now-playing {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--parch);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .now-playing .idx { color: var(--parch-45); }
+  .now-playing .name { color: var(--parch); }
+  .topright {
+    justify-self: end;
+    display: flex; align-items: center; gap: 18px;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--parch-70); letter-spacing: .12em;
+  }
+  .topright .meter {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .topright .meter b { color: var(--parch); font-weight: 500; }
+  .clock { color: var(--parch); font-variant-numeric: tabular-nums; }
+
+  /* ───────── Center HUD ───────── */
+  .hud {
+    position: fixed; left: 24px; top: 72px; z-index: 4;
+    pointer-events: none;
+    max-width: 380px;
+  }
+  .hud .eyebrow {
+    font-family: var(--mono); font-size: 10px; letter-spacing: .28em;
+    color: var(--parch-45); text-transform: uppercase; margin-bottom: 10px;
+  }
+  .hud h1 {
+    font-family: var(--sans); font-weight: 500;
+    font-size: 38px; line-height: 1.05; letter-spacing: -.02em;
+    margin: 0 0 14px; color: var(--parch);
+    text-shadow: 0 1px 30px rgba(0,0,0,.35);
+  }
+  .hud p {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+    line-height: 1.55; color: var(--parch-70);
+    margin: 0; max-width: 320px;
+  }
+
+  /* ───────── Cursor hint ───────── */
+  .cursor-hint {
+    position: fixed; bottom: 116px; right: 24px; z-index: 4;
+    font-family: var(--mono); font-size: 10px; letter-spacing: .22em;
+    color: var(--parch-45); text-transform: uppercase;
+    display: flex; gap: 18px; align-items: center;
+    pointer-events: none;
+  }
+  .cursor-hint .kbd {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 22px; height: 22px; padding: 0 7px;
+    border: 1px solid var(--parch-12); border-radius: 5px;
+    color: var(--parch-70); margin-right: 6px;
+    background: rgba(15,43,30,.4);
+    backdrop-filter: blur(8px);
+  }
+
+  /* ───────── Dock ───────── */
+  .dock-wrap {
+    position: fixed; left: 50%; bottom: 22px; z-index: 6;
+    transform: translateX(-50%);
+  }
+  .dock {
+    display: flex; align-items: center; gap: 6px;
+    padding: 10px;
+    background: rgba(15,43,30,.55);
+    border: 1px solid var(--parch-08);
+    border-radius: 18px;
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.04);
+  }
+  .dock-item {
+    position: relative;
+    width: 64px; height: 64px;
+    border-radius: 12px;
+    border: 1px solid var(--parch-08);
+    background: var(--bg-2);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .25s cubic-bezier(.16,1,.3,1), border-color .2s;
+    display: flex; align-items: flex-end; justify-content: flex-start;
+    padding: 6px;
+    color: var(--parch-70);
+  }
+  .dock-item canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .dock-item .num {
+    position: relative; z-index: 1;
+    font-family: var(--mono); font-size: 9px; letter-spacing: .15em;
+    color: var(--parch-70);
+    text-shadow: 0 1px 6px rgba(0,0,0,.6);
+  }
+  .dock-item:hover { transform: translateY(-4px) scale(1.04); border-color: var(--parch-25); }
+  .dock-item.active {
+    border-color: var(--mint);
+    box-shadow: 0 0 0 1px var(--mint), 0 8px 30px -8px rgba(93,202,165,.45);
+  }
+  .dock-item .tip {
+    position: absolute; left: 50%; bottom: calc(100% + 12px);
+    transform: translateX(-50%) translateY(4px);
+    background: rgba(15,43,30,.92);
+    border: 1px solid var(--parch-12);
+    color: var(--parch);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: .15em; text-transform: uppercase;
+    padding: 6px 10px; border-radius: 6px; white-space: nowrap;
+    opacity: 0; pointer-events: none; transition: .2s ease;
+    backdrop-filter: blur(10px);
+  }
+  .dock-item:hover .tip { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ───────── Side controls ───────── */
+  .side-rail {
+    position: fixed; right: 18px; top: 50%; transform: translateY(-50%);
+    z-index: 4;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .pill {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--parch-45);
+    border: 1px solid var(--parch-08);
+    background: rgba(15,43,30,.35);
+    backdrop-filter: blur(10px);
+    padding: 6px 10px; border-radius: 999px;
+    text-align: right; min-width: 68px;
+  }
+  .pill b { color: var(--parch); font-weight: 500; }
+
+  /* ───────── Tweaks panel ───────── */
+  .tweaks {
+    position: fixed; right: 18px; top: 60px; z-index: 7;
+    width: 240px;
+    background: rgba(15,43,30,.85);
+    border: 1px solid var(--parch-12);
+    backdrop-filter: blur(18px) saturate(1.2);
+    border-radius: 12px;
+    padding: 14px;
+    color: var(--parch);
+    font-family: var(--mono); font-size: 11px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.55);
+    display: none;
+  }
+  .tweaks.show { display: block; }
+  .tweaks h3 {
+    margin: 0 0 12px; font-family: var(--mono);
+    font-size: 10px; letter-spacing: .22em;
+    color: var(--parch-45); text-transform: uppercase; font-weight: 500;
+  }
+  .tweaks .row { margin-bottom: 12px; }
+  .tweaks .row label {
+    display: flex; justify-content: space-between;
+    font-size: 10px; letter-spacing: .14em;
+    color: var(--parch-70); margin-bottom: 6px; text-transform: uppercase;
+  }
+  .tweaks .row label b { color: var(--parch); font-weight: 500; }
+  .tweaks input[type=range] {
+    -webkit-appearance: none; width: 100%; height: 2px;
+    background: var(--parch-12); outline: none; border-radius: 2px;
+  }
+  .tweaks input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 12px; height: 12px;
+    border-radius: 50%; background: var(--mint);
+    cursor: pointer; box-shadow: 0 0 0 3px rgba(93,202,165,.18);
+  }
+  .tweaks input[type=range]::-moz-range-thumb {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--mint); border: none;
+  }
+  .palette-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; }
+  .swatch {
+    height: 22px; border-radius: 4px; cursor: pointer;
+    border: 1px solid var(--parch-08);
+  }
+  .swatch.active { box-shadow: 0 0 0 2px var(--mint); }
+
+  .toggle-tweaks {
+    position: fixed; right: 18px; top: 12px; z-index: 8;
+    border: 1px solid var(--parch-12);
+    background: rgba(15,43,30,.5);
+    backdrop-filter: blur(10px);
+    color: var(--parch-70);
+    font-family: var(--mono); font-size: 10px; letter-spacing: .2em;
+    text-transform: uppercase;
+    padding: 6px 10px; border-radius: 6px; cursor: pointer;
+  }
+  .toggle-tweaks:hover { color: var(--parch); border-color: var(--parch-25); }
+
+  /* ───────── Click ripple cursor ───────── */
+  .ripple {
+    position: fixed; pointer-events: none; z-index: 10;
+    border: 1px solid var(--parch-45);
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    animation: rippleAnim .9s cubic-bezier(.16,1,.3,1) forwards;
+  }
+  @keyframes rippleAnim {
+    from { width: 0; height: 0; opacity: .9; border-color: var(--mint); }
+    to   { width: 220px; height: 220px; opacity: 0; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .brand .dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="stage">
+    <canvas id="gl"></canvas>
+  </div>
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Fieldcraft OS · v0.4</span>
+    </div>
+    <div class="now-playing">
+      <span class="idx" id="np-idx">01 / 05</span>
+      <span class="name" id="np-name">Verdant Aurora</span>
+    </div>
+    <div class="topright">
+      <div class="meter"><span>FPS</span><b id="fps">60</b></div>
+      <div class="meter"><span>GPU</span><b>WGL2</b></div>
+      <div class="clock" id="clock">00:00</div>
+    </div>
+  </header>
+
+  <button class="toggle-tweaks" id="toggleTweaks">Tweaks</button>
+
+  <!-- HUD: shader description -->
+  <section class="hud">
+    <div class="eyebrow">Wallpaper · interactive</div>
+    <h1 id="hud-title">Verdant Aurora</h1>
+    <p id="hud-desc">Layered field noise drifts through verdant ribbons. Move the cursor to bend the field; click to release a hue wave that travels outward.</p>
+  </section>
+
+  <!-- Cursor hint -->
+  <div class="cursor-hint">
+    <span><span class="kbd">drag</span>warp the field</span>
+    <span><span class="kbd">click</span>release energy</span>
+    <span><span class="kbd">1–5</span>switch wallpaper</span>
+  </div>
+
+  <!-- Side rail readouts -->
+  <aside class="side-rail">
+    <div class="pill">cursor <b id="rail-mouse">0.50, 0.50</b></div>
+    <div class="pill">events <b id="rail-clicks">0</b></div>
+    <div class="pill">runtime <b id="rail-time">0.0s</b></div>
+  </aside>
+
+  <!-- Tweaks -->
+  <aside class="tweaks" id="tweaks">
+    <h3>Tweaks</h3>
+    <div class="row">
+      <label>Speed <b id="lbl-speed">1.00×</b></label>
+      <input type="range" id="speed" min="0" max="200" value="100" />
+    </div>
+    <div class="row">
+      <label>Mouse Pull <b id="lbl-pull">0.60</b></label>
+      <input type="range" id="pull" min="0" max="100" value="60" />
+    </div>
+    <div class="row">
+      <label>Detail <b id="lbl-detail">1.00×</b></label>
+      <input type="range" id="detail" min="50" max="180" value="100" />
+    </div>
+    <div class="row">
+      <label>Palette</label>
+      <div class="palette-row" id="palettes">
+        <div class="swatch active" data-pal="0" style="background: linear-gradient(135deg,#0F2B1E,#1D9E75 60%,#5DCAA5)"></div>
+        <div class="swatch" data-pal="1" style="background: linear-gradient(135deg,#1A1A18,#C8A96E 60%,#F5F1EB)"></div>
+        <div class="swatch" data-pal="2" style="background: linear-gradient(135deg,#0a1830,#3b6fb8 60%,#9ad9ff)"></div>
+        <div class="swatch" data-pal="3" style="background: linear-gradient(135deg,#1a0a1f,#a7307a 60%,#ffb6e6)"></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Dock -->
+  <div class="dock-wrap">
+    <nav class="dock" id="dock"></nav>
+  </div>
+
+  <script src="shaders.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

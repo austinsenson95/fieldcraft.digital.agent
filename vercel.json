@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build -w shared && npm run build -w frontend",
+  "buildCommand": "npm run build",
   "outputDirectory": "frontend/.next",
   "installCommand": "npm install",
   "framework": "nextjs"

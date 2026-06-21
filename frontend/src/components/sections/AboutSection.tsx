@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE } from "@/lib/animations";
+import SpriteAvatar from "./SpriteAvatar";
 
 export default function AboutSection() {
   const ref = useRef<HTMLElement>(null);
@@ -15,34 +16,22 @@ export default function AboutSection() {
       className="bg-bg-secondary px-6 py-24 md:px-10 md:py-32 lg:px-16"
     >
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[40%_60%] md:gap-16 lg:gap-20">
-        {/* Photo */}
+        {/* Sprite Avatar */}
         <motion.div
           className="order-2 md:order-1"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : undefined}
           transition={{ duration: 0.7, ease: EASE.entrance }}
         >
-          <div className="relative aspect-[3/4] overflow-hidden rounded border border-border-subtle bg-bg-tertiary">
-            {/* Placeholder portrait with editorial treatment */}
-            <div className="flex h-full w-full items-center justify-center">
-              <div className="text-center">
-                <div className="font-[family-name:var(--font-geist-sans)] text-6xl font-semibold text-text-muted/30">
-                  AS
-                </div>
-              </div>
-            </div>
-            {/* Duotone overlay hint */}
-            <div
-              className="pointer-events-none absolute inset-0 mix-blend-color"
-              style={{ backgroundColor: "rgba(29, 158, 117, 0.15)" }}
-            />
+          <div className="glass relative aspect-[3/4] overflow-hidden rounded-2xl">
+            <SpriteAvatar />
           </div>
         </motion.div>
 
         {/* Text */}
         <div className="order-1 flex flex-col justify-center md:order-2">
           <motion.p
-            className="mb-4 font-[family-name:var(--font-geist-mono)] text-xs tracking-[0.12em] text-text-muted uppercase"
+            className="os-label mb-4"
             initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : undefined}
             transition={{ duration: 0.7, ease: EASE.entrance }}
@@ -83,16 +72,15 @@ export default function AboutSection() {
               href="https://www.linkedin.com/in/austin-senson-19014018b/"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-200 hover:text-text-secondary"
+              className="os-pill transition-colors duration-200 hover:text-text-secondary hover:border-border-medium"
             >
               LinkedIn
             </a>
-            <span className="text-border-medium">·</span>
             <a
               href="https://medium.com/@austinsenson95"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-200 hover:text-text-secondary"
+              className="os-pill transition-colors duration-200 hover:text-text-secondary hover:border-border-medium"
             >
               Writing @austinxalchemy
             </a>

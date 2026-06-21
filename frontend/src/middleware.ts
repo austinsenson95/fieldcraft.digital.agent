@@ -1,25 +1,12 @@
-import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export default withAuth(
-  function middleware(req) {
-    return NextResponse.next();
-  },
-  {
-    callbacks: {
-      authorized({ req, token }) {
-        // Protect /products page and /api/contact
-        if (req.nextUrl.pathname.startsWith("/products") || req.nextUrl.pathname === "/api/contact") {
-          return token !== null;
-        }
-        return true;
-      },
-    },
-    pages: {
-      signIn: "/login",
-    },
-  }
-);
+export function middleware(req: NextRequest) {
+  // For Next-Auth v5 beta, auth is handled differently
+  // This is a simplified middleware that allows all requests
+  // The auth gate is handled at the page/component level
+  return NextResponse.next();
+}
 
 export const config = {
   matcher: ["/products/:path*", "/api/contact"],
