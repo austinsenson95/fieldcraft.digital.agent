@@ -239,7 +239,7 @@ export default function Chat() {
       {/* ── Main Chat Layout ── */}
       <div className="flex flex-1 overflow-hidden">
         {/* ── Agent Sidebar ── */}
-        <div className="w-44 shrink-0 overflow-y-auto border-r border-border-subtle bg-bg-secondary">
+        <div className="w-56 shrink-0 overflow-y-auto border-r border-border-subtle bg-bg-secondary">
           <div className="px-4 py-3">
             <h3 className="text-caption font-semibold uppercase tracking-wider text-text-tertiary">Agents</h3>
           </div>
@@ -280,7 +280,7 @@ export default function Chat() {
                 <span className="h-2 w-2 shrink-0 rounded-full" style={{ backgroundColor: agent.color }} />
                 <span
                   className={cn(
-                    'truncate text-body-sm',
+                    'min-w-0 flex-1 truncate text-body-sm',
                     selectedAgent === agent.name ? 'font-medium text-text-primary' : 'text-text-secondary'
                   )}
                 >
