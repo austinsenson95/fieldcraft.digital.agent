@@ -12,7 +12,7 @@ const plans = [
   {
     badge: "Starter",
     name: "Portal Lite",
-    price: "GBP 5,000",
+    price: "$5,000",
     description: "Single-purpose portal. One core workflow automated.",
     features: [
       "AI-powered blueprint generation",
@@ -27,7 +27,7 @@ const plans = [
   {
     badge: "Most Popular",
     name: "Portal Pro",
-    price: "GBP 10,000",
+    price: "$10,000",
     description: "Multi-module command centre. Your business, unified.",
     features: [
       "Everything in Portal Lite",
@@ -43,7 +43,7 @@ const plans = [
   {
     badge: "Scale",
     name: "Portal Enterprise",
-    price: "GBP 20,000",
+    price: "$20,000",
     description: "Full-scale business operating system. Built to grow.",
     features: [
       "Everything in Portal Pro",

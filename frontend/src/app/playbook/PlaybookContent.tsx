@@ -76,7 +76,7 @@ export default function PlaybookContent() {
             Identify Your #1 Software Bottleneck in 10 Minutes
           </h1>
           <p className="mt-6 text-lg text-text-secondary">
-            The same diagnostic framework I use in my GBP 5K–20K client engagements — distilled into a free playbook.
+            The same diagnostic framework I use in my $5K–20K client engagements — distilled into a free playbook.
           </p>
         </motion.div>
 

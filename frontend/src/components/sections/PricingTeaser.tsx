@@ -24,7 +24,7 @@ export default function PricingTeaser() {
           Need something built specifically for your business?
         </p>
         <p className="mt-2 text-text-tertiary">
-          Custom portals start at GBP 5,000.{" "}
+          Custom portals start at $5,000.{" "}
           <Link
             href="/pricing"
             className="inline-flex items-center gap-1 text-accent transition-colors hover:text-accent-hover"

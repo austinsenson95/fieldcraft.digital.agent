@@ -10,10 +10,10 @@ import CalendlyWidget from "@/components/sections/CalendlyWidget";
 import Link from "next/link";
 
 const budgetOptions = [
-  "Under GBP 5,000",
-  "GBP 5,000 — 10,000",
-  "GBP 10,000 — 20,000",
-  "GBP 20,000+",
+  "Under $5,000",
+  "$5,000 — 10,000",
+  "$10,000 — 20,000",
+  "$20,000+",
   "Not sure yet",
 ];
 
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "How much does a custom portal cost?",
     answer:
-      "Portal Lite starts at GBP 5,000 for a single-purpose portal. Portal Pro at GBP 10,000 for a multi-module command centre. Portal Enterprise at GBP 20,000 for a full-scale business operating system. All flat fees — no hourly billing surprises.",
+      "Portal Lite starts at $5,000 for a single-purpose portal. Portal Pro at $10,000 for a multi-module command centre. Portal Enterprise at $20,000 for a full-scale business operating system. All flat fees — no hourly billing surprises.",
   },
   {
     question: "How long does it take?",

@@ -7,7 +7,7 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 export const metadata: Metadata = {
   title: "Fieldcraft Digital — Bespoke Business Operating Systems",
   description:
-    "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — engineered around how your business actually works. For coaches, consultants, and creators. Flat fees from GBP 5,000.",
+    "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — engineered around how your business actually works. For coaches, consultants, and creators. Flat fees from $5,000.",
   keywords: ["business operating system", "client portal", "bespoke software", "AI client portal", "workflow automation", "coaching software", "course creator tools", "Austin Senson"],
   authors: [{ name: "Austin Senson" }],
   metadataBase: new URL("https://fieldcraft.digital"),
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fieldcraft Digital — Bespoke Business Operating Systems",
     description:
-      "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — for coaches, consultants, and creators. Flat fees from GBP 5,000.",
+      "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — for coaches, consultants, and creators. Flat fees from $5,000.",
     url: "https://fieldcraft.digital",
     siteName: "Fieldcraft Digital",
     locale: "en_US",

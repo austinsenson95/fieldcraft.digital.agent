@@ -219,7 +219,7 @@ function BespokeUpsell() {
             "Custom client portals built around your workflow",
             "AI-powered blueprint generation before a single line of code",
             "Delivery in 30-60 days, not 6 months",
-            "Starts at GBP 5,000 — one flat fee, no surprises",
+            "Starts at $5,000 — one flat fee, no surprises",
           ].map((item) => (
             <li key={item} className="flex items-start gap-3 text-text-secondary">
               <svg className="mt-0.5 h-4 w-4 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
