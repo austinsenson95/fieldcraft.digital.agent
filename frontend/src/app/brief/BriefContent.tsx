@@ -11,16 +11,16 @@ import Link from "next/link";
 
 const budgetOptions = [
   "Under $5,000",
-  "$5,000 — 10,000",
-  "$10,000 — 20,000",
+  "$5,000 — $10,000",
+  "$10,000 — $20,000",
   "$20,000+",
-  "Not sure yet",
+  "Not scoped yet",
 ];
 
 const allocationOptions = [
-  "Yes, ready to move",
-  "Planning to allocate",
-  "Just exploring options",
+  "Ready to build — start within 30 days",
+  "Budget planned — scoping this quarter",
+  "Exploring — mapping what is possible",
 ];
 
 const faqs = [
@@ -198,16 +198,16 @@ export default function BriefContent() {
             transition={{ duration: 0.6, ease: EASE.entrance }}
           >
             <h2 className="font-[family-name:var(--font-geist-sans)] text-2xl font-semibold text-text-primary">
-              A few quick questions
+              Three questions before we talk
             </h2>
             <p className="mt-2 text-text-tertiary">
-              This helps us make the most of our 15 minutes together.
+              Your answers shape the brief I prepare for our 15 minutes.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-8">
               <div>
                 <label htmlFor="bottleneck" className="block font-[family-name:var(--font-geist-sans)] text-base text-text-primary">
-                  What is the #1 manual bottleneck or custom software idea you want to build right now?
+                  Which workflow still runs on manual effort — the one a system should be doing for you?
                 </label>
                 <textarea
                   id="bottleneck"
@@ -215,14 +215,14 @@ export default function BriefContent() {
                   rows={4}
                   value={formData.bottleneck}
                   onChange={(e) => setFormData({ ...formData, bottleneck: e.target.value })}
-                  placeholder="e.g., I spend 6 hours every Monday manually onboarding new clients through 4 different tools..."
+                  placeholder="e.g. Every Monday I spend 6 hours onboarding new clients across 4 separate tools…"
                   className="mt-3 w-full rounded-xl border border-border-subtle bg-bg-primary/60 px-4 py-3 text-text-primary placeholder:text-text-muted outline-none transition-colors focus:border-accent"
                 />
               </div>
 
               <div>
                 <span className="block font-[family-name:var(--font-geist-sans)] text-base text-text-primary">
-                  What is your rough budget estimate?
+                  What budget have you ring-fenced for this build?
                 </span>
                 <div className="mt-3 space-y-2">
                   {budgetOptions.map((option) => (
@@ -246,7 +246,7 @@ export default function BriefContent() {
 
               <div>
                 <span className="block font-[family-name:var(--font-geist-sans)] text-base text-text-primary">
-                  Do you have budget allocated to solve this problem?
+                  Where are you in the decision?
                 </span>
                 <div className="mt-3 space-y-2">
                   {allocationOptions.map((option) => (
