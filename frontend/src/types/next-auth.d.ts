@@ -1,4 +1,6 @@
-import NextAuth from "next-auth";
+// This file augments next-auth's types; `export {}` keeps it a module so
+// the `declare module` blocks below merge into the real package types.
+export {};
 
 declare module "next-auth" {
   interface Session {

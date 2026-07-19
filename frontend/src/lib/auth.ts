@@ -4,7 +4,9 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
 export const authOptions = {
-  adapter: PrismaAdapter(prisma),
+  // The mock prisma client is structurally unrelated to the generated
+  // PrismaClient the adapter expects; cast through unknown at the boundary.
+  adapter: PrismaAdapter(prisma as unknown as Parameters<typeof PrismaAdapter>[0]),
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -18,7 +20,7 @@ export const authOptions = {
         }
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: { email: credentials.email as string },
         });
 
         if (!user || !user.password) {
