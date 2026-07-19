@@ -76,13 +76,13 @@ export default function CaseStudySection() {
             </motion.div>
 
             <motion.a
-              href="#"
+              href="/brief"
               className="mt-6 inline-block text-sm text-accent transition-colors hover:underline"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : undefined}
               transition={{ duration: 0.6, delay: 0.6, ease: EASE.entrance }}
             >
-              View Case Study →
+              Build something like this →
             </motion.a>
           </div>
         </div>
