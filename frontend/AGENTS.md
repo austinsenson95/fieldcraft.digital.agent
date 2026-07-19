@@ -113,12 +113,15 @@ The dashboard uses a simple client-side password gate. The password is `fieldcra
 
 ## Dashboard Data
 
-The dashboard runs on a **client-side mock API** in `src/dashboard/api/`:
+The dashboard talks **HTTP to `/api/v1`** (Next.js route handlers in `src/app/api/v1/`), backed by a server-side mock service layer in `src/server/dashboard/`:
 
-- `seed.ts` — deterministic seed data (seeded PRNG, fixed dates; never use `Math.random()`/`new Date()` at module scope, it breaks SSR hydration).
-- `store.ts` — singleton in-memory store; mutations survive client-side navigation.
-- `client.ts` — the typed async API surface used by every page. **This is the single swap point**: when the real backend exists, reimplement these functions as `fetch('/api/v1/...')` calls and no page changes are needed.
-- Pages consume data via `src/dashboard/hooks/useApiData.ts` (`{data, loading, error, refetch}`) and refetch after mutations.
+- `src/server/dashboard/seed.ts` — deterministic seed data (seeded PRNG, fixed dates; never use `Math.random()`/`new Date()` at module scope).
+- `src/server/dashboard/store.ts` — module-level singleton in-memory store, guarded on `globalThis` for dev hot-reload. **Ephemeral on serverless** (per-process memory) until Supabase replaces it.
+- `src/server/dashboard/service.ts` — all domain logic (leads, approvals, content, products, chat, logs, brand memory, settings); throws `NotFoundError`/`ValidationError`, mapped to 404/400 by `http.ts`.
+- `src/server/dashboard/http.ts` — shared route helpers incl. the **auth seam**: `requireSession()` is a no-op today; implement real session checks there once and every route is protected centrally.
+- `src/server/dashboard/schemas.ts` — zod schemas for request bodies (400 on invalid input).
+- `src/dashboard/api/client.ts` — the typed async client used by every page; a thin `fetch` transport with zero domain logic. **THE cloud swap point**: base URL comes from `NEXT_PUBLIC_DASHBOARD_API_URL` (default `/api/v1`) — point it at the real cloud API and no page changes are needed.
+- Pages consume data via `src/dashboard/hooks/useApiData.ts` (`{data, loading, error, refetch}`) and refetch after mutations. Pages must never import from `src/server/**` — only the client.
 
 ## Design Tokens
 

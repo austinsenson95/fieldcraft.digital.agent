@@ -9,7 +9,7 @@ export default defineConfig({
     include: ["src/**/*.test.{ts,tsx}", "tests/**/*.test.{ts,tsx}"],
     coverage: {
       provider: "v8",
-      include: ["src/lib/**", "src/dashboard/lib/**", "src/dashboard/api/**"],
+      include: ["src/lib/**", "src/dashboard/lib/**", "src/dashboard/api/**", "src/server/**"],
     },
     setupFiles: ["./vitest.setup.ts"],
   },
