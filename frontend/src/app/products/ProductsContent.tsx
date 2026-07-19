@@ -7,6 +7,62 @@ import { motion } from "framer-motion";
 import { EASE } from "@/lib/animations";
 import Link from "next/link";
 
+function FreeToolkitCard() {
+  return (
+    <motion.div
+      className="relative flex flex-col rounded-2xl border border-accent/30 bg-bg-secondary/80 p-8 shadow-lg shadow-accent/5 md:col-span-2 lg:col-span-3"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: EASE.entrance }}
+    >
+      <div className="absolute -top-3 left-6 rounded-full bg-accent px-3 py-1 text-xs font-medium text-bg-primary">
+        Free Download
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <h2 className="font-[family-name:var(--font-geist-sans)] text-2xl font-semibold text-text-primary">
+            BMS Diagnostic Toolkit
+          </h2>
+          <p className="mt-2 max-w-2xl text-text-tertiary">
+            Two firmware guides for the NXP S32K144 and STM32L476 — memory maps, RTOS profiling, UDS DTCs, EOL tests, and MISRA-C checklists.
+          </p>
+
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {[
+              "S32K144 diagnostic guide (8 pages)",
+              "STM32L476 diagnostic guide (23 pages)",
+              "RTOS profiling setup",
+              "Production test procedures",
+            ].map((feature) => (
+              <li key={feature} className="flex items-center gap-2 text-sm text-text-secondary">
+                <svg className="h-4 w-4 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="flex flex-col items-start gap-4 lg:items-end">
+          <span className="font-[family-name:var(--font-geist-mono)] text-3xl font-semibold text-text-primary">
+            Free
+          </span>
+          <Link
+            href="/bms-toolkit"
+            data-event="bms_toolkit_click"
+            className="rounded-full bg-accent px-8 py-3 font-[family-name:var(--font-geist-mono)] text-sm font-medium text-bg-primary transition-all duration-200 hover:scale-[1.02] hover:bg-accent-hover"
+          >
+            Get the Toolkit
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 function ProductCard({ product, index }: { product: typeof digitalProducts[0]; index: number }) {
   return (
     <motion.div
@@ -227,6 +283,7 @@ export default function ProductsContent() {
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <FreeToolkitCard />
             {digitalProducts.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}

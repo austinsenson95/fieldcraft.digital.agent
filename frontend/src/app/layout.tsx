@@ -5,10 +5,10 @@ import AuthProvider from "@/components/auth/AuthProvider";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 export const metadata: Metadata = {
-  title: "Fieldcraft Digital — Bespoke Software Portals",
+  title: "Fieldcraft Digital — Bespoke Business Operating Systems",
   description:
-    "No templates. No compromises. Custom software portals engineered around how your business actually works. Starts at GBP 5,000.",
-  keywords: ["bespoke software", "personal brand", "solo business", "software portal", "Austin Senson"],
+    "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — engineered around how your business actually works. For coaches, consultants, and creators. Flat fees from GBP 5,000.",
+  keywords: ["business operating system", "client portal", "bespoke software", "AI client portal", "workflow automation", "coaching software", "course creator tools", "Austin Senson"],
   authors: [{ name: "Austin Senson" }],
   metadataBase: new URL("https://fieldcraft.digital"),
   icons: {
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     apple: "/apple-icon.svg",
   },
   openGraph: {
-    title: "Fieldcraft Digital — Bespoke Software Portals",
+    title: "Fieldcraft Digital — Bespoke Business Operating Systems",
     description:
-      "No templates. No compromises. Custom software portals engineered around how your business actually works. Starts at GBP 5,000.",
+      "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — for coaches, consultants, and creators. Flat fees from GBP 5,000.",
     url: "https://fieldcraft.digital",
     siteName: "Fieldcraft Digital",
     locale: "en_US",
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
         url: "/og/og-default.svg",
         width: 1200,
         height: 630,
-        alt: "Fieldcraft Digital — Bespoke Software Portals",
+        alt: "Fieldcraft Digital — Bespoke Business Operating Systems",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fieldcraft Digital — Bespoke Software Portals",
+    title: "Fieldcraft Digital — Bespoke Business Operating Systems",
     description:
-      "No templates. No compromises. Custom software portals engineered around how your business actually works.",
+      "One bespoke, AI-native portal that replaces your patchwork of tools and runs onboarding, delivery, and client admin — for coaches, consultants, and creators.",
     images: ["/og/og-default.svg"],
   },
   robots: {

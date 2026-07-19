@@ -1,0 +1,31 @@
+{
+  "_comment": "Replace these placeholder URLs with live links before launch.",
+  "checkout": {
+    "personal-brand-starter-kit": {
+      "price": 49,
+      "url": "https://fieldcraftdigital.gumroad.com/l/personal-brand-starter-kit"
+    },
+    "solo-operator-blueprint": {
+      "price": 79,
+      "url": "https://fieldcraftdigital.gumroad.com/l/solo-operator-blueprint"
+    },
+    "productized-service-guide": {
+      "price": 39,
+      "url": "https://fieldcraftdigital.gumroad.com/l/productized-service-guide"
+    },
+    "complete-operator-stack": {
+      "price": 129,
+      "url": "https://fieldcraftdigital.gumroad.com/l/complete-operator-stack"
+    }
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/austin-senson-19014018b/",
+    "medium": "https://medium.com/@austinsenson95"
+  },
+  "contact": {
+    "email": "hello@fieldcraft.digital"
+  },
+  "calendly": {
+    "url": "https://calendly.com/fieldcraft/field-brief"
+  }
+}

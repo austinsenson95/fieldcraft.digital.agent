@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE } from "@/lib/animations";
 import SpriteAvatar from "./SpriteAvatar";
+import { links } from "@/lib/links";
 
 export default function AboutSection() {
   const ref = useRef<HTMLElement>(null);
@@ -69,7 +70,7 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.32, ease: EASE.entrance }}
           >
             <a
-              href="https://www.linkedin.com/in/austin-senson-19014018b/"
+              href={links.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="os-pill transition-colors duration-200 hover:text-text-secondary hover:border-border-medium"
@@ -77,7 +78,7 @@ export default function AboutSection() {
               LinkedIn
             </a>
             <a
-              href="https://medium.com/@austinsenson95"
+              href={links.social.medium}
               target="_blank"
               rel="noopener noreferrer"
               className="os-pill transition-colors duration-200 hover:text-text-secondary hover:border-border-medium"

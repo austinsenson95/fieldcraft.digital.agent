@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { links } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Fieldcraft Digital",
@@ -59,8 +60,8 @@ export default function PrivacyPage() {
               <p>
                 You may request access to, correction of, or deletion of your personal data at any time by
                 contacting us at{" "}
-                <a href="mailto:hello@fieldcraft.digital" className="text-accent underline transition-colors hover:text-accent-hover">
-                  hello@fieldcraft.digital
+                <a href={`mailto:${links.contact.email}`} className="text-accent underline transition-colors hover:text-accent-hover">
+                  {links.contact.email}
                 </a>
                 .
               </p>
@@ -72,8 +73,8 @@ export default function PrivacyPage() {
               </h2>
               <p>
                 Fieldcraft Digital is based in Bangalore, India. For privacy-related questions, please email{" "}
-                <a href="mailto:hello@fieldcraft.digital" className="text-accent underline transition-colors hover:text-accent-hover">
-                  hello@fieldcraft.digital
+                <a href={`mailto:${links.contact.email}`} className="text-accent underline transition-colors hover:text-accent-hover">
+                  {links.contact.email}
                 </a>
                 .
               </p>

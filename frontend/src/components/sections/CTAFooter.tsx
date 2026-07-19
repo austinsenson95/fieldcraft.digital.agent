@@ -4,6 +4,7 @@ import { useRef, useState, useCallback } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { EASE } from "@/lib/animations";
 import Link from "next/link";
+import { links } from "@/lib/links";
 
 export default function CTAFooter() {
   const ref = useRef<HTMLElement>(null);
@@ -12,7 +13,7 @@ export default function CTAFooter() {
 
   const handleCopy = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText("hello@fieldcraft.digital");
+      await navigator.clipboard.writeText(links.contact.email);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -57,14 +58,14 @@ export default function CTAFooter() {
               transition={{ duration: 0.8, delay: 0.15, ease: EASE.entrance }}
             >
               <a
-                href="mailto:hello@fieldcraft.digital"
+                href={`mailto:${links.contact.email}`}
                 onClick={(e) => {
                   e.preventDefault();
                   handleCopy();
                 }}
                 className="font-[family-name:var(--font-geist-mono)] text-sm text-text-tertiary transition-colors hover:text-text-secondary"
               >
-                Or email hello@fieldcraft.digital
+                Or email {links.contact.email}
               </a>
 
               <AnimatePresence>

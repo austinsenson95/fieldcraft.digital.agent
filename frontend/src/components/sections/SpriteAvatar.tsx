@@ -2,217 +2,77 @@
 
 import { motion } from "framer-motion";
 
+/**
+ * Founder brand mark: a minimal terminal treatment with an "AS" monogram and
+ * a blinking cursor. Fully deterministic — no randomness, so it is safe for
+ * SSR hydration.
+ */
 export default function SpriteAvatar() {
   return (
-    <div className="relative flex h-full w-full items-center justify-center">
-      {/* Floating particles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute h-1 w-1 rounded-full bg-mint/40"
-          style={{
-            left: `${20 + Math.random() * 60}%`,
-            top: `${20 + Math.random() * 60}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.2, 0.6, 0.2],
-          }}
-          transition={{
-            duration: 2 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-
-      {/* Character container */}
-      <motion.div
-        className="relative"
-        animate={{ y: [0, -8, 0] }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[#0F2B1E]">
+      {/* Circuit-trace detail */}
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 300 400"
+        preserveAspectRatio="xMidYMid slice"
+        fill="none"
+        aria-hidden="true"
       >
-        <svg
-          width="200"
-          height="240"
-          viewBox="0 0 200 240"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="drop-shadow-lg"
-        >
-          {/* Glow effect behind */}
-          <defs>
-            <radialGradient id="avatarGlow" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0%" stopColor="#5DCAA5" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#5DCAA5" stopOpacity="0" />
-            </radialGradient>
-            <linearGradient id="hoodGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#1D4A38" />
-              <stop offset="100%" stopColor="#0F2B1E" />
-            </linearGradient>
-            <linearGradient id="faceGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#F5F1EB" />
-              <stop offset="100%" stopColor="#E8E2D8" />
-            </linearGradient>
-          </defs>
+        <defs>
+          <pattern id="avatarGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <path d="M24 0H0V24" fill="none" stroke="#1D9E75" strokeWidth="0.5" strokeOpacity="0.12" />
+          </pattern>
+        </defs>
+        <rect width="300" height="400" fill="url(#avatarGrid)" />
+        <g stroke="#1D9E75" strokeOpacity="0.35" strokeWidth="1">
+          <polyline points="0,64 52,64 76,88 128,88" />
+          <circle cx="128" cy="88" r="2.5" fill="#1D9E75" stroke="none" />
+          <polyline points="300,320 236,320 212,296 160,296" />
+          <circle cx="160" cy="296" r="2.5" fill="#1D9E75" stroke="none" />
+          <polyline points="0,352 36,352 60,376 300,376" strokeOpacity="0.2" />
+          <polyline points="300,32 262,32 238,56 96,56" strokeOpacity="0.2" />
+        </g>
+      </svg>
 
-          {/* Glow circle */}
-          <circle cx="100" cy="110" r="90" fill="url(#avatarGlow)" />
-
-          {/* Hood / Hair back */}
-          <path
-            d="M40 110 C40 60 65 30 100 30 C135 30 160 60 160 110 L160 150 L40 150 Z"
-            fill="url(#hoodGrad)"
-            stroke="#1D9E75"
-            strokeWidth="2"
-          />
-
-          {/* Face */}
-          <ellipse cx="100" cy="115" rx="45" ry="50" fill="url(#faceGrad)" />
-
-          {/* Hood front framing */}
-          <path
-            d="M55 110 C55 65 75 40 100 40 C125 40 145 65 145 110"
-            fill="none"
-            stroke="#1D9E75"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-
-          {/* Ears */}
-          <ellipse cx="55" cy="115" rx="8" ry="12" fill="#E8E2D8" />
-          <ellipse cx="145" cy="115" rx="8" ry="12" fill="#E8E2D8" />
-
-          {/* Eyes container */}
-          <g>
-            {/* Left eye */}
-            <ellipse cx="82" cy="108" rx="14" ry="16" fill="#0F2B1E" />
-            <motion.ellipse
-              cx="85"
-              cy="104"
-              rx="5"
-              ry="6"
-              fill="#5DCAA5"
-              animate={{ cx: [85, 87, 85, 83, 85] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <motion.ellipse
-              cx="88"
-              cy="100"
-              rx="2"
-              ry="2.5"
-              fill="#F5F1EB"
-              animate={{ cx: [88, 90, 88, 86, 88] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Right eye */}
-            <ellipse cx="118" cy="108" rx="14" ry="16" fill="#0F2B1E" />
-            <motion.ellipse
-              cx="121"
-              cy="104"
-              rx="5"
-              ry="6"
-              fill="#5DCAA5"
-              animate={{ cx: [121, 123, 121, 119, 121] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
-            />
-            <motion.ellipse
-              cx="124"
-              cy="100"
-              rx="2"
-              ry="2.5"
-              fill="#F5F1EB"
-              animate={{ cx: [124, 126, 124, 122, 124] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
-            />
-          </g>
-
-          {/* Blinking eyelids */}
-          <motion.rect
-            x="65"
-            y="85"
-            width="70"
-            height="46"
-            rx="23"
-            fill="#0F2B1E"
-            animate={{ height: [0, 46, 0, 0, 0] }}
-            transition={{ duration: 0.3, repeat: Infinity, repeatDelay: 3.7, times: [0, 0.5, 1, 1, 1] }}
-            style={{ transformOrigin: "center" }}
-          />
-
-          {/* Nose */}
-          <path
-            d="M100 118 L96 128 L104 128 Z"
-            fill="#D4C4B0"
-            opacity="0.6"
-          />
-
-          {/* Mouth */}
-          <motion.path
-            d="M90 138 Q100 142 110 138"
-            stroke="#1D4A38"
-            strokeWidth="2"
-            strokeLinecap="round"
-            fill="none"
-            animate={{ d: ["M90 138 Q100 142 110 138", "M90 138 Q100 145 110 138", "M90 138 Q100 142 110 138"] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Hair tuft */}
-          <motion.path
-            d="M95 32 Q100 15 105 32"
-            stroke="#1D9E75"
-            strokeWidth="2"
-            fill="none"
-            strokeLinecap="round"
-            animate={{ d: ["M95 32 Q100 15 105 32", "M95 32 Q100 12 105 32", "M95 32 Q100 15 105 32"] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-
-          {/* Body / Shoulders */}
-          <path
-            d="M50 165 Q100 150 150 165 L150 200 Q100 210 50 200 Z"
-            fill="#143326"
-            stroke="#1D9E75"
-            strokeWidth="1.5"
-          />
-
-          {/* Shirt detail */}
-          <path
-            d="M95 165 L100 200 L105 165"
-            stroke="#1D9E75"
-            strokeWidth="1"
-            fill="none"
-            opacity="0.5"
-          />
-
-          {/* Code brackets on shirt */}
-          <text
-            x="100"
-            y="188"
-            textAnchor="middle"
-            fill="#5DCAA5"
-            fontFamily="monospace"
-            fontSize="10"
-            opacity="0.6"
-          >
-            {"</>"}
-          </text>
-        </svg>
-      </motion.div>
-
-      {/* Bottom shadow */}
-      <motion.div
-        className="absolute bottom-4 h-2 w-20 rounded-full bg-mint/10 blur-sm"
-        animate={{ scaleX: [1, 0.8, 1], opacity: [0.3, 0.15, 0.3] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      {/* Scanlines */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, #5DCAA5 0px, #5DCAA5 1px, transparent 1px, transparent 4px)",
+        }}
+        aria-hidden="true"
       />
+
+      {/* Terminal panel */}
+      <div className="relative w-[70%] max-w-[240px] rounded-xl border border-[#1D9E75]/30 bg-[#0a1f15]/90 p-5 shadow-lg shadow-black/30">
+        {/* Window controls */}
+        <div className="flex items-center gap-1.5" aria-hidden="true">
+          <span className="h-2 w-2 rounded-full bg-[#1D9E75]/40" />
+          <span className="h-2 w-2 rounded-full bg-[#1D9E75]/60" />
+          <span className="h-2 w-2 rounded-full bg-[#5DCAA5]" />
+        </div>
+
+        <p className="mt-4 font-[family-name:var(--font-geist-mono)] text-[10px] tracking-wide text-[#5DCAA5]/50">
+          austin@fieldcraft:~$ whoami
+        </p>
+
+        <div className="mt-2 flex items-end">
+          <span className="font-[family-name:var(--font-geist-mono)] text-5xl font-semibold leading-none tracking-tight text-[#5DCAA5]">
+            AS
+          </span>
+          <motion.span
+            className="mb-0.5 ml-1.5 h-8 w-4 bg-[#5DCAA5]"
+            animate={{ opacity: [1, 1, 0, 0] }}
+            transition={{ duration: 1.1, repeat: Infinity, ease: "linear", times: [0, 0.5, 0.5, 1] }}
+            aria-hidden="true"
+          />
+        </div>
+
+        <p className="mt-3 font-[family-name:var(--font-geist-mono)] text-[10px] tracking-wide text-[#5DCAA5]/40">
+          firmware → software architect
+        </p>
+      </div>
     </div>
   );
 }

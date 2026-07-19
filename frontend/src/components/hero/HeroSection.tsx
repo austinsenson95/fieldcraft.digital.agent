@@ -61,7 +61,7 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
-              BESPOKE SOFTWARE PORTALS
+              BESPOKE BUSINESS OPERATING SYSTEMS
             </motion.p>
 
             <motion.h1
@@ -100,7 +100,7 @@ export default function HeroSection() {
                 delay: 0.5,
               }}
             >
-              Fieldcraft Digital builds software portals tailored to how your business actually works.
+              For coaches, consultants, and creators who&apos;ve outgrown their patchwork of tools — one bespoke portal that replaces your subscriptions and runs your onboarding, delivery, and client admin. Flat fee. Live in 30–60 days. Yours.
             </motion.p>
 
             <motion.a

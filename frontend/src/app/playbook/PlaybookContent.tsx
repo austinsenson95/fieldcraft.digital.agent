@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { EASE } from "@/lib/animations";
+import { AnalyticsEvents, trackEvent } from "@/lib/analytics";
 import Link from "next/link";
 
 const playbookItems = [
@@ -49,6 +50,7 @@ export default function PlaybookContent() {
       if (res.ok) {
         setStatus("success");
         setFormData({ firstName: "", email: "" });
+        trackEvent(AnalyticsEvents.playbookDownloadClick);
       } else {
         setStatus("error");
       }
@@ -167,7 +169,6 @@ export default function PlaybookContent() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  data-event="playbook_download_click"
                   className="w-full rounded-full bg-accent px-6 py-4 font-[family-name:var(--font-geist-mono)] text-sm font-medium uppercase tracking-wider text-bg-primary transition-all duration-200 hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {status === "submitting" ? "Sending..." : "Send Me The Playbook"}
@@ -195,9 +196,9 @@ export default function PlaybookContent() {
           transition={{ duration: 0.6, delay: 0.4, ease: EASE.entrance }}
         >
           <span className="text-accent">&ldquo;</span>
-          This playbook helped me realize I was spending 12 hours a week on manual client onboarding. Austin built me a portal that cut it to 20 minutes.
+          I wrote this playbook because the right diagnosis beats another subscription. It&rsquo;s the exact framework I run before writing a single line of code.
           <span className="text-accent">&rdquo;</span>
-          <footer className="mt-2 not-italic text-xs text-text-muted">— Name, Business</footer>
+          <footer className="mt-2 not-italic text-xs text-text-muted">— Austin Senson, Founder, Fieldcraft Digital</footer>
         </motion.blockquote>
       </div>
     </main>

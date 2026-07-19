@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE } from "@/lib/animations";
+import { AnalyticsEvents, trackEvent } from "@/lib/analytics";
 
 export default function NewsletterSection() {
   const ref = useRef<HTMLElement>(null);
@@ -25,6 +26,7 @@ export default function NewsletterSection() {
       if (res.ok) {
         setStatus("success");
         setEmail("");
+        trackEvent(AnalyticsEvents.newsletterSignup);
       } else {
         setStatus("error");
       }

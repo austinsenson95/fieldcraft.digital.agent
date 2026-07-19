@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { links } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Fieldcraft Digital",
@@ -78,8 +79,8 @@ export default function TermsPage() {
               </h2>
               <p>
                 For questions about these terms, please contact{" "}
-                <a href="mailto:hello@fieldcraft.digital" className="text-accent underline transition-colors hover:text-accent-hover">
-                  hello@fieldcraft.digital
+                <a href={`mailto:${links.contact.email}`} className="text-accent underline transition-colors hover:text-accent-hover">
+                  {links.contact.email}
                 </a>
                 .
               </p>

@@ -3,27 +3,14 @@
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { AnalyticsEvents, trackEvent } from "@/lib/analytics";
 
-// TODO: Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
 
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
-
-function gtag(...args: unknown[]) {
-  if (typeof window === "undefined") return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(args);
-}
-
-function trackEvent(name: string, params?: Record<string, string | number | boolean>) {
-  if (typeof window === "undefined") return;
-  gtag("event", name, params);
-}
+/** True only when a real measurement ID has been configured. */
+const isGA4Configured = Boolean(
+  GA_MEASUREMENT_ID && !GA_MEASUREMENT_ID.startsWith("G-XXX")
+);
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
@@ -33,9 +20,9 @@ export default function GoogleAnalytics() {
     if (!pathname) return;
 
     if (pathname === "/brief") {
-      trackEvent("brief_page_view");
+      trackEvent(AnalyticsEvents.briefPageView);
     } else if (pathname === "/pricing") {
-      trackEvent("pricing_page_view");
+      trackEvent(AnalyticsEvents.pricingPageView);
     }
   }, [pathname]);
 
@@ -60,6 +47,13 @@ export default function GoogleAnalytics() {
     return () => document.removeEventListener("click", handleClick);
   }, []);
 
+  // No measurement ID configured (or still the placeholder): do not inject
+  // the gtag scripts. The listeners above stay active and no-op safely into
+  // window.dataLayer.
+  if (!isGA4Configured) {
+    return null;
+  }
+
   return (
     <>
       <Script
@@ -74,19 +68,6 @@ export default function GoogleAnalytics() {
           gtag('config', '${GA_MEASUREMENT_ID}', {
             page_path: window.location.pathname,
           });
-        `}
-      </Script>
-
-      {/* Meta Pixel placeholder — TODO: replace PIXEL_ID with your actual Pixel ID */}
-      <Script id="meta-pixel" strategy="afterInteractive">
-        {`
-          // TODO: Insert Meta Pixel base code here. Replace PIXEL_ID before enabling.
-          // !function(f,b,e,v,n,t,s)
-          // {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          // n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          // ...
-          // fbq('init', 'PIXEL_ID');
-          // fbq('track', 'PageView');
         `}
       </Script>
     </>

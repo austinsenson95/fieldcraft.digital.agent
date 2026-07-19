@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { links } from "@/lib/links";
 
 const NAV_LINKS = [
   { label: "Work", href: "/#work" },
@@ -12,9 +13,10 @@ const NAV_LINKS = [
 
 const RESOURCE_LINKS = [
   { label: "The Field Report", href: "/#newsletter" },
+  { label: "BMS Diagnostic Toolkit", href: "/bms-toolkit" },
   { label: "The Field Brief Playbook", href: "/playbook" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/austin-senson-19014018b/", external: true },
-  { label: "Writing @austinxalchemy", href: "https://medium.com/@austinsenson95", external: true },
+  { label: "LinkedIn", href: links.social.linkedin, external: true },
+  { label: "Writing @austinxalchemy", href: links.social.medium, external: true },
 ];
 
 export default function Footer() {
@@ -35,7 +37,7 @@ export default function Footer() {
               Fieldcraft
             </Link>
             <p className="max-w-[200px] text-sm text-text-tertiary">
-              Bespoke software portals for operators who refuse templates.
+              Bespoke software portals for coaches, consultants, and creators who refuse templates.
             </p>
           </div>
 
@@ -87,10 +89,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@fieldcraft.digital"
+                  href={`mailto:${links.contact.email}`}
                   className="text-sm text-text-tertiary transition-colors duration-200 hover:text-text-primary"
                 >
-                  hello@fieldcraft.digital
+                  {links.contact.email}
                 </a>
               </li>
               <li className="text-sm text-text-tertiary">

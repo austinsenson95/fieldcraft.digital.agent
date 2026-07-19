@@ -1,3 +1,5 @@
+import { links } from "@/lib/links";
+
 export interface DigitalProduct {
   id: string;
   title: string;
@@ -21,7 +23,7 @@ export const digitalProducts: DigitalProduct[] = [
       "A complete bundle of Notion templates, Canva assets, and a step-by-step playbook for building a magnetic personal brand. Built from my own journey — no fluff, just what works.",
     price: 49,
     currency: "USD",
-    gumroadLink: "https://fieldcraftdigital.gumroad.com/l/personal-brand-starter-kit",
+    gumroadLink: links.checkout["personal-brand-starter-kit"].url,
     category: "template",
     badge: "Bestseller",
     features: [
@@ -40,7 +42,7 @@ export const digitalProducts: DigitalProduct[] = [
       "The exact tools, automations, and workflows I use to run Fieldcraft Digital solo. From client onboarding to project delivery — documented and templated.",
     price: 79,
     currency: "USD",
-    gumroadLink: "https://fieldcraftdigital.gumroad.com/l/solo-operator-blueprint",
+    gumroadLink: links.checkout["solo-operator-blueprint"].url,
     category: "toolkit",
     features: [
       "Client onboarding flow (Notion + Airtable)",
@@ -58,7 +60,7 @@ export const digitalProducts: DigitalProduct[] = [
       "Stop trading hours for dollars. This guide shows you how to package your expertise into repeatable, sellable products — with real examples from my own pivot.",
     price: 39,
     currency: "USD",
-    gumroadLink: "https://fieldcraftdigital.gumroad.com/l/productized-service-guide",
+    gumroadLink: links.checkout["productized-service-guide"].url,
     category: "guide",
     features: [
       "Service → product mapping framework",
@@ -78,7 +80,7 @@ export const completeOperatorStack = {
   price: 129,
   originalPrice: 167,
   currency: "USD",
-  gumroadLink: "https://fieldcraftdigital.gumroad.com/l/complete-operator-stack",
+  gumroadLink: links.checkout["complete-operator-stack"].url,
   features: [
     "Personal Brand Starter Kit",
     "Solo Operator Blueprint",

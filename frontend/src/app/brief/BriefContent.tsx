@@ -1,10 +1,12 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { EASE } from "@/lib/animations";
+import { links } from "@/lib/links";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CalendlyWidget from "@/components/sections/CalendlyWidget";
 import Link from "next/link";
 
 const budgetOptions = [
@@ -82,58 +84,6 @@ function FAQItem({ question, answer, isOpen, onClick }: { question: string; answ
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
-  );
-}
-
-function CalendlyWidget() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node || loaded) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // TODO: Insert Calendly embed script here.
-          // Example:
-          // const script = document.createElement("script");
-          // script.src = "https://assets.calendly.com/assets/external/widget.js";
-          // script.async = true;
-          // document.body.appendChild(script);
-          setLoaded(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, [loaded]);
-
-  return (
-    <div
-      ref={ref}
-      id="calendly-inline-widget"
-      className="min-h-[600px] w-full rounded-2xl border border-border-subtle bg-bg-secondary/50"
-    >
-      {!loaded ? (
-        <div className="flex h-[600px] items-center justify-center text-text-muted">
-          <span className="font-[family-name:var(--font-geist-mono)] text-sm">Loading calendar...</span>
-        </div>
-      ) : (
-        <div className="flex h-[600px] items-center justify-center text-text-muted">
-          <div className="text-center">
-            <p className="font-[family-name:var(--font-geist-mono)] text-sm">Calendly widget placeholder</p>
-            <p className="mt-2 text-xs text-text-tertiary">
-              Paste Calendly inline embed code in the TODO block inside CalendlyWidget.
-            </p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
@@ -357,8 +307,8 @@ export default function BriefContent() {
 
           <p className="mt-6 text-center text-sm text-text-tertiary">
             Prefer email? Reach out at{" "}
-            <a href="mailto:hello@fieldcraft.digital" className="text-accent underline transition-colors hover:text-accent-hover">
-              hello@fieldcraft.digital
+            <a href={`mailto:${links.contact.email}`} className="text-accent underline transition-colors hover:text-accent-hover">
+              {links.contact.email}
             </a>
           </p>
         </div>
