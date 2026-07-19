@@ -1,0 +1,1540 @@
+/* Scoped dashboard theme — overrides the website tokens inside /dashboard */
+.dashboard-scope {
+  --color-bg-primary: #0f1f17;
+  --color-bg-secondary: #162b1f;
+  --color-bg-tertiary: #1a3525;
+  --color-bg-quaternary: #1f3b2a;
+  --color-bg-input: #0f1f17;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8a9a8a;
+  --color-text-tertiary: #5a6a5a;
+  --color-text-muted: #5a6a5a;
+  --color-text-accent: #2ecc7a;
+
+  --color-border-subtle: rgba(46, 204, 122, 0.1);
+  --color-border-hover: rgba(46, 204, 122, 0.25);
+  --color-border-medium: rgba(46, 204, 122, 0.2);
+  --color-border-bright: rgba(46, 204, 122, 0.35);
+
+  --color-accent: #2ecc7a;
+  --color-accent-hover: #27ae60;
+  --color-accent-muted: rgba(46, 204, 122, 0.15);
+  --color-mint: #2ecc7a;
+
+  --color-status-active: #2ecc7a;
+  --color-status-success: #2ecc7a;
+  --color-status-pending: #f0c040;
+  --color-status-idle: #5a6a5a;
+  --color-status-warning: #f0c040;
+  --color-status-error: #e74c3c;
+  --color-status-danger: #e74c3c;
+  --color-status-info: #3498db;
+
+  --font-display: var(--font-geist-sans), system-ui, sans-serif;
+  --font-body: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), 'JetBrains Mono', monospace;
+}
+
+/* Dashboard-specific utility classes */
+@utility text-display-xl {
+  font-size: 48px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+@utility text-display-lg {
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+@utility text-heading-lg {
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+@utility text-heading-md {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+@utility text-heading-sm {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+@utility text-body-lg {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+@utility text-body-md {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility text-body-sm {
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+@utility text-caption {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+
+@utility text-mono-lg {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility text-mono-md {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+@utility text-mono-sm {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+@utility shadow-topbar {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+@utility shadow-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+@utility shadow-modal {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Scoped overrides for Tailwind v4 static theme colors.
+   The marketing site defines --color-* in @theme, which Tailwind inlines as
+   static hex values (e.g. .bg-bg-primary { background-color: #0f2b1e }).
+   These scoped rules re-apply the dashboard CSS variables inside .dashboard-scope
+   so the dashboard uses its own dark theme instead of leaking the website theme. */
+.dashboard-scope .bg-bg-primary { background-color: var(--color-bg-primary); }
+.dashboard-scope .bg-bg-primary\/5 { background-color: color-mix(in srgb, var(--color-bg-primary) 5%, transparent); }
+.dashboard-scope .bg-bg-primary\/8 { background-color: color-mix(in srgb, var(--color-bg-primary) 8%, transparent); }
+.dashboard-scope .bg-bg-primary\/10 { background-color: color-mix(in srgb, var(--color-bg-primary) 10%, transparent); }
+.dashboard-scope .bg-bg-primary\/12 { background-color: color-mix(in srgb, var(--color-bg-primary) 12%, transparent); }
+.dashboard-scope .bg-bg-primary\/15 { background-color: color-mix(in srgb, var(--color-bg-primary) 15%, transparent); }
+.dashboard-scope .bg-bg-primary\/20 { background-color: color-mix(in srgb, var(--color-bg-primary) 20%, transparent); }
+.dashboard-scope .bg-bg-primary\/22 { background-color: color-mix(in srgb, var(--color-bg-primary) 22%, transparent); }
+.dashboard-scope .bg-bg-primary\/25 { background-color: color-mix(in srgb, var(--color-bg-primary) 25%, transparent); }
+.dashboard-scope .bg-bg-primary\/30 { background-color: color-mix(in srgb, var(--color-bg-primary) 30%, transparent); }
+.dashboard-scope .bg-bg-primary\/35 { background-color: color-mix(in srgb, var(--color-bg-primary) 35%, transparent); }
+.dashboard-scope .bg-bg-primary\/40 { background-color: color-mix(in srgb, var(--color-bg-primary) 40%, transparent); }
+.dashboard-scope .bg-bg-primary\/50 { background-color: color-mix(in srgb, var(--color-bg-primary) 50%, transparent); }
+.dashboard-scope .bg-bg-primary\/60 { background-color: color-mix(in srgb, var(--color-bg-primary) 60%, transparent); }
+.dashboard-scope .bg-bg-primary\/70 { background-color: color-mix(in srgb, var(--color-bg-primary) 70%, transparent); }
+.dashboard-scope .bg-bg-primary\/80 { background-color: color-mix(in srgb, var(--color-bg-primary) 80%, transparent); }
+.dashboard-scope .bg-bg-primary\/90 { background-color: color-mix(in srgb, var(--color-bg-primary) 90%, transparent); }
+.dashboard-scope .bg-bg-primary\/95 { background-color: color-mix(in srgb, var(--color-bg-primary) 95%, transparent); }
+.dashboard-scope .text-bg-primary { color: var(--color-bg-primary); }
+.dashboard-scope .text-bg-primary\/5 { color: color-mix(in srgb, var(--color-bg-primary) 5%, transparent); }
+.dashboard-scope .text-bg-primary\/8 { color: color-mix(in srgb, var(--color-bg-primary) 8%, transparent); }
+.dashboard-scope .text-bg-primary\/10 { color: color-mix(in srgb, var(--color-bg-primary) 10%, transparent); }
+.dashboard-scope .text-bg-primary\/12 { color: color-mix(in srgb, var(--color-bg-primary) 12%, transparent); }
+.dashboard-scope .text-bg-primary\/15 { color: color-mix(in srgb, var(--color-bg-primary) 15%, transparent); }
+.dashboard-scope .text-bg-primary\/20 { color: color-mix(in srgb, var(--color-bg-primary) 20%, transparent); }
+.dashboard-scope .text-bg-primary\/22 { color: color-mix(in srgb, var(--color-bg-primary) 22%, transparent); }
+.dashboard-scope .text-bg-primary\/25 { color: color-mix(in srgb, var(--color-bg-primary) 25%, transparent); }
+.dashboard-scope .text-bg-primary\/30 { color: color-mix(in srgb, var(--color-bg-primary) 30%, transparent); }
+.dashboard-scope .text-bg-primary\/35 { color: color-mix(in srgb, var(--color-bg-primary) 35%, transparent); }
+.dashboard-scope .text-bg-primary\/40 { color: color-mix(in srgb, var(--color-bg-primary) 40%, transparent); }
+.dashboard-scope .text-bg-primary\/50 { color: color-mix(in srgb, var(--color-bg-primary) 50%, transparent); }
+.dashboard-scope .text-bg-primary\/60 { color: color-mix(in srgb, var(--color-bg-primary) 60%, transparent); }
+.dashboard-scope .text-bg-primary\/70 { color: color-mix(in srgb, var(--color-bg-primary) 70%, transparent); }
+.dashboard-scope .text-bg-primary\/80 { color: color-mix(in srgb, var(--color-bg-primary) 80%, transparent); }
+.dashboard-scope .text-bg-primary\/90 { color: color-mix(in srgb, var(--color-bg-primary) 90%, transparent); }
+.dashboard-scope .text-bg-primary\/95 { color: color-mix(in srgb, var(--color-bg-primary) 95%, transparent); }
+.dashboard-scope .border-bg-primary { border-color: var(--color-bg-primary); }
+.dashboard-scope .border-bg-primary\/5 { border-color: color-mix(in srgb, var(--color-bg-primary) 5%, transparent); }
+.dashboard-scope .border-bg-primary\/8 { border-color: color-mix(in srgb, var(--color-bg-primary) 8%, transparent); }
+.dashboard-scope .border-bg-primary\/10 { border-color: color-mix(in srgb, var(--color-bg-primary) 10%, transparent); }
+.dashboard-scope .border-bg-primary\/12 { border-color: color-mix(in srgb, var(--color-bg-primary) 12%, transparent); }
+.dashboard-scope .border-bg-primary\/15 { border-color: color-mix(in srgb, var(--color-bg-primary) 15%, transparent); }
+.dashboard-scope .border-bg-primary\/20 { border-color: color-mix(in srgb, var(--color-bg-primary) 20%, transparent); }
+.dashboard-scope .border-bg-primary\/22 { border-color: color-mix(in srgb, var(--color-bg-primary) 22%, transparent); }
+.dashboard-scope .border-bg-primary\/25 { border-color: color-mix(in srgb, var(--color-bg-primary) 25%, transparent); }
+.dashboard-scope .border-bg-primary\/30 { border-color: color-mix(in srgb, var(--color-bg-primary) 30%, transparent); }
+.dashboard-scope .border-bg-primary\/35 { border-color: color-mix(in srgb, var(--color-bg-primary) 35%, transparent); }
+.dashboard-scope .border-bg-primary\/40 { border-color: color-mix(in srgb, var(--color-bg-primary) 40%, transparent); }
+.dashboard-scope .border-bg-primary\/50 { border-color: color-mix(in srgb, var(--color-bg-primary) 50%, transparent); }
+.dashboard-scope .border-bg-primary\/60 { border-color: color-mix(in srgb, var(--color-bg-primary) 60%, transparent); }
+.dashboard-scope .border-bg-primary\/70 { border-color: color-mix(in srgb, var(--color-bg-primary) 70%, transparent); }
+.dashboard-scope .border-bg-primary\/80 { border-color: color-mix(in srgb, var(--color-bg-primary) 80%, transparent); }
+.dashboard-scope .border-bg-primary\/90 { border-color: color-mix(in srgb, var(--color-bg-primary) 90%, transparent); }
+.dashboard-scope .border-bg-primary\/95 { border-color: color-mix(in srgb, var(--color-bg-primary) 95%, transparent); }
+.dashboard-scope .bg-bg-secondary { background-color: var(--color-bg-secondary); }
+.dashboard-scope .bg-bg-secondary\/5 { background-color: color-mix(in srgb, var(--color-bg-secondary) 5%, transparent); }
+.dashboard-scope .bg-bg-secondary\/8 { background-color: color-mix(in srgb, var(--color-bg-secondary) 8%, transparent); }
+.dashboard-scope .bg-bg-secondary\/10 { background-color: color-mix(in srgb, var(--color-bg-secondary) 10%, transparent); }
+.dashboard-scope .bg-bg-secondary\/12 { background-color: color-mix(in srgb, var(--color-bg-secondary) 12%, transparent); }
+.dashboard-scope .bg-bg-secondary\/15 { background-color: color-mix(in srgb, var(--color-bg-secondary) 15%, transparent); }
+.dashboard-scope .bg-bg-secondary\/20 { background-color: color-mix(in srgb, var(--color-bg-secondary) 20%, transparent); }
+.dashboard-scope .bg-bg-secondary\/22 { background-color: color-mix(in srgb, var(--color-bg-secondary) 22%, transparent); }
+.dashboard-scope .bg-bg-secondary\/25 { background-color: color-mix(in srgb, var(--color-bg-secondary) 25%, transparent); }
+.dashboard-scope .bg-bg-secondary\/30 { background-color: color-mix(in srgb, var(--color-bg-secondary) 30%, transparent); }
+.dashboard-scope .bg-bg-secondary\/35 { background-color: color-mix(in srgb, var(--color-bg-secondary) 35%, transparent); }
+.dashboard-scope .bg-bg-secondary\/40 { background-color: color-mix(in srgb, var(--color-bg-secondary) 40%, transparent); }
+.dashboard-scope .bg-bg-secondary\/50 { background-color: color-mix(in srgb, var(--color-bg-secondary) 50%, transparent); }
+.dashboard-scope .bg-bg-secondary\/60 { background-color: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent); }
+.dashboard-scope .bg-bg-secondary\/70 { background-color: color-mix(in srgb, var(--color-bg-secondary) 70%, transparent); }
+.dashboard-scope .bg-bg-secondary\/80 { background-color: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent); }
+.dashboard-scope .bg-bg-secondary\/90 { background-color: color-mix(in srgb, var(--color-bg-secondary) 90%, transparent); }
+.dashboard-scope .bg-bg-secondary\/95 { background-color: color-mix(in srgb, var(--color-bg-secondary) 95%, transparent); }
+.dashboard-scope .text-bg-secondary { color: var(--color-bg-secondary); }
+.dashboard-scope .text-bg-secondary\/5 { color: color-mix(in srgb, var(--color-bg-secondary) 5%, transparent); }
+.dashboard-scope .text-bg-secondary\/8 { color: color-mix(in srgb, var(--color-bg-secondary) 8%, transparent); }
+.dashboard-scope .text-bg-secondary\/10 { color: color-mix(in srgb, var(--color-bg-secondary) 10%, transparent); }
+.dashboard-scope .text-bg-secondary\/12 { color: color-mix(in srgb, var(--color-bg-secondary) 12%, transparent); }
+.dashboard-scope .text-bg-secondary\/15 { color: color-mix(in srgb, var(--color-bg-secondary) 15%, transparent); }
+.dashboard-scope .text-bg-secondary\/20 { color: color-mix(in srgb, var(--color-bg-secondary) 20%, transparent); }
+.dashboard-scope .text-bg-secondary\/22 { color: color-mix(in srgb, var(--color-bg-secondary) 22%, transparent); }
+.dashboard-scope .text-bg-secondary\/25 { color: color-mix(in srgb, var(--color-bg-secondary) 25%, transparent); }
+.dashboard-scope .text-bg-secondary\/30 { color: color-mix(in srgb, var(--color-bg-secondary) 30%, transparent); }
+.dashboard-scope .text-bg-secondary\/35 { color: color-mix(in srgb, var(--color-bg-secondary) 35%, transparent); }
+.dashboard-scope .text-bg-secondary\/40 { color: color-mix(in srgb, var(--color-bg-secondary) 40%, transparent); }
+.dashboard-scope .text-bg-secondary\/50 { color: color-mix(in srgb, var(--color-bg-secondary) 50%, transparent); }
+.dashboard-scope .text-bg-secondary\/60 { color: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent); }
+.dashboard-scope .text-bg-secondary\/70 { color: color-mix(in srgb, var(--color-bg-secondary) 70%, transparent); }
+.dashboard-scope .text-bg-secondary\/80 { color: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent); }
+.dashboard-scope .text-bg-secondary\/90 { color: color-mix(in srgb, var(--color-bg-secondary) 90%, transparent); }
+.dashboard-scope .text-bg-secondary\/95 { color: color-mix(in srgb, var(--color-bg-secondary) 95%, transparent); }
+.dashboard-scope .border-bg-secondary { border-color: var(--color-bg-secondary); }
+.dashboard-scope .border-bg-secondary\/5 { border-color: color-mix(in srgb, var(--color-bg-secondary) 5%, transparent); }
+.dashboard-scope .border-bg-secondary\/8 { border-color: color-mix(in srgb, var(--color-bg-secondary) 8%, transparent); }
+.dashboard-scope .border-bg-secondary\/10 { border-color: color-mix(in srgb, var(--color-bg-secondary) 10%, transparent); }
+.dashboard-scope .border-bg-secondary\/12 { border-color: color-mix(in srgb, var(--color-bg-secondary) 12%, transparent); }
+.dashboard-scope .border-bg-secondary\/15 { border-color: color-mix(in srgb, var(--color-bg-secondary) 15%, transparent); }
+.dashboard-scope .border-bg-secondary\/20 { border-color: color-mix(in srgb, var(--color-bg-secondary) 20%, transparent); }
+.dashboard-scope .border-bg-secondary\/22 { border-color: color-mix(in srgb, var(--color-bg-secondary) 22%, transparent); }
+.dashboard-scope .border-bg-secondary\/25 { border-color: color-mix(in srgb, var(--color-bg-secondary) 25%, transparent); }
+.dashboard-scope .border-bg-secondary\/30 { border-color: color-mix(in srgb, var(--color-bg-secondary) 30%, transparent); }
+.dashboard-scope .border-bg-secondary\/35 { border-color: color-mix(in srgb, var(--color-bg-secondary) 35%, transparent); }
+.dashboard-scope .border-bg-secondary\/40 { border-color: color-mix(in srgb, var(--color-bg-secondary) 40%, transparent); }
+.dashboard-scope .border-bg-secondary\/50 { border-color: color-mix(in srgb, var(--color-bg-secondary) 50%, transparent); }
+.dashboard-scope .border-bg-secondary\/60 { border-color: color-mix(in srgb, var(--color-bg-secondary) 60%, transparent); }
+.dashboard-scope .border-bg-secondary\/70 { border-color: color-mix(in srgb, var(--color-bg-secondary) 70%, transparent); }
+.dashboard-scope .border-bg-secondary\/80 { border-color: color-mix(in srgb, var(--color-bg-secondary) 80%, transparent); }
+.dashboard-scope .border-bg-secondary\/90 { border-color: color-mix(in srgb, var(--color-bg-secondary) 90%, transparent); }
+.dashboard-scope .border-bg-secondary\/95 { border-color: color-mix(in srgb, var(--color-bg-secondary) 95%, transparent); }
+.dashboard-scope .bg-bg-tertiary { background-color: var(--color-bg-tertiary); }
+.dashboard-scope .bg-bg-tertiary\/5 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 5%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/8 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 8%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/10 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 10%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/12 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 12%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/15 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 15%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/20 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 20%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/22 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 22%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/25 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 25%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/30 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 30%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/35 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 35%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/40 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 40%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/50 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 50%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/60 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 60%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/70 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 70%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/80 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 80%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/90 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 90%, transparent); }
+.dashboard-scope .bg-bg-tertiary\/95 { background-color: color-mix(in srgb, var(--color-bg-tertiary) 95%, transparent); }
+.dashboard-scope .text-bg-tertiary { color: var(--color-bg-tertiary); }
+.dashboard-scope .text-bg-tertiary\/5 { color: color-mix(in srgb, var(--color-bg-tertiary) 5%, transparent); }
+.dashboard-scope .text-bg-tertiary\/8 { color: color-mix(in srgb, var(--color-bg-tertiary) 8%, transparent); }
+.dashboard-scope .text-bg-tertiary\/10 { color: color-mix(in srgb, var(--color-bg-tertiary) 10%, transparent); }
+.dashboard-scope .text-bg-tertiary\/12 { color: color-mix(in srgb, var(--color-bg-tertiary) 12%, transparent); }
+.dashboard-scope .text-bg-tertiary\/15 { color: color-mix(in srgb, var(--color-bg-tertiary) 15%, transparent); }
+.dashboard-scope .text-bg-tertiary\/20 { color: color-mix(in srgb, var(--color-bg-tertiary) 20%, transparent); }
+.dashboard-scope .text-bg-tertiary\/22 { color: color-mix(in srgb, var(--color-bg-tertiary) 22%, transparent); }
+.dashboard-scope .text-bg-tertiary\/25 { color: color-mix(in srgb, var(--color-bg-tertiary) 25%, transparent); }
+.dashboard-scope .text-bg-tertiary\/30 { color: color-mix(in srgb, var(--color-bg-tertiary) 30%, transparent); }
+.dashboard-scope .text-bg-tertiary\/35 { color: color-mix(in srgb, var(--color-bg-tertiary) 35%, transparent); }
+.dashboard-scope .text-bg-tertiary\/40 { color: color-mix(in srgb, var(--color-bg-tertiary) 40%, transparent); }
+.dashboard-scope .text-bg-tertiary\/50 { color: color-mix(in srgb, var(--color-bg-tertiary) 50%, transparent); }
+.dashboard-scope .text-bg-tertiary\/60 { color: color-mix(in srgb, var(--color-bg-tertiary) 60%, transparent); }
+.dashboard-scope .text-bg-tertiary\/70 { color: color-mix(in srgb, var(--color-bg-tertiary) 70%, transparent); }
+.dashboard-scope .text-bg-tertiary\/80 { color: color-mix(in srgb, var(--color-bg-tertiary) 80%, transparent); }
+.dashboard-scope .text-bg-tertiary\/90 { color: color-mix(in srgb, var(--color-bg-tertiary) 90%, transparent); }
+.dashboard-scope .text-bg-tertiary\/95 { color: color-mix(in srgb, var(--color-bg-tertiary) 95%, transparent); }
+.dashboard-scope .border-bg-tertiary { border-color: var(--color-bg-tertiary); }
+.dashboard-scope .border-bg-tertiary\/5 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 5%, transparent); }
+.dashboard-scope .border-bg-tertiary\/8 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 8%, transparent); }
+.dashboard-scope .border-bg-tertiary\/10 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 10%, transparent); }
+.dashboard-scope .border-bg-tertiary\/12 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 12%, transparent); }
+.dashboard-scope .border-bg-tertiary\/15 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 15%, transparent); }
+.dashboard-scope .border-bg-tertiary\/20 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 20%, transparent); }
+.dashboard-scope .border-bg-tertiary\/22 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 22%, transparent); }
+.dashboard-scope .border-bg-tertiary\/25 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 25%, transparent); }
+.dashboard-scope .border-bg-tertiary\/30 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 30%, transparent); }
+.dashboard-scope .border-bg-tertiary\/35 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 35%, transparent); }
+.dashboard-scope .border-bg-tertiary\/40 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 40%, transparent); }
+.dashboard-scope .border-bg-tertiary\/50 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 50%, transparent); }
+.dashboard-scope .border-bg-tertiary\/60 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 60%, transparent); }
+.dashboard-scope .border-bg-tertiary\/70 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 70%, transparent); }
+.dashboard-scope .border-bg-tertiary\/80 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 80%, transparent); }
+.dashboard-scope .border-bg-tertiary\/90 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 90%, transparent); }
+.dashboard-scope .border-bg-tertiary\/95 { border-color: color-mix(in srgb, var(--color-bg-tertiary) 95%, transparent); }
+.dashboard-scope .bg-bg-quaternary { background-color: var(--color-bg-quaternary); }
+.dashboard-scope .bg-bg-quaternary\/5 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 5%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/8 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 8%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/10 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 10%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/12 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 12%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/15 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 15%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/20 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 20%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/22 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 22%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/25 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 25%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/30 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 30%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/35 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 35%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/40 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 40%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/50 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 50%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/60 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 60%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/70 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 70%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/80 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 80%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/90 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 90%, transparent); }
+.dashboard-scope .bg-bg-quaternary\/95 { background-color: color-mix(in srgb, var(--color-bg-quaternary) 95%, transparent); }
+.dashboard-scope .text-bg-quaternary { color: var(--color-bg-quaternary); }
+.dashboard-scope .text-bg-quaternary\/5 { color: color-mix(in srgb, var(--color-bg-quaternary) 5%, transparent); }
+.dashboard-scope .text-bg-quaternary\/8 { color: color-mix(in srgb, var(--color-bg-quaternary) 8%, transparent); }
+.dashboard-scope .text-bg-quaternary\/10 { color: color-mix(in srgb, var(--color-bg-quaternary) 10%, transparent); }
+.dashboard-scope .text-bg-quaternary\/12 { color: color-mix(in srgb, var(--color-bg-quaternary) 12%, transparent); }
+.dashboard-scope .text-bg-quaternary\/15 { color: color-mix(in srgb, var(--color-bg-quaternary) 15%, transparent); }
+.dashboard-scope .text-bg-quaternary\/20 { color: color-mix(in srgb, var(--color-bg-quaternary) 20%, transparent); }
+.dashboard-scope .text-bg-quaternary\/22 { color: color-mix(in srgb, var(--color-bg-quaternary) 22%, transparent); }
+.dashboard-scope .text-bg-quaternary\/25 { color: color-mix(in srgb, var(--color-bg-quaternary) 25%, transparent); }
+.dashboard-scope .text-bg-quaternary\/30 { color: color-mix(in srgb, var(--color-bg-quaternary) 30%, transparent); }
+.dashboard-scope .text-bg-quaternary\/35 { color: color-mix(in srgb, var(--color-bg-quaternary) 35%, transparent); }
+.dashboard-scope .text-bg-quaternary\/40 { color: color-mix(in srgb, var(--color-bg-quaternary) 40%, transparent); }
+.dashboard-scope .text-bg-quaternary\/50 { color: color-mix(in srgb, var(--color-bg-quaternary) 50%, transparent); }
+.dashboard-scope .text-bg-quaternary\/60 { color: color-mix(in srgb, var(--color-bg-quaternary) 60%, transparent); }
+.dashboard-scope .text-bg-quaternary\/70 { color: color-mix(in srgb, var(--color-bg-quaternary) 70%, transparent); }
+.dashboard-scope .text-bg-quaternary\/80 { color: color-mix(in srgb, var(--color-bg-quaternary) 80%, transparent); }
+.dashboard-scope .text-bg-quaternary\/90 { color: color-mix(in srgb, var(--color-bg-quaternary) 90%, transparent); }
+.dashboard-scope .text-bg-quaternary\/95 { color: color-mix(in srgb, var(--color-bg-quaternary) 95%, transparent); }
+.dashboard-scope .border-bg-quaternary { border-color: var(--color-bg-quaternary); }
+.dashboard-scope .border-bg-quaternary\/5 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 5%, transparent); }
+.dashboard-scope .border-bg-quaternary\/8 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 8%, transparent); }
+.dashboard-scope .border-bg-quaternary\/10 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 10%, transparent); }
+.dashboard-scope .border-bg-quaternary\/12 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 12%, transparent); }
+.dashboard-scope .border-bg-quaternary\/15 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 15%, transparent); }
+.dashboard-scope .border-bg-quaternary\/20 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 20%, transparent); }
+.dashboard-scope .border-bg-quaternary\/22 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 22%, transparent); }
+.dashboard-scope .border-bg-quaternary\/25 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 25%, transparent); }
+.dashboard-scope .border-bg-quaternary\/30 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 30%, transparent); }
+.dashboard-scope .border-bg-quaternary\/35 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 35%, transparent); }
+.dashboard-scope .border-bg-quaternary\/40 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 40%, transparent); }
+.dashboard-scope .border-bg-quaternary\/50 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 50%, transparent); }
+.dashboard-scope .border-bg-quaternary\/60 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 60%, transparent); }
+.dashboard-scope .border-bg-quaternary\/70 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 70%, transparent); }
+.dashboard-scope .border-bg-quaternary\/80 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 80%, transparent); }
+.dashboard-scope .border-bg-quaternary\/90 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 90%, transparent); }
+.dashboard-scope .border-bg-quaternary\/95 { border-color: color-mix(in srgb, var(--color-bg-quaternary) 95%, transparent); }
+.dashboard-scope .bg-bg-input { background-color: var(--color-bg-input); }
+.dashboard-scope .bg-bg-input\/5 { background-color: color-mix(in srgb, var(--color-bg-input) 5%, transparent); }
+.dashboard-scope .bg-bg-input\/8 { background-color: color-mix(in srgb, var(--color-bg-input) 8%, transparent); }
+.dashboard-scope .bg-bg-input\/10 { background-color: color-mix(in srgb, var(--color-bg-input) 10%, transparent); }
+.dashboard-scope .bg-bg-input\/12 { background-color: color-mix(in srgb, var(--color-bg-input) 12%, transparent); }
+.dashboard-scope .bg-bg-input\/15 { background-color: color-mix(in srgb, var(--color-bg-input) 15%, transparent); }
+.dashboard-scope .bg-bg-input\/20 { background-color: color-mix(in srgb, var(--color-bg-input) 20%, transparent); }
+.dashboard-scope .bg-bg-input\/22 { background-color: color-mix(in srgb, var(--color-bg-input) 22%, transparent); }
+.dashboard-scope .bg-bg-input\/25 { background-color: color-mix(in srgb, var(--color-bg-input) 25%, transparent); }
+.dashboard-scope .bg-bg-input\/30 { background-color: color-mix(in srgb, var(--color-bg-input) 30%, transparent); }
+.dashboard-scope .bg-bg-input\/35 { background-color: color-mix(in srgb, var(--color-bg-input) 35%, transparent); }
+.dashboard-scope .bg-bg-input\/40 { background-color: color-mix(in srgb, var(--color-bg-input) 40%, transparent); }
+.dashboard-scope .bg-bg-input\/50 { background-color: color-mix(in srgb, var(--color-bg-input) 50%, transparent); }
+.dashboard-scope .bg-bg-input\/60 { background-color: color-mix(in srgb, var(--color-bg-input) 60%, transparent); }
+.dashboard-scope .bg-bg-input\/70 { background-color: color-mix(in srgb, var(--color-bg-input) 70%, transparent); }
+.dashboard-scope .bg-bg-input\/80 { background-color: color-mix(in srgb, var(--color-bg-input) 80%, transparent); }
+.dashboard-scope .bg-bg-input\/90 { background-color: color-mix(in srgb, var(--color-bg-input) 90%, transparent); }
+.dashboard-scope .bg-bg-input\/95 { background-color: color-mix(in srgb, var(--color-bg-input) 95%, transparent); }
+.dashboard-scope .text-bg-input { color: var(--color-bg-input); }
+.dashboard-scope .text-bg-input\/5 { color: color-mix(in srgb, var(--color-bg-input) 5%, transparent); }
+.dashboard-scope .text-bg-input\/8 { color: color-mix(in srgb, var(--color-bg-input) 8%, transparent); }
+.dashboard-scope .text-bg-input\/10 { color: color-mix(in srgb, var(--color-bg-input) 10%, transparent); }
+.dashboard-scope .text-bg-input\/12 { color: color-mix(in srgb, var(--color-bg-input) 12%, transparent); }
+.dashboard-scope .text-bg-input\/15 { color: color-mix(in srgb, var(--color-bg-input) 15%, transparent); }
+.dashboard-scope .text-bg-input\/20 { color: color-mix(in srgb, var(--color-bg-input) 20%, transparent); }
+.dashboard-scope .text-bg-input\/22 { color: color-mix(in srgb, var(--color-bg-input) 22%, transparent); }
+.dashboard-scope .text-bg-input\/25 { color: color-mix(in srgb, var(--color-bg-input) 25%, transparent); }
+.dashboard-scope .text-bg-input\/30 { color: color-mix(in srgb, var(--color-bg-input) 30%, transparent); }
+.dashboard-scope .text-bg-input\/35 { color: color-mix(in srgb, var(--color-bg-input) 35%, transparent); }
+.dashboard-scope .text-bg-input\/40 { color: color-mix(in srgb, var(--color-bg-input) 40%, transparent); }
+.dashboard-scope .text-bg-input\/50 { color: color-mix(in srgb, var(--color-bg-input) 50%, transparent); }
+.dashboard-scope .text-bg-input\/60 { color: color-mix(in srgb, var(--color-bg-input) 60%, transparent); }
+.dashboard-scope .text-bg-input\/70 { color: color-mix(in srgb, var(--color-bg-input) 70%, transparent); }
+.dashboard-scope .text-bg-input\/80 { color: color-mix(in srgb, var(--color-bg-input) 80%, transparent); }
+.dashboard-scope .text-bg-input\/90 { color: color-mix(in srgb, var(--color-bg-input) 90%, transparent); }
+.dashboard-scope .text-bg-input\/95 { color: color-mix(in srgb, var(--color-bg-input) 95%, transparent); }
+.dashboard-scope .border-bg-input { border-color: var(--color-bg-input); }
+.dashboard-scope .border-bg-input\/5 { border-color: color-mix(in srgb, var(--color-bg-input) 5%, transparent); }
+.dashboard-scope .border-bg-input\/8 { border-color: color-mix(in srgb, var(--color-bg-input) 8%, transparent); }
+.dashboard-scope .border-bg-input\/10 { border-color: color-mix(in srgb, var(--color-bg-input) 10%, transparent); }
+.dashboard-scope .border-bg-input\/12 { border-color: color-mix(in srgb, var(--color-bg-input) 12%, transparent); }
+.dashboard-scope .border-bg-input\/15 { border-color: color-mix(in srgb, var(--color-bg-input) 15%, transparent); }
+.dashboard-scope .border-bg-input\/20 { border-color: color-mix(in srgb, var(--color-bg-input) 20%, transparent); }
+.dashboard-scope .border-bg-input\/22 { border-color: color-mix(in srgb, var(--color-bg-input) 22%, transparent); }
+.dashboard-scope .border-bg-input\/25 { border-color: color-mix(in srgb, var(--color-bg-input) 25%, transparent); }
+.dashboard-scope .border-bg-input\/30 { border-color: color-mix(in srgb, var(--color-bg-input) 30%, transparent); }
+.dashboard-scope .border-bg-input\/35 { border-color: color-mix(in srgb, var(--color-bg-input) 35%, transparent); }
+.dashboard-scope .border-bg-input\/40 { border-color: color-mix(in srgb, var(--color-bg-input) 40%, transparent); }
+.dashboard-scope .border-bg-input\/50 { border-color: color-mix(in srgb, var(--color-bg-input) 50%, transparent); }
+.dashboard-scope .border-bg-input\/60 { border-color: color-mix(in srgb, var(--color-bg-input) 60%, transparent); }
+.dashboard-scope .border-bg-input\/70 { border-color: color-mix(in srgb, var(--color-bg-input) 70%, transparent); }
+.dashboard-scope .border-bg-input\/80 { border-color: color-mix(in srgb, var(--color-bg-input) 80%, transparent); }
+.dashboard-scope .border-bg-input\/90 { border-color: color-mix(in srgb, var(--color-bg-input) 90%, transparent); }
+.dashboard-scope .border-bg-input\/95 { border-color: color-mix(in srgb, var(--color-bg-input) 95%, transparent); }
+.dashboard-scope .bg-text-primary { background-color: var(--color-text-primary); }
+.dashboard-scope .bg-text-primary\/5 { background-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent); }
+.dashboard-scope .bg-text-primary\/8 { background-color: color-mix(in srgb, var(--color-text-primary) 8%, transparent); }
+.dashboard-scope .bg-text-primary\/10 { background-color: color-mix(in srgb, var(--color-text-primary) 10%, transparent); }
+.dashboard-scope .bg-text-primary\/12 { background-color: color-mix(in srgb, var(--color-text-primary) 12%, transparent); }
+.dashboard-scope .bg-text-primary\/15 { background-color: color-mix(in srgb, var(--color-text-primary) 15%, transparent); }
+.dashboard-scope .bg-text-primary\/20 { background-color: color-mix(in srgb, var(--color-text-primary) 20%, transparent); }
+.dashboard-scope .bg-text-primary\/22 { background-color: color-mix(in srgb, var(--color-text-primary) 22%, transparent); }
+.dashboard-scope .bg-text-primary\/25 { background-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent); }
+.dashboard-scope .bg-text-primary\/30 { background-color: color-mix(in srgb, var(--color-text-primary) 30%, transparent); }
+.dashboard-scope .bg-text-primary\/35 { background-color: color-mix(in srgb, var(--color-text-primary) 35%, transparent); }
+.dashboard-scope .bg-text-primary\/40 { background-color: color-mix(in srgb, var(--color-text-primary) 40%, transparent); }
+.dashboard-scope .bg-text-primary\/50 { background-color: color-mix(in srgb, var(--color-text-primary) 50%, transparent); }
+.dashboard-scope .bg-text-primary\/60 { background-color: color-mix(in srgb, var(--color-text-primary) 60%, transparent); }
+.dashboard-scope .bg-text-primary\/70 { background-color: color-mix(in srgb, var(--color-text-primary) 70%, transparent); }
+.dashboard-scope .bg-text-primary\/80 { background-color: color-mix(in srgb, var(--color-text-primary) 80%, transparent); }
+.dashboard-scope .bg-text-primary\/90 { background-color: color-mix(in srgb, var(--color-text-primary) 90%, transparent); }
+.dashboard-scope .bg-text-primary\/95 { background-color: color-mix(in srgb, var(--color-text-primary) 95%, transparent); }
+.dashboard-scope .text-text-primary { color: var(--color-text-primary); }
+.dashboard-scope .text-text-primary\/5 { color: color-mix(in srgb, var(--color-text-primary) 5%, transparent); }
+.dashboard-scope .text-text-primary\/8 { color: color-mix(in srgb, var(--color-text-primary) 8%, transparent); }
+.dashboard-scope .text-text-primary\/10 { color: color-mix(in srgb, var(--color-text-primary) 10%, transparent); }
+.dashboard-scope .text-text-primary\/12 { color: color-mix(in srgb, var(--color-text-primary) 12%, transparent); }
+.dashboard-scope .text-text-primary\/15 { color: color-mix(in srgb, var(--color-text-primary) 15%, transparent); }
+.dashboard-scope .text-text-primary\/20 { color: color-mix(in srgb, var(--color-text-primary) 20%, transparent); }
+.dashboard-scope .text-text-primary\/22 { color: color-mix(in srgb, var(--color-text-primary) 22%, transparent); }
+.dashboard-scope .text-text-primary\/25 { color: color-mix(in srgb, var(--color-text-primary) 25%, transparent); }
+.dashboard-scope .text-text-primary\/30 { color: color-mix(in srgb, var(--color-text-primary) 30%, transparent); }
+.dashboard-scope .text-text-primary\/35 { color: color-mix(in srgb, var(--color-text-primary) 35%, transparent); }
+.dashboard-scope .text-text-primary\/40 { color: color-mix(in srgb, var(--color-text-primary) 40%, transparent); }
+.dashboard-scope .text-text-primary\/50 { color: color-mix(in srgb, var(--color-text-primary) 50%, transparent); }
+.dashboard-scope .text-text-primary\/60 { color: color-mix(in srgb, var(--color-text-primary) 60%, transparent); }
+.dashboard-scope .text-text-primary\/70 { color: color-mix(in srgb, var(--color-text-primary) 70%, transparent); }
+.dashboard-scope .text-text-primary\/80 { color: color-mix(in srgb, var(--color-text-primary) 80%, transparent); }
+.dashboard-scope .text-text-primary\/90 { color: color-mix(in srgb, var(--color-text-primary) 90%, transparent); }
+.dashboard-scope .text-text-primary\/95 { color: color-mix(in srgb, var(--color-text-primary) 95%, transparent); }
+.dashboard-scope .border-text-primary { border-color: var(--color-text-primary); }
+.dashboard-scope .border-text-primary\/5 { border-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent); }
+.dashboard-scope .border-text-primary\/8 { border-color: color-mix(in srgb, var(--color-text-primary) 8%, transparent); }
+.dashboard-scope .border-text-primary\/10 { border-color: color-mix(in srgb, var(--color-text-primary) 10%, transparent); }
+.dashboard-scope .border-text-primary\/12 { border-color: color-mix(in srgb, var(--color-text-primary) 12%, transparent); }
+.dashboard-scope .border-text-primary\/15 { border-color: color-mix(in srgb, var(--color-text-primary) 15%, transparent); }
+.dashboard-scope .border-text-primary\/20 { border-color: color-mix(in srgb, var(--color-text-primary) 20%, transparent); }
+.dashboard-scope .border-text-primary\/22 { border-color: color-mix(in srgb, var(--color-text-primary) 22%, transparent); }
+.dashboard-scope .border-text-primary\/25 { border-color: color-mix(in srgb, var(--color-text-primary) 25%, transparent); }
+.dashboard-scope .border-text-primary\/30 { border-color: color-mix(in srgb, var(--color-text-primary) 30%, transparent); }
+.dashboard-scope .border-text-primary\/35 { border-color: color-mix(in srgb, var(--color-text-primary) 35%, transparent); }
+.dashboard-scope .border-text-primary\/40 { border-color: color-mix(in srgb, var(--color-text-primary) 40%, transparent); }
+.dashboard-scope .border-text-primary\/50 { border-color: color-mix(in srgb, var(--color-text-primary) 50%, transparent); }
+.dashboard-scope .border-text-primary\/60 { border-color: color-mix(in srgb, var(--color-text-primary) 60%, transparent); }
+.dashboard-scope .border-text-primary\/70 { border-color: color-mix(in srgb, var(--color-text-primary) 70%, transparent); }
+.dashboard-scope .border-text-primary\/80 { border-color: color-mix(in srgb, var(--color-text-primary) 80%, transparent); }
+.dashboard-scope .border-text-primary\/90 { border-color: color-mix(in srgb, var(--color-text-primary) 90%, transparent); }
+.dashboard-scope .border-text-primary\/95 { border-color: color-mix(in srgb, var(--color-text-primary) 95%, transparent); }
+.dashboard-scope .bg-text-secondary { background-color: var(--color-text-secondary); }
+.dashboard-scope .bg-text-secondary\/5 { background-color: color-mix(in srgb, var(--color-text-secondary) 5%, transparent); }
+.dashboard-scope .bg-text-secondary\/8 { background-color: color-mix(in srgb, var(--color-text-secondary) 8%, transparent); }
+.dashboard-scope .bg-text-secondary\/10 { background-color: color-mix(in srgb, var(--color-text-secondary) 10%, transparent); }
+.dashboard-scope .bg-text-secondary\/12 { background-color: color-mix(in srgb, var(--color-text-secondary) 12%, transparent); }
+.dashboard-scope .bg-text-secondary\/15 { background-color: color-mix(in srgb, var(--color-text-secondary) 15%, transparent); }
+.dashboard-scope .bg-text-secondary\/20 { background-color: color-mix(in srgb, var(--color-text-secondary) 20%, transparent); }
+.dashboard-scope .bg-text-secondary\/22 { background-color: color-mix(in srgb, var(--color-text-secondary) 22%, transparent); }
+.dashboard-scope .bg-text-secondary\/25 { background-color: color-mix(in srgb, var(--color-text-secondary) 25%, transparent); }
+.dashboard-scope .bg-text-secondary\/30 { background-color: color-mix(in srgb, var(--color-text-secondary) 30%, transparent); }
+.dashboard-scope .bg-text-secondary\/35 { background-color: color-mix(in srgb, var(--color-text-secondary) 35%, transparent); }
+.dashboard-scope .bg-text-secondary\/40 { background-color: color-mix(in srgb, var(--color-text-secondary) 40%, transparent); }
+.dashboard-scope .bg-text-secondary\/50 { background-color: color-mix(in srgb, var(--color-text-secondary) 50%, transparent); }
+.dashboard-scope .bg-text-secondary\/60 { background-color: color-mix(in srgb, var(--color-text-secondary) 60%, transparent); }
+.dashboard-scope .bg-text-secondary\/70 { background-color: color-mix(in srgb, var(--color-text-secondary) 70%, transparent); }
+.dashboard-scope .bg-text-secondary\/80 { background-color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent); }
+.dashboard-scope .bg-text-secondary\/90 { background-color: color-mix(in srgb, var(--color-text-secondary) 90%, transparent); }
+.dashboard-scope .bg-text-secondary\/95 { background-color: color-mix(in srgb, var(--color-text-secondary) 95%, transparent); }
+.dashboard-scope .text-text-secondary { color: var(--color-text-secondary); }
+.dashboard-scope .text-text-secondary\/5 { color: color-mix(in srgb, var(--color-text-secondary) 5%, transparent); }
+.dashboard-scope .text-text-secondary\/8 { color: color-mix(in srgb, var(--color-text-secondary) 8%, transparent); }
+.dashboard-scope .text-text-secondary\/10 { color: color-mix(in srgb, var(--color-text-secondary) 10%, transparent); }
+.dashboard-scope .text-text-secondary\/12 { color: color-mix(in srgb, var(--color-text-secondary) 12%, transparent); }
+.dashboard-scope .text-text-secondary\/15 { color: color-mix(in srgb, var(--color-text-secondary) 15%, transparent); }
+.dashboard-scope .text-text-secondary\/20 { color: color-mix(in srgb, var(--color-text-secondary) 20%, transparent); }
+.dashboard-scope .text-text-secondary\/22 { color: color-mix(in srgb, var(--color-text-secondary) 22%, transparent); }
+.dashboard-scope .text-text-secondary\/25 { color: color-mix(in srgb, var(--color-text-secondary) 25%, transparent); }
+.dashboard-scope .text-text-secondary\/30 { color: color-mix(in srgb, var(--color-text-secondary) 30%, transparent); }
+.dashboard-scope .text-text-secondary\/35 { color: color-mix(in srgb, var(--color-text-secondary) 35%, transparent); }
+.dashboard-scope .text-text-secondary\/40 { color: color-mix(in srgb, var(--color-text-secondary) 40%, transparent); }
+.dashboard-scope .text-text-secondary\/50 { color: color-mix(in srgb, var(--color-text-secondary) 50%, transparent); }
+.dashboard-scope .text-text-secondary\/60 { color: color-mix(in srgb, var(--color-text-secondary) 60%, transparent); }
+.dashboard-scope .text-text-secondary\/70 { color: color-mix(in srgb, var(--color-text-secondary) 70%, transparent); }
+.dashboard-scope .text-text-secondary\/80 { color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent); }
+.dashboard-scope .text-text-secondary\/90 { color: color-mix(in srgb, var(--color-text-secondary) 90%, transparent); }
+.dashboard-scope .text-text-secondary\/95 { color: color-mix(in srgb, var(--color-text-secondary) 95%, transparent); }
+.dashboard-scope .border-text-secondary { border-color: var(--color-text-secondary); }
+.dashboard-scope .border-text-secondary\/5 { border-color: color-mix(in srgb, var(--color-text-secondary) 5%, transparent); }
+.dashboard-scope .border-text-secondary\/8 { border-color: color-mix(in srgb, var(--color-text-secondary) 8%, transparent); }
+.dashboard-scope .border-text-secondary\/10 { border-color: color-mix(in srgb, var(--color-text-secondary) 10%, transparent); }
+.dashboard-scope .border-text-secondary\/12 { border-color: color-mix(in srgb, var(--color-text-secondary) 12%, transparent); }
+.dashboard-scope .border-text-secondary\/15 { border-color: color-mix(in srgb, var(--color-text-secondary) 15%, transparent); }
+.dashboard-scope .border-text-secondary\/20 { border-color: color-mix(in srgb, var(--color-text-secondary) 20%, transparent); }
+.dashboard-scope .border-text-secondary\/22 { border-color: color-mix(in srgb, var(--color-text-secondary) 22%, transparent); }
+.dashboard-scope .border-text-secondary\/25 { border-color: color-mix(in srgb, var(--color-text-secondary) 25%, transparent); }
+.dashboard-scope .border-text-secondary\/30 { border-color: color-mix(in srgb, var(--color-text-secondary) 30%, transparent); }
+.dashboard-scope .border-text-secondary\/35 { border-color: color-mix(in srgb, var(--color-text-secondary) 35%, transparent); }
+.dashboard-scope .border-text-secondary\/40 { border-color: color-mix(in srgb, var(--color-text-secondary) 40%, transparent); }
+.dashboard-scope .border-text-secondary\/50 { border-color: color-mix(in srgb, var(--color-text-secondary) 50%, transparent); }
+.dashboard-scope .border-text-secondary\/60 { border-color: color-mix(in srgb, var(--color-text-secondary) 60%, transparent); }
+.dashboard-scope .border-text-secondary\/70 { border-color: color-mix(in srgb, var(--color-text-secondary) 70%, transparent); }
+.dashboard-scope .border-text-secondary\/80 { border-color: color-mix(in srgb, var(--color-text-secondary) 80%, transparent); }
+.dashboard-scope .border-text-secondary\/90 { border-color: color-mix(in srgb, var(--color-text-secondary) 90%, transparent); }
+.dashboard-scope .border-text-secondary\/95 { border-color: color-mix(in srgb, var(--color-text-secondary) 95%, transparent); }
+.dashboard-scope .bg-text-tertiary { background-color: var(--color-text-tertiary); }
+.dashboard-scope .bg-text-tertiary\/5 { background-color: color-mix(in srgb, var(--color-text-tertiary) 5%, transparent); }
+.dashboard-scope .bg-text-tertiary\/8 { background-color: color-mix(in srgb, var(--color-text-tertiary) 8%, transparent); }
+.dashboard-scope .bg-text-tertiary\/10 { background-color: color-mix(in srgb, var(--color-text-tertiary) 10%, transparent); }
+.dashboard-scope .bg-text-tertiary\/12 { background-color: color-mix(in srgb, var(--color-text-tertiary) 12%, transparent); }
+.dashboard-scope .bg-text-tertiary\/15 { background-color: color-mix(in srgb, var(--color-text-tertiary) 15%, transparent); }
+.dashboard-scope .bg-text-tertiary\/20 { background-color: color-mix(in srgb, var(--color-text-tertiary) 20%, transparent); }
+.dashboard-scope .bg-text-tertiary\/22 { background-color: color-mix(in srgb, var(--color-text-tertiary) 22%, transparent); }
+.dashboard-scope .bg-text-tertiary\/25 { background-color: color-mix(in srgb, var(--color-text-tertiary) 25%, transparent); }
+.dashboard-scope .bg-text-tertiary\/30 { background-color: color-mix(in srgb, var(--color-text-tertiary) 30%, transparent); }
+.dashboard-scope .bg-text-tertiary\/35 { background-color: color-mix(in srgb, var(--color-text-tertiary) 35%, transparent); }
+.dashboard-scope .bg-text-tertiary\/40 { background-color: color-mix(in srgb, var(--color-text-tertiary) 40%, transparent); }
+.dashboard-scope .bg-text-tertiary\/50 { background-color: color-mix(in srgb, var(--color-text-tertiary) 50%, transparent); }
+.dashboard-scope .bg-text-tertiary\/60 { background-color: color-mix(in srgb, var(--color-text-tertiary) 60%, transparent); }
+.dashboard-scope .bg-text-tertiary\/70 { background-color: color-mix(in srgb, var(--color-text-tertiary) 70%, transparent); }
+.dashboard-scope .bg-text-tertiary\/80 { background-color: color-mix(in srgb, var(--color-text-tertiary) 80%, transparent); }
+.dashboard-scope .bg-text-tertiary\/90 { background-color: color-mix(in srgb, var(--color-text-tertiary) 90%, transparent); }
+.dashboard-scope .bg-text-tertiary\/95 { background-color: color-mix(in srgb, var(--color-text-tertiary) 95%, transparent); }
+.dashboard-scope .text-text-tertiary { color: var(--color-text-tertiary); }
+.dashboard-scope .text-text-tertiary\/5 { color: color-mix(in srgb, var(--color-text-tertiary) 5%, transparent); }
+.dashboard-scope .text-text-tertiary\/8 { color: color-mix(in srgb, var(--color-text-tertiary) 8%, transparent); }
+.dashboard-scope .text-text-tertiary\/10 { color: color-mix(in srgb, var(--color-text-tertiary) 10%, transparent); }
+.dashboard-scope .text-text-tertiary\/12 { color: color-mix(in srgb, var(--color-text-tertiary) 12%, transparent); }
+.dashboard-scope .text-text-tertiary\/15 { color: color-mix(in srgb, var(--color-text-tertiary) 15%, transparent); }
+.dashboard-scope .text-text-tertiary\/20 { color: color-mix(in srgb, var(--color-text-tertiary) 20%, transparent); }
+.dashboard-scope .text-text-tertiary\/22 { color: color-mix(in srgb, var(--color-text-tertiary) 22%, transparent); }
+.dashboard-scope .text-text-tertiary\/25 { color: color-mix(in srgb, var(--color-text-tertiary) 25%, transparent); }
+.dashboard-scope .text-text-tertiary\/30 { color: color-mix(in srgb, var(--color-text-tertiary) 30%, transparent); }
+.dashboard-scope .text-text-tertiary\/35 { color: color-mix(in srgb, var(--color-text-tertiary) 35%, transparent); }
+.dashboard-scope .text-text-tertiary\/40 { color: color-mix(in srgb, var(--color-text-tertiary) 40%, transparent); }
+.dashboard-scope .text-text-tertiary\/50 { color: color-mix(in srgb, var(--color-text-tertiary) 50%, transparent); }
+.dashboard-scope .text-text-tertiary\/60 { color: color-mix(in srgb, var(--color-text-tertiary) 60%, transparent); }
+.dashboard-scope .text-text-tertiary\/70 { color: color-mix(in srgb, var(--color-text-tertiary) 70%, transparent); }
+.dashboard-scope .text-text-tertiary\/80 { color: color-mix(in srgb, var(--color-text-tertiary) 80%, transparent); }
+.dashboard-scope .text-text-tertiary\/90 { color: color-mix(in srgb, var(--color-text-tertiary) 90%, transparent); }
+.dashboard-scope .text-text-tertiary\/95 { color: color-mix(in srgb, var(--color-text-tertiary) 95%, transparent); }
+.dashboard-scope .border-text-tertiary { border-color: var(--color-text-tertiary); }
+.dashboard-scope .border-text-tertiary\/5 { border-color: color-mix(in srgb, var(--color-text-tertiary) 5%, transparent); }
+.dashboard-scope .border-text-tertiary\/8 { border-color: color-mix(in srgb, var(--color-text-tertiary) 8%, transparent); }
+.dashboard-scope .border-text-tertiary\/10 { border-color: color-mix(in srgb, var(--color-text-tertiary) 10%, transparent); }
+.dashboard-scope .border-text-tertiary\/12 { border-color: color-mix(in srgb, var(--color-text-tertiary) 12%, transparent); }
+.dashboard-scope .border-text-tertiary\/15 { border-color: color-mix(in srgb, var(--color-text-tertiary) 15%, transparent); }
+.dashboard-scope .border-text-tertiary\/20 { border-color: color-mix(in srgb, var(--color-text-tertiary) 20%, transparent); }
+.dashboard-scope .border-text-tertiary\/22 { border-color: color-mix(in srgb, var(--color-text-tertiary) 22%, transparent); }
+.dashboard-scope .border-text-tertiary\/25 { border-color: color-mix(in srgb, var(--color-text-tertiary) 25%, transparent); }
+.dashboard-scope .border-text-tertiary\/30 { border-color: color-mix(in srgb, var(--color-text-tertiary) 30%, transparent); }
+.dashboard-scope .border-text-tertiary\/35 { border-color: color-mix(in srgb, var(--color-text-tertiary) 35%, transparent); }
+.dashboard-scope .border-text-tertiary\/40 { border-color: color-mix(in srgb, var(--color-text-tertiary) 40%, transparent); }
+.dashboard-scope .border-text-tertiary\/50 { border-color: color-mix(in srgb, var(--color-text-tertiary) 50%, transparent); }
+.dashboard-scope .border-text-tertiary\/60 { border-color: color-mix(in srgb, var(--color-text-tertiary) 60%, transparent); }
+.dashboard-scope .border-text-tertiary\/70 { border-color: color-mix(in srgb, var(--color-text-tertiary) 70%, transparent); }
+.dashboard-scope .border-text-tertiary\/80 { border-color: color-mix(in srgb, var(--color-text-tertiary) 80%, transparent); }
+.dashboard-scope .border-text-tertiary\/90 { border-color: color-mix(in srgb, var(--color-text-tertiary) 90%, transparent); }
+.dashboard-scope .border-text-tertiary\/95 { border-color: color-mix(in srgb, var(--color-text-tertiary) 95%, transparent); }
+.dashboard-scope .bg-text-muted { background-color: var(--color-text-muted); }
+.dashboard-scope .bg-text-muted\/5 { background-color: color-mix(in srgb, var(--color-text-muted) 5%, transparent); }
+.dashboard-scope .bg-text-muted\/8 { background-color: color-mix(in srgb, var(--color-text-muted) 8%, transparent); }
+.dashboard-scope .bg-text-muted\/10 { background-color: color-mix(in srgb, var(--color-text-muted) 10%, transparent); }
+.dashboard-scope .bg-text-muted\/12 { background-color: color-mix(in srgb, var(--color-text-muted) 12%, transparent); }
+.dashboard-scope .bg-text-muted\/15 { background-color: color-mix(in srgb, var(--color-text-muted) 15%, transparent); }
+.dashboard-scope .bg-text-muted\/20 { background-color: color-mix(in srgb, var(--color-text-muted) 20%, transparent); }
+.dashboard-scope .bg-text-muted\/22 { background-color: color-mix(in srgb, var(--color-text-muted) 22%, transparent); }
+.dashboard-scope .bg-text-muted\/25 { background-color: color-mix(in srgb, var(--color-text-muted) 25%, transparent); }
+.dashboard-scope .bg-text-muted\/30 { background-color: color-mix(in srgb, var(--color-text-muted) 30%, transparent); }
+.dashboard-scope .bg-text-muted\/35 { background-color: color-mix(in srgb, var(--color-text-muted) 35%, transparent); }
+.dashboard-scope .bg-text-muted\/40 { background-color: color-mix(in srgb, var(--color-text-muted) 40%, transparent); }
+.dashboard-scope .bg-text-muted\/50 { background-color: color-mix(in srgb, var(--color-text-muted) 50%, transparent); }
+.dashboard-scope .bg-text-muted\/60 { background-color: color-mix(in srgb, var(--color-text-muted) 60%, transparent); }
+.dashboard-scope .bg-text-muted\/70 { background-color: color-mix(in srgb, var(--color-text-muted) 70%, transparent); }
+.dashboard-scope .bg-text-muted\/80 { background-color: color-mix(in srgb, var(--color-text-muted) 80%, transparent); }
+.dashboard-scope .bg-text-muted\/90 { background-color: color-mix(in srgb, var(--color-text-muted) 90%, transparent); }
+.dashboard-scope .bg-text-muted\/95 { background-color: color-mix(in srgb, var(--color-text-muted) 95%, transparent); }
+.dashboard-scope .text-text-muted { color: var(--color-text-muted); }
+.dashboard-scope .text-text-muted\/5 { color: color-mix(in srgb, var(--color-text-muted) 5%, transparent); }
+.dashboard-scope .text-text-muted\/8 { color: color-mix(in srgb, var(--color-text-muted) 8%, transparent); }
+.dashboard-scope .text-text-muted\/10 { color: color-mix(in srgb, var(--color-text-muted) 10%, transparent); }
+.dashboard-scope .text-text-muted\/12 { color: color-mix(in srgb, var(--color-text-muted) 12%, transparent); }
+.dashboard-scope .text-text-muted\/15 { color: color-mix(in srgb, var(--color-text-muted) 15%, transparent); }
+.dashboard-scope .text-text-muted\/20 { color: color-mix(in srgb, var(--color-text-muted) 20%, transparent); }
+.dashboard-scope .text-text-muted\/22 { color: color-mix(in srgb, var(--color-text-muted) 22%, transparent); }
+.dashboard-scope .text-text-muted\/25 { color: color-mix(in srgb, var(--color-text-muted) 25%, transparent); }
+.dashboard-scope .text-text-muted\/30 { color: color-mix(in srgb, var(--color-text-muted) 30%, transparent); }
+.dashboard-scope .text-text-muted\/35 { color: color-mix(in srgb, var(--color-text-muted) 35%, transparent); }
+.dashboard-scope .text-text-muted\/40 { color: color-mix(in srgb, var(--color-text-muted) 40%, transparent); }
+.dashboard-scope .text-text-muted\/50 { color: color-mix(in srgb, var(--color-text-muted) 50%, transparent); }
+.dashboard-scope .text-text-muted\/60 { color: color-mix(in srgb, var(--color-text-muted) 60%, transparent); }
+.dashboard-scope .text-text-muted\/70 { color: color-mix(in srgb, var(--color-text-muted) 70%, transparent); }
+.dashboard-scope .text-text-muted\/80 { color: color-mix(in srgb, var(--color-text-muted) 80%, transparent); }
+.dashboard-scope .text-text-muted\/90 { color: color-mix(in srgb, var(--color-text-muted) 90%, transparent); }
+.dashboard-scope .text-text-muted\/95 { color: color-mix(in srgb, var(--color-text-muted) 95%, transparent); }
+.dashboard-scope .border-text-muted { border-color: var(--color-text-muted); }
+.dashboard-scope .border-text-muted\/5 { border-color: color-mix(in srgb, var(--color-text-muted) 5%, transparent); }
+.dashboard-scope .border-text-muted\/8 { border-color: color-mix(in srgb, var(--color-text-muted) 8%, transparent); }
+.dashboard-scope .border-text-muted\/10 { border-color: color-mix(in srgb, var(--color-text-muted) 10%, transparent); }
+.dashboard-scope .border-text-muted\/12 { border-color: color-mix(in srgb, var(--color-text-muted) 12%, transparent); }
+.dashboard-scope .border-text-muted\/15 { border-color: color-mix(in srgb, var(--color-text-muted) 15%, transparent); }
+.dashboard-scope .border-text-muted\/20 { border-color: color-mix(in srgb, var(--color-text-muted) 20%, transparent); }
+.dashboard-scope .border-text-muted\/22 { border-color: color-mix(in srgb, var(--color-text-muted) 22%, transparent); }
+.dashboard-scope .border-text-muted\/25 { border-color: color-mix(in srgb, var(--color-text-muted) 25%, transparent); }
+.dashboard-scope .border-text-muted\/30 { border-color: color-mix(in srgb, var(--color-text-muted) 30%, transparent); }
+.dashboard-scope .border-text-muted\/35 { border-color: color-mix(in srgb, var(--color-text-muted) 35%, transparent); }
+.dashboard-scope .border-text-muted\/40 { border-color: color-mix(in srgb, var(--color-text-muted) 40%, transparent); }
+.dashboard-scope .border-text-muted\/50 { border-color: color-mix(in srgb, var(--color-text-muted) 50%, transparent); }
+.dashboard-scope .border-text-muted\/60 { border-color: color-mix(in srgb, var(--color-text-muted) 60%, transparent); }
+.dashboard-scope .border-text-muted\/70 { border-color: color-mix(in srgb, var(--color-text-muted) 70%, transparent); }
+.dashboard-scope .border-text-muted\/80 { border-color: color-mix(in srgb, var(--color-text-muted) 80%, transparent); }
+.dashboard-scope .border-text-muted\/90 { border-color: color-mix(in srgb, var(--color-text-muted) 90%, transparent); }
+.dashboard-scope .border-text-muted\/95 { border-color: color-mix(in srgb, var(--color-text-muted) 95%, transparent); }
+.dashboard-scope .bg-text-accent { background-color: var(--color-text-accent); }
+.dashboard-scope .bg-text-accent\/5 { background-color: color-mix(in srgb, var(--color-text-accent) 5%, transparent); }
+.dashboard-scope .bg-text-accent\/8 { background-color: color-mix(in srgb, var(--color-text-accent) 8%, transparent); }
+.dashboard-scope .bg-text-accent\/10 { background-color: color-mix(in srgb, var(--color-text-accent) 10%, transparent); }
+.dashboard-scope .bg-text-accent\/12 { background-color: color-mix(in srgb, var(--color-text-accent) 12%, transparent); }
+.dashboard-scope .bg-text-accent\/15 { background-color: color-mix(in srgb, var(--color-text-accent) 15%, transparent); }
+.dashboard-scope .bg-text-accent\/20 { background-color: color-mix(in srgb, var(--color-text-accent) 20%, transparent); }
+.dashboard-scope .bg-text-accent\/22 { background-color: color-mix(in srgb, var(--color-text-accent) 22%, transparent); }
+.dashboard-scope .bg-text-accent\/25 { background-color: color-mix(in srgb, var(--color-text-accent) 25%, transparent); }
+.dashboard-scope .bg-text-accent\/30 { background-color: color-mix(in srgb, var(--color-text-accent) 30%, transparent); }
+.dashboard-scope .bg-text-accent\/35 { background-color: color-mix(in srgb, var(--color-text-accent) 35%, transparent); }
+.dashboard-scope .bg-text-accent\/40 { background-color: color-mix(in srgb, var(--color-text-accent) 40%, transparent); }
+.dashboard-scope .bg-text-accent\/50 { background-color: color-mix(in srgb, var(--color-text-accent) 50%, transparent); }
+.dashboard-scope .bg-text-accent\/60 { background-color: color-mix(in srgb, var(--color-text-accent) 60%, transparent); }
+.dashboard-scope .bg-text-accent\/70 { background-color: color-mix(in srgb, var(--color-text-accent) 70%, transparent); }
+.dashboard-scope .bg-text-accent\/80 { background-color: color-mix(in srgb, var(--color-text-accent) 80%, transparent); }
+.dashboard-scope .bg-text-accent\/90 { background-color: color-mix(in srgb, var(--color-text-accent) 90%, transparent); }
+.dashboard-scope .bg-text-accent\/95 { background-color: color-mix(in srgb, var(--color-text-accent) 95%, transparent); }
+.dashboard-scope .text-text-accent { color: var(--color-text-accent); }
+.dashboard-scope .text-text-accent\/5 { color: color-mix(in srgb, var(--color-text-accent) 5%, transparent); }
+.dashboard-scope .text-text-accent\/8 { color: color-mix(in srgb, var(--color-text-accent) 8%, transparent); }
+.dashboard-scope .text-text-accent\/10 { color: color-mix(in srgb, var(--color-text-accent) 10%, transparent); }
+.dashboard-scope .text-text-accent\/12 { color: color-mix(in srgb, var(--color-text-accent) 12%, transparent); }
+.dashboard-scope .text-text-accent\/15 { color: color-mix(in srgb, var(--color-text-accent) 15%, transparent); }
+.dashboard-scope .text-text-accent\/20 { color: color-mix(in srgb, var(--color-text-accent) 20%, transparent); }
+.dashboard-scope .text-text-accent\/22 { color: color-mix(in srgb, var(--color-text-accent) 22%, transparent); }
+.dashboard-scope .text-text-accent\/25 { color: color-mix(in srgb, var(--color-text-accent) 25%, transparent); }
+.dashboard-scope .text-text-accent\/30 { color: color-mix(in srgb, var(--color-text-accent) 30%, transparent); }
+.dashboard-scope .text-text-accent\/35 { color: color-mix(in srgb, var(--color-text-accent) 35%, transparent); }
+.dashboard-scope .text-text-accent\/40 { color: color-mix(in srgb, var(--color-text-accent) 40%, transparent); }
+.dashboard-scope .text-text-accent\/50 { color: color-mix(in srgb, var(--color-text-accent) 50%, transparent); }
+.dashboard-scope .text-text-accent\/60 { color: color-mix(in srgb, var(--color-text-accent) 60%, transparent); }
+.dashboard-scope .text-text-accent\/70 { color: color-mix(in srgb, var(--color-text-accent) 70%, transparent); }
+.dashboard-scope .text-text-accent\/80 { color: color-mix(in srgb, var(--color-text-accent) 80%, transparent); }
+.dashboard-scope .text-text-accent\/90 { color: color-mix(in srgb, var(--color-text-accent) 90%, transparent); }
+.dashboard-scope .text-text-accent\/95 { color: color-mix(in srgb, var(--color-text-accent) 95%, transparent); }
+.dashboard-scope .border-text-accent { border-color: var(--color-text-accent); }
+.dashboard-scope .border-text-accent\/5 { border-color: color-mix(in srgb, var(--color-text-accent) 5%, transparent); }
+.dashboard-scope .border-text-accent\/8 { border-color: color-mix(in srgb, var(--color-text-accent) 8%, transparent); }
+.dashboard-scope .border-text-accent\/10 { border-color: color-mix(in srgb, var(--color-text-accent) 10%, transparent); }
+.dashboard-scope .border-text-accent\/12 { border-color: color-mix(in srgb, var(--color-text-accent) 12%, transparent); }
+.dashboard-scope .border-text-accent\/15 { border-color: color-mix(in srgb, var(--color-text-accent) 15%, transparent); }
+.dashboard-scope .border-text-accent\/20 { border-color: color-mix(in srgb, var(--color-text-accent) 20%, transparent); }
+.dashboard-scope .border-text-accent\/22 { border-color: color-mix(in srgb, var(--color-text-accent) 22%, transparent); }
+.dashboard-scope .border-text-accent\/25 { border-color: color-mix(in srgb, var(--color-text-accent) 25%, transparent); }
+.dashboard-scope .border-text-accent\/30 { border-color: color-mix(in srgb, var(--color-text-accent) 30%, transparent); }
+.dashboard-scope .border-text-accent\/35 { border-color: color-mix(in srgb, var(--color-text-accent) 35%, transparent); }
+.dashboard-scope .border-text-accent\/40 { border-color: color-mix(in srgb, var(--color-text-accent) 40%, transparent); }
+.dashboard-scope .border-text-accent\/50 { border-color: color-mix(in srgb, var(--color-text-accent) 50%, transparent); }
+.dashboard-scope .border-text-accent\/60 { border-color: color-mix(in srgb, var(--color-text-accent) 60%, transparent); }
+.dashboard-scope .border-text-accent\/70 { border-color: color-mix(in srgb, var(--color-text-accent) 70%, transparent); }
+.dashboard-scope .border-text-accent\/80 { border-color: color-mix(in srgb, var(--color-text-accent) 80%, transparent); }
+.dashboard-scope .border-text-accent\/90 { border-color: color-mix(in srgb, var(--color-text-accent) 90%, transparent); }
+.dashboard-scope .border-text-accent\/95 { border-color: color-mix(in srgb, var(--color-text-accent) 95%, transparent); }
+.dashboard-scope .bg-border-subtle { background-color: var(--color-border-subtle); }
+.dashboard-scope .bg-border-subtle\/5 { background-color: color-mix(in srgb, var(--color-border-subtle) 5%, transparent); }
+.dashboard-scope .bg-border-subtle\/8 { background-color: color-mix(in srgb, var(--color-border-subtle) 8%, transparent); }
+.dashboard-scope .bg-border-subtle\/10 { background-color: color-mix(in srgb, var(--color-border-subtle) 10%, transparent); }
+.dashboard-scope .bg-border-subtle\/12 { background-color: color-mix(in srgb, var(--color-border-subtle) 12%, transparent); }
+.dashboard-scope .bg-border-subtle\/15 { background-color: color-mix(in srgb, var(--color-border-subtle) 15%, transparent); }
+.dashboard-scope .bg-border-subtle\/20 { background-color: color-mix(in srgb, var(--color-border-subtle) 20%, transparent); }
+.dashboard-scope .bg-border-subtle\/22 { background-color: color-mix(in srgb, var(--color-border-subtle) 22%, transparent); }
+.dashboard-scope .bg-border-subtle\/25 { background-color: color-mix(in srgb, var(--color-border-subtle) 25%, transparent); }
+.dashboard-scope .bg-border-subtle\/30 { background-color: color-mix(in srgb, var(--color-border-subtle) 30%, transparent); }
+.dashboard-scope .bg-border-subtle\/35 { background-color: color-mix(in srgb, var(--color-border-subtle) 35%, transparent); }
+.dashboard-scope .bg-border-subtle\/40 { background-color: color-mix(in srgb, var(--color-border-subtle) 40%, transparent); }
+.dashboard-scope .bg-border-subtle\/50 { background-color: color-mix(in srgb, var(--color-border-subtle) 50%, transparent); }
+.dashboard-scope .bg-border-subtle\/60 { background-color: color-mix(in srgb, var(--color-border-subtle) 60%, transparent); }
+.dashboard-scope .bg-border-subtle\/70 { background-color: color-mix(in srgb, var(--color-border-subtle) 70%, transparent); }
+.dashboard-scope .bg-border-subtle\/80 { background-color: color-mix(in srgb, var(--color-border-subtle) 80%, transparent); }
+.dashboard-scope .bg-border-subtle\/90 { background-color: color-mix(in srgb, var(--color-border-subtle) 90%, transparent); }
+.dashboard-scope .bg-border-subtle\/95 { background-color: color-mix(in srgb, var(--color-border-subtle) 95%, transparent); }
+.dashboard-scope .text-border-subtle { color: var(--color-border-subtle); }
+.dashboard-scope .text-border-subtle\/5 { color: color-mix(in srgb, var(--color-border-subtle) 5%, transparent); }
+.dashboard-scope .text-border-subtle\/8 { color: color-mix(in srgb, var(--color-border-subtle) 8%, transparent); }
+.dashboard-scope .text-border-subtle\/10 { color: color-mix(in srgb, var(--color-border-subtle) 10%, transparent); }
+.dashboard-scope .text-border-subtle\/12 { color: color-mix(in srgb, var(--color-border-subtle) 12%, transparent); }
+.dashboard-scope .text-border-subtle\/15 { color: color-mix(in srgb, var(--color-border-subtle) 15%, transparent); }
+.dashboard-scope .text-border-subtle\/20 { color: color-mix(in srgb, var(--color-border-subtle) 20%, transparent); }
+.dashboard-scope .text-border-subtle\/22 { color: color-mix(in srgb, var(--color-border-subtle) 22%, transparent); }
+.dashboard-scope .text-border-subtle\/25 { color: color-mix(in srgb, var(--color-border-subtle) 25%, transparent); }
+.dashboard-scope .text-border-subtle\/30 { color: color-mix(in srgb, var(--color-border-subtle) 30%, transparent); }
+.dashboard-scope .text-border-subtle\/35 { color: color-mix(in srgb, var(--color-border-subtle) 35%, transparent); }
+.dashboard-scope .text-border-subtle\/40 { color: color-mix(in srgb, var(--color-border-subtle) 40%, transparent); }
+.dashboard-scope .text-border-subtle\/50 { color: color-mix(in srgb, var(--color-border-subtle) 50%, transparent); }
+.dashboard-scope .text-border-subtle\/60 { color: color-mix(in srgb, var(--color-border-subtle) 60%, transparent); }
+.dashboard-scope .text-border-subtle\/70 { color: color-mix(in srgb, var(--color-border-subtle) 70%, transparent); }
+.dashboard-scope .text-border-subtle\/80 { color: color-mix(in srgb, var(--color-border-subtle) 80%, transparent); }
+.dashboard-scope .text-border-subtle\/90 { color: color-mix(in srgb, var(--color-border-subtle) 90%, transparent); }
+.dashboard-scope .text-border-subtle\/95 { color: color-mix(in srgb, var(--color-border-subtle) 95%, transparent); }
+.dashboard-scope .border-border-subtle { border-color: var(--color-border-subtle); }
+.dashboard-scope .border-border-subtle\/5 { border-color: color-mix(in srgb, var(--color-border-subtle) 5%, transparent); }
+.dashboard-scope .border-border-subtle\/8 { border-color: color-mix(in srgb, var(--color-border-subtle) 8%, transparent); }
+.dashboard-scope .border-border-subtle\/10 { border-color: color-mix(in srgb, var(--color-border-subtle) 10%, transparent); }
+.dashboard-scope .border-border-subtle\/12 { border-color: color-mix(in srgb, var(--color-border-subtle) 12%, transparent); }
+.dashboard-scope .border-border-subtle\/15 { border-color: color-mix(in srgb, var(--color-border-subtle) 15%, transparent); }
+.dashboard-scope .border-border-subtle\/20 { border-color: color-mix(in srgb, var(--color-border-subtle) 20%, transparent); }
+.dashboard-scope .border-border-subtle\/22 { border-color: color-mix(in srgb, var(--color-border-subtle) 22%, transparent); }
+.dashboard-scope .border-border-subtle\/25 { border-color: color-mix(in srgb, var(--color-border-subtle) 25%, transparent); }
+.dashboard-scope .border-border-subtle\/30 { border-color: color-mix(in srgb, var(--color-border-subtle) 30%, transparent); }
+.dashboard-scope .border-border-subtle\/35 { border-color: color-mix(in srgb, var(--color-border-subtle) 35%, transparent); }
+.dashboard-scope .border-border-subtle\/40 { border-color: color-mix(in srgb, var(--color-border-subtle) 40%, transparent); }
+.dashboard-scope .border-border-subtle\/50 { border-color: color-mix(in srgb, var(--color-border-subtle) 50%, transparent); }
+.dashboard-scope .border-border-subtle\/60 { border-color: color-mix(in srgb, var(--color-border-subtle) 60%, transparent); }
+.dashboard-scope .border-border-subtle\/70 { border-color: color-mix(in srgb, var(--color-border-subtle) 70%, transparent); }
+.dashboard-scope .border-border-subtle\/80 { border-color: color-mix(in srgb, var(--color-border-subtle) 80%, transparent); }
+.dashboard-scope .border-border-subtle\/90 { border-color: color-mix(in srgb, var(--color-border-subtle) 90%, transparent); }
+.dashboard-scope .border-border-subtle\/95 { border-color: color-mix(in srgb, var(--color-border-subtle) 95%, transparent); }
+.dashboard-scope .bg-border-hover { background-color: var(--color-border-hover); }
+.dashboard-scope .bg-border-hover\/5 { background-color: color-mix(in srgb, var(--color-border-hover) 5%, transparent); }
+.dashboard-scope .bg-border-hover\/8 { background-color: color-mix(in srgb, var(--color-border-hover) 8%, transparent); }
+.dashboard-scope .bg-border-hover\/10 { background-color: color-mix(in srgb, var(--color-border-hover) 10%, transparent); }
+.dashboard-scope .bg-border-hover\/12 { background-color: color-mix(in srgb, var(--color-border-hover) 12%, transparent); }
+.dashboard-scope .bg-border-hover\/15 { background-color: color-mix(in srgb, var(--color-border-hover) 15%, transparent); }
+.dashboard-scope .bg-border-hover\/20 { background-color: color-mix(in srgb, var(--color-border-hover) 20%, transparent); }
+.dashboard-scope .bg-border-hover\/22 { background-color: color-mix(in srgb, var(--color-border-hover) 22%, transparent); }
+.dashboard-scope .bg-border-hover\/25 { background-color: color-mix(in srgb, var(--color-border-hover) 25%, transparent); }
+.dashboard-scope .bg-border-hover\/30 { background-color: color-mix(in srgb, var(--color-border-hover) 30%, transparent); }
+.dashboard-scope .bg-border-hover\/35 { background-color: color-mix(in srgb, var(--color-border-hover) 35%, transparent); }
+.dashboard-scope .bg-border-hover\/40 { background-color: color-mix(in srgb, var(--color-border-hover) 40%, transparent); }
+.dashboard-scope .bg-border-hover\/50 { background-color: color-mix(in srgb, var(--color-border-hover) 50%, transparent); }
+.dashboard-scope .bg-border-hover\/60 { background-color: color-mix(in srgb, var(--color-border-hover) 60%, transparent); }
+.dashboard-scope .bg-border-hover\/70 { background-color: color-mix(in srgb, var(--color-border-hover) 70%, transparent); }
+.dashboard-scope .bg-border-hover\/80 { background-color: color-mix(in srgb, var(--color-border-hover) 80%, transparent); }
+.dashboard-scope .bg-border-hover\/90 { background-color: color-mix(in srgb, var(--color-border-hover) 90%, transparent); }
+.dashboard-scope .bg-border-hover\/95 { background-color: color-mix(in srgb, var(--color-border-hover) 95%, transparent); }
+.dashboard-scope .text-border-hover { color: var(--color-border-hover); }
+.dashboard-scope .text-border-hover\/5 { color: color-mix(in srgb, var(--color-border-hover) 5%, transparent); }
+.dashboard-scope .text-border-hover\/8 { color: color-mix(in srgb, var(--color-border-hover) 8%, transparent); }
+.dashboard-scope .text-border-hover\/10 { color: color-mix(in srgb, var(--color-border-hover) 10%, transparent); }
+.dashboard-scope .text-border-hover\/12 { color: color-mix(in srgb, var(--color-border-hover) 12%, transparent); }
+.dashboard-scope .text-border-hover\/15 { color: color-mix(in srgb, var(--color-border-hover) 15%, transparent); }
+.dashboard-scope .text-border-hover\/20 { color: color-mix(in srgb, var(--color-border-hover) 20%, transparent); }
+.dashboard-scope .text-border-hover\/22 { color: color-mix(in srgb, var(--color-border-hover) 22%, transparent); }
+.dashboard-scope .text-border-hover\/25 { color: color-mix(in srgb, var(--color-border-hover) 25%, transparent); }
+.dashboard-scope .text-border-hover\/30 { color: color-mix(in srgb, var(--color-border-hover) 30%, transparent); }
+.dashboard-scope .text-border-hover\/35 { color: color-mix(in srgb, var(--color-border-hover) 35%, transparent); }
+.dashboard-scope .text-border-hover\/40 { color: color-mix(in srgb, var(--color-border-hover) 40%, transparent); }
+.dashboard-scope .text-border-hover\/50 { color: color-mix(in srgb, var(--color-border-hover) 50%, transparent); }
+.dashboard-scope .text-border-hover\/60 { color: color-mix(in srgb, var(--color-border-hover) 60%, transparent); }
+.dashboard-scope .text-border-hover\/70 { color: color-mix(in srgb, var(--color-border-hover) 70%, transparent); }
+.dashboard-scope .text-border-hover\/80 { color: color-mix(in srgb, var(--color-border-hover) 80%, transparent); }
+.dashboard-scope .text-border-hover\/90 { color: color-mix(in srgb, var(--color-border-hover) 90%, transparent); }
+.dashboard-scope .text-border-hover\/95 { color: color-mix(in srgb, var(--color-border-hover) 95%, transparent); }
+.dashboard-scope .border-border-hover { border-color: var(--color-border-hover); }
+.dashboard-scope .border-border-hover\/5 { border-color: color-mix(in srgb, var(--color-border-hover) 5%, transparent); }
+.dashboard-scope .border-border-hover\/8 { border-color: color-mix(in srgb, var(--color-border-hover) 8%, transparent); }
+.dashboard-scope .border-border-hover\/10 { border-color: color-mix(in srgb, var(--color-border-hover) 10%, transparent); }
+.dashboard-scope .border-border-hover\/12 { border-color: color-mix(in srgb, var(--color-border-hover) 12%, transparent); }
+.dashboard-scope .border-border-hover\/15 { border-color: color-mix(in srgb, var(--color-border-hover) 15%, transparent); }
+.dashboard-scope .border-border-hover\/20 { border-color: color-mix(in srgb, var(--color-border-hover) 20%, transparent); }
+.dashboard-scope .border-border-hover\/22 { border-color: color-mix(in srgb, var(--color-border-hover) 22%, transparent); }
+.dashboard-scope .border-border-hover\/25 { border-color: color-mix(in srgb, var(--color-border-hover) 25%, transparent); }
+.dashboard-scope .border-border-hover\/30 { border-color: color-mix(in srgb, var(--color-border-hover) 30%, transparent); }
+.dashboard-scope .border-border-hover\/35 { border-color: color-mix(in srgb, var(--color-border-hover) 35%, transparent); }
+.dashboard-scope .border-border-hover\/40 { border-color: color-mix(in srgb, var(--color-border-hover) 40%, transparent); }
+.dashboard-scope .border-border-hover\/50 { border-color: color-mix(in srgb, var(--color-border-hover) 50%, transparent); }
+.dashboard-scope .border-border-hover\/60 { border-color: color-mix(in srgb, var(--color-border-hover) 60%, transparent); }
+.dashboard-scope .border-border-hover\/70 { border-color: color-mix(in srgb, var(--color-border-hover) 70%, transparent); }
+.dashboard-scope .border-border-hover\/80 { border-color: color-mix(in srgb, var(--color-border-hover) 80%, transparent); }
+.dashboard-scope .border-border-hover\/90 { border-color: color-mix(in srgb, var(--color-border-hover) 90%, transparent); }
+.dashboard-scope .border-border-hover\/95 { border-color: color-mix(in srgb, var(--color-border-hover) 95%, transparent); }
+.dashboard-scope .bg-border-medium { background-color: var(--color-border-medium); }
+.dashboard-scope .bg-border-medium\/5 { background-color: color-mix(in srgb, var(--color-border-medium) 5%, transparent); }
+.dashboard-scope .bg-border-medium\/8 { background-color: color-mix(in srgb, var(--color-border-medium) 8%, transparent); }
+.dashboard-scope .bg-border-medium\/10 { background-color: color-mix(in srgb, var(--color-border-medium) 10%, transparent); }
+.dashboard-scope .bg-border-medium\/12 { background-color: color-mix(in srgb, var(--color-border-medium) 12%, transparent); }
+.dashboard-scope .bg-border-medium\/15 { background-color: color-mix(in srgb, var(--color-border-medium) 15%, transparent); }
+.dashboard-scope .bg-border-medium\/20 { background-color: color-mix(in srgb, var(--color-border-medium) 20%, transparent); }
+.dashboard-scope .bg-border-medium\/22 { background-color: color-mix(in srgb, var(--color-border-medium) 22%, transparent); }
+.dashboard-scope .bg-border-medium\/25 { background-color: color-mix(in srgb, var(--color-border-medium) 25%, transparent); }
+.dashboard-scope .bg-border-medium\/30 { background-color: color-mix(in srgb, var(--color-border-medium) 30%, transparent); }
+.dashboard-scope .bg-border-medium\/35 { background-color: color-mix(in srgb, var(--color-border-medium) 35%, transparent); }
+.dashboard-scope .bg-border-medium\/40 { background-color: color-mix(in srgb, var(--color-border-medium) 40%, transparent); }
+.dashboard-scope .bg-border-medium\/50 { background-color: color-mix(in srgb, var(--color-border-medium) 50%, transparent); }
+.dashboard-scope .bg-border-medium\/60 { background-color: color-mix(in srgb, var(--color-border-medium) 60%, transparent); }
+.dashboard-scope .bg-border-medium\/70 { background-color: color-mix(in srgb, var(--color-border-medium) 70%, transparent); }
+.dashboard-scope .bg-border-medium\/80 { background-color: color-mix(in srgb, var(--color-border-medium) 80%, transparent); }
+.dashboard-scope .bg-border-medium\/90 { background-color: color-mix(in srgb, var(--color-border-medium) 90%, transparent); }
+.dashboard-scope .bg-border-medium\/95 { background-color: color-mix(in srgb, var(--color-border-medium) 95%, transparent); }
+.dashboard-scope .text-border-medium { color: var(--color-border-medium); }
+.dashboard-scope .text-border-medium\/5 { color: color-mix(in srgb, var(--color-border-medium) 5%, transparent); }
+.dashboard-scope .text-border-medium\/8 { color: color-mix(in srgb, var(--color-border-medium) 8%, transparent); }
+.dashboard-scope .text-border-medium\/10 { color: color-mix(in srgb, var(--color-border-medium) 10%, transparent); }
+.dashboard-scope .text-border-medium\/12 { color: color-mix(in srgb, var(--color-border-medium) 12%, transparent); }
+.dashboard-scope .text-border-medium\/15 { color: color-mix(in srgb, var(--color-border-medium) 15%, transparent); }
+.dashboard-scope .text-border-medium\/20 { color: color-mix(in srgb, var(--color-border-medium) 20%, transparent); }
+.dashboard-scope .text-border-medium\/22 { color: color-mix(in srgb, var(--color-border-medium) 22%, transparent); }
+.dashboard-scope .text-border-medium\/25 { color: color-mix(in srgb, var(--color-border-medium) 25%, transparent); }
+.dashboard-scope .text-border-medium\/30 { color: color-mix(in srgb, var(--color-border-medium) 30%, transparent); }
+.dashboard-scope .text-border-medium\/35 { color: color-mix(in srgb, var(--color-border-medium) 35%, transparent); }
+.dashboard-scope .text-border-medium\/40 { color: color-mix(in srgb, var(--color-border-medium) 40%, transparent); }
+.dashboard-scope .text-border-medium\/50 { color: color-mix(in srgb, var(--color-border-medium) 50%, transparent); }
+.dashboard-scope .text-border-medium\/60 { color: color-mix(in srgb, var(--color-border-medium) 60%, transparent); }
+.dashboard-scope .text-border-medium\/70 { color: color-mix(in srgb, var(--color-border-medium) 70%, transparent); }
+.dashboard-scope .text-border-medium\/80 { color: color-mix(in srgb, var(--color-border-medium) 80%, transparent); }
+.dashboard-scope .text-border-medium\/90 { color: color-mix(in srgb, var(--color-border-medium) 90%, transparent); }
+.dashboard-scope .text-border-medium\/95 { color: color-mix(in srgb, var(--color-border-medium) 95%, transparent); }
+.dashboard-scope .border-border-medium { border-color: var(--color-border-medium); }
+.dashboard-scope .border-border-medium\/5 { border-color: color-mix(in srgb, var(--color-border-medium) 5%, transparent); }
+.dashboard-scope .border-border-medium\/8 { border-color: color-mix(in srgb, var(--color-border-medium) 8%, transparent); }
+.dashboard-scope .border-border-medium\/10 { border-color: color-mix(in srgb, var(--color-border-medium) 10%, transparent); }
+.dashboard-scope .border-border-medium\/12 { border-color: color-mix(in srgb, var(--color-border-medium) 12%, transparent); }
+.dashboard-scope .border-border-medium\/15 { border-color: color-mix(in srgb, var(--color-border-medium) 15%, transparent); }
+.dashboard-scope .border-border-medium\/20 { border-color: color-mix(in srgb, var(--color-border-medium) 20%, transparent); }
+.dashboard-scope .border-border-medium\/22 { border-color: color-mix(in srgb, var(--color-border-medium) 22%, transparent); }
+.dashboard-scope .border-border-medium\/25 { border-color: color-mix(in srgb, var(--color-border-medium) 25%, transparent); }
+.dashboard-scope .border-border-medium\/30 { border-color: color-mix(in srgb, var(--color-border-medium) 30%, transparent); }
+.dashboard-scope .border-border-medium\/35 { border-color: color-mix(in srgb, var(--color-border-medium) 35%, transparent); }
+.dashboard-scope .border-border-medium\/40 { border-color: color-mix(in srgb, var(--color-border-medium) 40%, transparent); }
+.dashboard-scope .border-border-medium\/50 { border-color: color-mix(in srgb, var(--color-border-medium) 50%, transparent); }
+.dashboard-scope .border-border-medium\/60 { border-color: color-mix(in srgb, var(--color-border-medium) 60%, transparent); }
+.dashboard-scope .border-border-medium\/70 { border-color: color-mix(in srgb, var(--color-border-medium) 70%, transparent); }
+.dashboard-scope .border-border-medium\/80 { border-color: color-mix(in srgb, var(--color-border-medium) 80%, transparent); }
+.dashboard-scope .border-border-medium\/90 { border-color: color-mix(in srgb, var(--color-border-medium) 90%, transparent); }
+.dashboard-scope .border-border-medium\/95 { border-color: color-mix(in srgb, var(--color-border-medium) 95%, transparent); }
+.dashboard-scope .bg-border-bright { background-color: var(--color-border-bright); }
+.dashboard-scope .bg-border-bright\/5 { background-color: color-mix(in srgb, var(--color-border-bright) 5%, transparent); }
+.dashboard-scope .bg-border-bright\/8 { background-color: color-mix(in srgb, var(--color-border-bright) 8%, transparent); }
+.dashboard-scope .bg-border-bright\/10 { background-color: color-mix(in srgb, var(--color-border-bright) 10%, transparent); }
+.dashboard-scope .bg-border-bright\/12 { background-color: color-mix(in srgb, var(--color-border-bright) 12%, transparent); }
+.dashboard-scope .bg-border-bright\/15 { background-color: color-mix(in srgb, var(--color-border-bright) 15%, transparent); }
+.dashboard-scope .bg-border-bright\/20 { background-color: color-mix(in srgb, var(--color-border-bright) 20%, transparent); }
+.dashboard-scope .bg-border-bright\/22 { background-color: color-mix(in srgb, var(--color-border-bright) 22%, transparent); }
+.dashboard-scope .bg-border-bright\/25 { background-color: color-mix(in srgb, var(--color-border-bright) 25%, transparent); }
+.dashboard-scope .bg-border-bright\/30 { background-color: color-mix(in srgb, var(--color-border-bright) 30%, transparent); }
+.dashboard-scope .bg-border-bright\/35 { background-color: color-mix(in srgb, var(--color-border-bright) 35%, transparent); }
+.dashboard-scope .bg-border-bright\/40 { background-color: color-mix(in srgb, var(--color-border-bright) 40%, transparent); }
+.dashboard-scope .bg-border-bright\/50 { background-color: color-mix(in srgb, var(--color-border-bright) 50%, transparent); }
+.dashboard-scope .bg-border-bright\/60 { background-color: color-mix(in srgb, var(--color-border-bright) 60%, transparent); }
+.dashboard-scope .bg-border-bright\/70 { background-color: color-mix(in srgb, var(--color-border-bright) 70%, transparent); }
+.dashboard-scope .bg-border-bright\/80 { background-color: color-mix(in srgb, var(--color-border-bright) 80%, transparent); }
+.dashboard-scope .bg-border-bright\/90 { background-color: color-mix(in srgb, var(--color-border-bright) 90%, transparent); }
+.dashboard-scope .bg-border-bright\/95 { background-color: color-mix(in srgb, var(--color-border-bright) 95%, transparent); }
+.dashboard-scope .text-border-bright { color: var(--color-border-bright); }
+.dashboard-scope .text-border-bright\/5 { color: color-mix(in srgb, var(--color-border-bright) 5%, transparent); }
+.dashboard-scope .text-border-bright\/8 { color: color-mix(in srgb, var(--color-border-bright) 8%, transparent); }
+.dashboard-scope .text-border-bright\/10 { color: color-mix(in srgb, var(--color-border-bright) 10%, transparent); }
+.dashboard-scope .text-border-bright\/12 { color: color-mix(in srgb, var(--color-border-bright) 12%, transparent); }
+.dashboard-scope .text-border-bright\/15 { color: color-mix(in srgb, var(--color-border-bright) 15%, transparent); }
+.dashboard-scope .text-border-bright\/20 { color: color-mix(in srgb, var(--color-border-bright) 20%, transparent); }
+.dashboard-scope .text-border-bright\/22 { color: color-mix(in srgb, var(--color-border-bright) 22%, transparent); }
+.dashboard-scope .text-border-bright\/25 { color: color-mix(in srgb, var(--color-border-bright) 25%, transparent); }
+.dashboard-scope .text-border-bright\/30 { color: color-mix(in srgb, var(--color-border-bright) 30%, transparent); }
+.dashboard-scope .text-border-bright\/35 { color: color-mix(in srgb, var(--color-border-bright) 35%, transparent); }
+.dashboard-scope .text-border-bright\/40 { color: color-mix(in srgb, var(--color-border-bright) 40%, transparent); }
+.dashboard-scope .text-border-bright\/50 { color: color-mix(in srgb, var(--color-border-bright) 50%, transparent); }
+.dashboard-scope .text-border-bright\/60 { color: color-mix(in srgb, var(--color-border-bright) 60%, transparent); }
+.dashboard-scope .text-border-bright\/70 { color: color-mix(in srgb, var(--color-border-bright) 70%, transparent); }
+.dashboard-scope .text-border-bright\/80 { color: color-mix(in srgb, var(--color-border-bright) 80%, transparent); }
+.dashboard-scope .text-border-bright\/90 { color: color-mix(in srgb, var(--color-border-bright) 90%, transparent); }
+.dashboard-scope .text-border-bright\/95 { color: color-mix(in srgb, var(--color-border-bright) 95%, transparent); }
+.dashboard-scope .border-border-bright { border-color: var(--color-border-bright); }
+.dashboard-scope .border-border-bright\/5 { border-color: color-mix(in srgb, var(--color-border-bright) 5%, transparent); }
+.dashboard-scope .border-border-bright\/8 { border-color: color-mix(in srgb, var(--color-border-bright) 8%, transparent); }
+.dashboard-scope .border-border-bright\/10 { border-color: color-mix(in srgb, var(--color-border-bright) 10%, transparent); }
+.dashboard-scope .border-border-bright\/12 { border-color: color-mix(in srgb, var(--color-border-bright) 12%, transparent); }
+.dashboard-scope .border-border-bright\/15 { border-color: color-mix(in srgb, var(--color-border-bright) 15%, transparent); }
+.dashboard-scope .border-border-bright\/20 { border-color: color-mix(in srgb, var(--color-border-bright) 20%, transparent); }
+.dashboard-scope .border-border-bright\/22 { border-color: color-mix(in srgb, var(--color-border-bright) 22%, transparent); }
+.dashboard-scope .border-border-bright\/25 { border-color: color-mix(in srgb, var(--color-border-bright) 25%, transparent); }
+.dashboard-scope .border-border-bright\/30 { border-color: color-mix(in srgb, var(--color-border-bright) 30%, transparent); }
+.dashboard-scope .border-border-bright\/35 { border-color: color-mix(in srgb, var(--color-border-bright) 35%, transparent); }
+.dashboard-scope .border-border-bright\/40 { border-color: color-mix(in srgb, var(--color-border-bright) 40%, transparent); }
+.dashboard-scope .border-border-bright\/50 { border-color: color-mix(in srgb, var(--color-border-bright) 50%, transparent); }
+.dashboard-scope .border-border-bright\/60 { border-color: color-mix(in srgb, var(--color-border-bright) 60%, transparent); }
+.dashboard-scope .border-border-bright\/70 { border-color: color-mix(in srgb, var(--color-border-bright) 70%, transparent); }
+.dashboard-scope .border-border-bright\/80 { border-color: color-mix(in srgb, var(--color-border-bright) 80%, transparent); }
+.dashboard-scope .border-border-bright\/90 { border-color: color-mix(in srgb, var(--color-border-bright) 90%, transparent); }
+.dashboard-scope .border-border-bright\/95 { border-color: color-mix(in srgb, var(--color-border-bright) 95%, transparent); }
+.dashboard-scope .bg-accent { background-color: var(--color-accent); }
+.dashboard-scope .bg-accent\/5 { background-color: color-mix(in srgb, var(--color-accent) 5%, transparent); }
+.dashboard-scope .bg-accent\/8 { background-color: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+.dashboard-scope .bg-accent\/10 { background-color: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.dashboard-scope .bg-accent\/12 { background-color: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.dashboard-scope .bg-accent\/15 { background-color: color-mix(in srgb, var(--color-accent) 15%, transparent); }
+.dashboard-scope .bg-accent\/20 { background-color: color-mix(in srgb, var(--color-accent) 20%, transparent); }
+.dashboard-scope .bg-accent\/22 { background-color: color-mix(in srgb, var(--color-accent) 22%, transparent); }
+.dashboard-scope .bg-accent\/25 { background-color: color-mix(in srgb, var(--color-accent) 25%, transparent); }
+.dashboard-scope .bg-accent\/30 { background-color: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+.dashboard-scope .bg-accent\/35 { background-color: color-mix(in srgb, var(--color-accent) 35%, transparent); }
+.dashboard-scope .bg-accent\/40 { background-color: color-mix(in srgb, var(--color-accent) 40%, transparent); }
+.dashboard-scope .bg-accent\/50 { background-color: color-mix(in srgb, var(--color-accent) 50%, transparent); }
+.dashboard-scope .bg-accent\/60 { background-color: color-mix(in srgb, var(--color-accent) 60%, transparent); }
+.dashboard-scope .bg-accent\/70 { background-color: color-mix(in srgb, var(--color-accent) 70%, transparent); }
+.dashboard-scope .bg-accent\/80 { background-color: color-mix(in srgb, var(--color-accent) 80%, transparent); }
+.dashboard-scope .bg-accent\/90 { background-color: color-mix(in srgb, var(--color-accent) 90%, transparent); }
+.dashboard-scope .bg-accent\/95 { background-color: color-mix(in srgb, var(--color-accent) 95%, transparent); }
+.dashboard-scope .text-accent { color: var(--color-accent); }
+.dashboard-scope .text-accent\/5 { color: color-mix(in srgb, var(--color-accent) 5%, transparent); }
+.dashboard-scope .text-accent\/8 { color: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+.dashboard-scope .text-accent\/10 { color: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.dashboard-scope .text-accent\/12 { color: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.dashboard-scope .text-accent\/15 { color: color-mix(in srgb, var(--color-accent) 15%, transparent); }
+.dashboard-scope .text-accent\/20 { color: color-mix(in srgb, var(--color-accent) 20%, transparent); }
+.dashboard-scope .text-accent\/22 { color: color-mix(in srgb, var(--color-accent) 22%, transparent); }
+.dashboard-scope .text-accent\/25 { color: color-mix(in srgb, var(--color-accent) 25%, transparent); }
+.dashboard-scope .text-accent\/30 { color: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+.dashboard-scope .text-accent\/35 { color: color-mix(in srgb, var(--color-accent) 35%, transparent); }
+.dashboard-scope .text-accent\/40 { color: color-mix(in srgb, var(--color-accent) 40%, transparent); }
+.dashboard-scope .text-accent\/50 { color: color-mix(in srgb, var(--color-accent) 50%, transparent); }
+.dashboard-scope .text-accent\/60 { color: color-mix(in srgb, var(--color-accent) 60%, transparent); }
+.dashboard-scope .text-accent\/70 { color: color-mix(in srgb, var(--color-accent) 70%, transparent); }
+.dashboard-scope .text-accent\/80 { color: color-mix(in srgb, var(--color-accent) 80%, transparent); }
+.dashboard-scope .text-accent\/90 { color: color-mix(in srgb, var(--color-accent) 90%, transparent); }
+.dashboard-scope .text-accent\/95 { color: color-mix(in srgb, var(--color-accent) 95%, transparent); }
+.dashboard-scope .border-accent { border-color: var(--color-accent); }
+.dashboard-scope .border-accent\/5 { border-color: color-mix(in srgb, var(--color-accent) 5%, transparent); }
+.dashboard-scope .border-accent\/8 { border-color: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+.dashboard-scope .border-accent\/10 { border-color: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.dashboard-scope .border-accent\/12 { border-color: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.dashboard-scope .border-accent\/15 { border-color: color-mix(in srgb, var(--color-accent) 15%, transparent); }
+.dashboard-scope .border-accent\/20 { border-color: color-mix(in srgb, var(--color-accent) 20%, transparent); }
+.dashboard-scope .border-accent\/22 { border-color: color-mix(in srgb, var(--color-accent) 22%, transparent); }
+.dashboard-scope .border-accent\/25 { border-color: color-mix(in srgb, var(--color-accent) 25%, transparent); }
+.dashboard-scope .border-accent\/30 { border-color: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+.dashboard-scope .border-accent\/35 { border-color: color-mix(in srgb, var(--color-accent) 35%, transparent); }
+.dashboard-scope .border-accent\/40 { border-color: color-mix(in srgb, var(--color-accent) 40%, transparent); }
+.dashboard-scope .border-accent\/50 { border-color: color-mix(in srgb, var(--color-accent) 50%, transparent); }
+.dashboard-scope .border-accent\/60 { border-color: color-mix(in srgb, var(--color-accent) 60%, transparent); }
+.dashboard-scope .border-accent\/70 { border-color: color-mix(in srgb, var(--color-accent) 70%, transparent); }
+.dashboard-scope .border-accent\/80 { border-color: color-mix(in srgb, var(--color-accent) 80%, transparent); }
+.dashboard-scope .border-accent\/90 { border-color: color-mix(in srgb, var(--color-accent) 90%, transparent); }
+.dashboard-scope .border-accent\/95 { border-color: color-mix(in srgb, var(--color-accent) 95%, transparent); }
+.dashboard-scope .bg-accent-hover { background-color: var(--color-accent-hover); }
+.dashboard-scope .bg-accent-hover\/5 { background-color: color-mix(in srgb, var(--color-accent-hover) 5%, transparent); }
+.dashboard-scope .bg-accent-hover\/8 { background-color: color-mix(in srgb, var(--color-accent-hover) 8%, transparent); }
+.dashboard-scope .bg-accent-hover\/10 { background-color: color-mix(in srgb, var(--color-accent-hover) 10%, transparent); }
+.dashboard-scope .bg-accent-hover\/12 { background-color: color-mix(in srgb, var(--color-accent-hover) 12%, transparent); }
+.dashboard-scope .bg-accent-hover\/15 { background-color: color-mix(in srgb, var(--color-accent-hover) 15%, transparent); }
+.dashboard-scope .bg-accent-hover\/20 { background-color: color-mix(in srgb, var(--color-accent-hover) 20%, transparent); }
+.dashboard-scope .bg-accent-hover\/22 { background-color: color-mix(in srgb, var(--color-accent-hover) 22%, transparent); }
+.dashboard-scope .bg-accent-hover\/25 { background-color: color-mix(in srgb, var(--color-accent-hover) 25%, transparent); }
+.dashboard-scope .bg-accent-hover\/30 { background-color: color-mix(in srgb, var(--color-accent-hover) 30%, transparent); }
+.dashboard-scope .bg-accent-hover\/35 { background-color: color-mix(in srgb, var(--color-accent-hover) 35%, transparent); }
+.dashboard-scope .bg-accent-hover\/40 { background-color: color-mix(in srgb, var(--color-accent-hover) 40%, transparent); }
+.dashboard-scope .bg-accent-hover\/50 { background-color: color-mix(in srgb, var(--color-accent-hover) 50%, transparent); }
+.dashboard-scope .bg-accent-hover\/60 { background-color: color-mix(in srgb, var(--color-accent-hover) 60%, transparent); }
+.dashboard-scope .bg-accent-hover\/70 { background-color: color-mix(in srgb, var(--color-accent-hover) 70%, transparent); }
+.dashboard-scope .bg-accent-hover\/80 { background-color: color-mix(in srgb, var(--color-accent-hover) 80%, transparent); }
+.dashboard-scope .bg-accent-hover\/90 { background-color: color-mix(in srgb, var(--color-accent-hover) 90%, transparent); }
+.dashboard-scope .bg-accent-hover\/95 { background-color: color-mix(in srgb, var(--color-accent-hover) 95%, transparent); }
+.dashboard-scope .text-accent-hover { color: var(--color-accent-hover); }
+.dashboard-scope .text-accent-hover\/5 { color: color-mix(in srgb, var(--color-accent-hover) 5%, transparent); }
+.dashboard-scope .text-accent-hover\/8 { color: color-mix(in srgb, var(--color-accent-hover) 8%, transparent); }
+.dashboard-scope .text-accent-hover\/10 { color: color-mix(in srgb, var(--color-accent-hover) 10%, transparent); }
+.dashboard-scope .text-accent-hover\/12 { color: color-mix(in srgb, var(--color-accent-hover) 12%, transparent); }
+.dashboard-scope .text-accent-hover\/15 { color: color-mix(in srgb, var(--color-accent-hover) 15%, transparent); }
+.dashboard-scope .text-accent-hover\/20 { color: color-mix(in srgb, var(--color-accent-hover) 20%, transparent); }
+.dashboard-scope .text-accent-hover\/22 { color: color-mix(in srgb, var(--color-accent-hover) 22%, transparent); }
+.dashboard-scope .text-accent-hover\/25 { color: color-mix(in srgb, var(--color-accent-hover) 25%, transparent); }
+.dashboard-scope .text-accent-hover\/30 { color: color-mix(in srgb, var(--color-accent-hover) 30%, transparent); }
+.dashboard-scope .text-accent-hover\/35 { color: color-mix(in srgb, var(--color-accent-hover) 35%, transparent); }
+.dashboard-scope .text-accent-hover\/40 { color: color-mix(in srgb, var(--color-accent-hover) 40%, transparent); }
+.dashboard-scope .text-accent-hover\/50 { color: color-mix(in srgb, var(--color-accent-hover) 50%, transparent); }
+.dashboard-scope .text-accent-hover\/60 { color: color-mix(in srgb, var(--color-accent-hover) 60%, transparent); }
+.dashboard-scope .text-accent-hover\/70 { color: color-mix(in srgb, var(--color-accent-hover) 70%, transparent); }
+.dashboard-scope .text-accent-hover\/80 { color: color-mix(in srgb, var(--color-accent-hover) 80%, transparent); }
+.dashboard-scope .text-accent-hover\/90 { color: color-mix(in srgb, var(--color-accent-hover) 90%, transparent); }
+.dashboard-scope .text-accent-hover\/95 { color: color-mix(in srgb, var(--color-accent-hover) 95%, transparent); }
+.dashboard-scope .border-accent-hover { border-color: var(--color-accent-hover); }
+.dashboard-scope .border-accent-hover\/5 { border-color: color-mix(in srgb, var(--color-accent-hover) 5%, transparent); }
+.dashboard-scope .border-accent-hover\/8 { border-color: color-mix(in srgb, var(--color-accent-hover) 8%, transparent); }
+.dashboard-scope .border-accent-hover\/10 { border-color: color-mix(in srgb, var(--color-accent-hover) 10%, transparent); }
+.dashboard-scope .border-accent-hover\/12 { border-color: color-mix(in srgb, var(--color-accent-hover) 12%, transparent); }
+.dashboard-scope .border-accent-hover\/15 { border-color: color-mix(in srgb, var(--color-accent-hover) 15%, transparent); }
+.dashboard-scope .border-accent-hover\/20 { border-color: color-mix(in srgb, var(--color-accent-hover) 20%, transparent); }
+.dashboard-scope .border-accent-hover\/22 { border-color: color-mix(in srgb, var(--color-accent-hover) 22%, transparent); }
+.dashboard-scope .border-accent-hover\/25 { border-color: color-mix(in srgb, var(--color-accent-hover) 25%, transparent); }
+.dashboard-scope .border-accent-hover\/30 { border-color: color-mix(in srgb, var(--color-accent-hover) 30%, transparent); }
+.dashboard-scope .border-accent-hover\/35 { border-color: color-mix(in srgb, var(--color-accent-hover) 35%, transparent); }
+.dashboard-scope .border-accent-hover\/40 { border-color: color-mix(in srgb, var(--color-accent-hover) 40%, transparent); }
+.dashboard-scope .border-accent-hover\/50 { border-color: color-mix(in srgb, var(--color-accent-hover) 50%, transparent); }
+.dashboard-scope .border-accent-hover\/60 { border-color: color-mix(in srgb, var(--color-accent-hover) 60%, transparent); }
+.dashboard-scope .border-accent-hover\/70 { border-color: color-mix(in srgb, var(--color-accent-hover) 70%, transparent); }
+.dashboard-scope .border-accent-hover\/80 { border-color: color-mix(in srgb, var(--color-accent-hover) 80%, transparent); }
+.dashboard-scope .border-accent-hover\/90 { border-color: color-mix(in srgb, var(--color-accent-hover) 90%, transparent); }
+.dashboard-scope .border-accent-hover\/95 { border-color: color-mix(in srgb, var(--color-accent-hover) 95%, transparent); }
+.dashboard-scope .bg-accent-muted { background-color: var(--color-accent-muted); }
+.dashboard-scope .bg-accent-muted\/5 { background-color: color-mix(in srgb, var(--color-accent-muted) 5%, transparent); }
+.dashboard-scope .bg-accent-muted\/8 { background-color: color-mix(in srgb, var(--color-accent-muted) 8%, transparent); }
+.dashboard-scope .bg-accent-muted\/10 { background-color: color-mix(in srgb, var(--color-accent-muted) 10%, transparent); }
+.dashboard-scope .bg-accent-muted\/12 { background-color: color-mix(in srgb, var(--color-accent-muted) 12%, transparent); }
+.dashboard-scope .bg-accent-muted\/15 { background-color: color-mix(in srgb, var(--color-accent-muted) 15%, transparent); }
+.dashboard-scope .bg-accent-muted\/20 { background-color: color-mix(in srgb, var(--color-accent-muted) 20%, transparent); }
+.dashboard-scope .bg-accent-muted\/22 { background-color: color-mix(in srgb, var(--color-accent-muted) 22%, transparent); }
+.dashboard-scope .bg-accent-muted\/25 { background-color: color-mix(in srgb, var(--color-accent-muted) 25%, transparent); }
+.dashboard-scope .bg-accent-muted\/30 { background-color: color-mix(in srgb, var(--color-accent-muted) 30%, transparent); }
+.dashboard-scope .bg-accent-muted\/35 { background-color: color-mix(in srgb, var(--color-accent-muted) 35%, transparent); }
+.dashboard-scope .bg-accent-muted\/40 { background-color: color-mix(in srgb, var(--color-accent-muted) 40%, transparent); }
+.dashboard-scope .bg-accent-muted\/50 { background-color: color-mix(in srgb, var(--color-accent-muted) 50%, transparent); }
+.dashboard-scope .bg-accent-muted\/60 { background-color: color-mix(in srgb, var(--color-accent-muted) 60%, transparent); }
+.dashboard-scope .bg-accent-muted\/70 { background-color: color-mix(in srgb, var(--color-accent-muted) 70%, transparent); }
+.dashboard-scope .bg-accent-muted\/80 { background-color: color-mix(in srgb, var(--color-accent-muted) 80%, transparent); }
+.dashboard-scope .bg-accent-muted\/90 { background-color: color-mix(in srgb, var(--color-accent-muted) 90%, transparent); }
+.dashboard-scope .bg-accent-muted\/95 { background-color: color-mix(in srgb, var(--color-accent-muted) 95%, transparent); }
+.dashboard-scope .text-accent-muted { color: var(--color-accent-muted); }
+.dashboard-scope .text-accent-muted\/5 { color: color-mix(in srgb, var(--color-accent-muted) 5%, transparent); }
+.dashboard-scope .text-accent-muted\/8 { color: color-mix(in srgb, var(--color-accent-muted) 8%, transparent); }
+.dashboard-scope .text-accent-muted\/10 { color: color-mix(in srgb, var(--color-accent-muted) 10%, transparent); }
+.dashboard-scope .text-accent-muted\/12 { color: color-mix(in srgb, var(--color-accent-muted) 12%, transparent); }
+.dashboard-scope .text-accent-muted\/15 { color: color-mix(in srgb, var(--color-accent-muted) 15%, transparent); }
+.dashboard-scope .text-accent-muted\/20 { color: color-mix(in srgb, var(--color-accent-muted) 20%, transparent); }
+.dashboard-scope .text-accent-muted\/22 { color: color-mix(in srgb, var(--color-accent-muted) 22%, transparent); }
+.dashboard-scope .text-accent-muted\/25 { color: color-mix(in srgb, var(--color-accent-muted) 25%, transparent); }
+.dashboard-scope .text-accent-muted\/30 { color: color-mix(in srgb, var(--color-accent-muted) 30%, transparent); }
+.dashboard-scope .text-accent-muted\/35 { color: color-mix(in srgb, var(--color-accent-muted) 35%, transparent); }
+.dashboard-scope .text-accent-muted\/40 { color: color-mix(in srgb, var(--color-accent-muted) 40%, transparent); }
+.dashboard-scope .text-accent-muted\/50 { color: color-mix(in srgb, var(--color-accent-muted) 50%, transparent); }
+.dashboard-scope .text-accent-muted\/60 { color: color-mix(in srgb, var(--color-accent-muted) 60%, transparent); }
+.dashboard-scope .text-accent-muted\/70 { color: color-mix(in srgb, var(--color-accent-muted) 70%, transparent); }
+.dashboard-scope .text-accent-muted\/80 { color: color-mix(in srgb, var(--color-accent-muted) 80%, transparent); }
+.dashboard-scope .text-accent-muted\/90 { color: color-mix(in srgb, var(--color-accent-muted) 90%, transparent); }
+.dashboard-scope .text-accent-muted\/95 { color: color-mix(in srgb, var(--color-accent-muted) 95%, transparent); }
+.dashboard-scope .border-accent-muted { border-color: var(--color-accent-muted); }
+.dashboard-scope .border-accent-muted\/5 { border-color: color-mix(in srgb, var(--color-accent-muted) 5%, transparent); }
+.dashboard-scope .border-accent-muted\/8 { border-color: color-mix(in srgb, var(--color-accent-muted) 8%, transparent); }
+.dashboard-scope .border-accent-muted\/10 { border-color: color-mix(in srgb, var(--color-accent-muted) 10%, transparent); }
+.dashboard-scope .border-accent-muted\/12 { border-color: color-mix(in srgb, var(--color-accent-muted) 12%, transparent); }
+.dashboard-scope .border-accent-muted\/15 { border-color: color-mix(in srgb, var(--color-accent-muted) 15%, transparent); }
+.dashboard-scope .border-accent-muted\/20 { border-color: color-mix(in srgb, var(--color-accent-muted) 20%, transparent); }
+.dashboard-scope .border-accent-muted\/22 { border-color: color-mix(in srgb, var(--color-accent-muted) 22%, transparent); }
+.dashboard-scope .border-accent-muted\/25 { border-color: color-mix(in srgb, var(--color-accent-muted) 25%, transparent); }
+.dashboard-scope .border-accent-muted\/30 { border-color: color-mix(in srgb, var(--color-accent-muted) 30%, transparent); }
+.dashboard-scope .border-accent-muted\/35 { border-color: color-mix(in srgb, var(--color-accent-muted) 35%, transparent); }
+.dashboard-scope .border-accent-muted\/40 { border-color: color-mix(in srgb, var(--color-accent-muted) 40%, transparent); }
+.dashboard-scope .border-accent-muted\/50 { border-color: color-mix(in srgb, var(--color-accent-muted) 50%, transparent); }
+.dashboard-scope .border-accent-muted\/60 { border-color: color-mix(in srgb, var(--color-accent-muted) 60%, transparent); }
+.dashboard-scope .border-accent-muted\/70 { border-color: color-mix(in srgb, var(--color-accent-muted) 70%, transparent); }
+.dashboard-scope .border-accent-muted\/80 { border-color: color-mix(in srgb, var(--color-accent-muted) 80%, transparent); }
+.dashboard-scope .border-accent-muted\/90 { border-color: color-mix(in srgb, var(--color-accent-muted) 90%, transparent); }
+.dashboard-scope .border-accent-muted\/95 { border-color: color-mix(in srgb, var(--color-accent-muted) 95%, transparent); }
+.dashboard-scope .bg-mint { background-color: var(--color-mint); }
+.dashboard-scope .bg-mint\/5 { background-color: color-mix(in srgb, var(--color-mint) 5%, transparent); }
+.dashboard-scope .bg-mint\/8 { background-color: color-mix(in srgb, var(--color-mint) 8%, transparent); }
+.dashboard-scope .bg-mint\/10 { background-color: color-mix(in srgb, var(--color-mint) 10%, transparent); }
+.dashboard-scope .bg-mint\/12 { background-color: color-mix(in srgb, var(--color-mint) 12%, transparent); }
+.dashboard-scope .bg-mint\/15 { background-color: color-mix(in srgb, var(--color-mint) 15%, transparent); }
+.dashboard-scope .bg-mint\/20 { background-color: color-mix(in srgb, var(--color-mint) 20%, transparent); }
+.dashboard-scope .bg-mint\/22 { background-color: color-mix(in srgb, var(--color-mint) 22%, transparent); }
+.dashboard-scope .bg-mint\/25 { background-color: color-mix(in srgb, var(--color-mint) 25%, transparent); }
+.dashboard-scope .bg-mint\/30 { background-color: color-mix(in srgb, var(--color-mint) 30%, transparent); }
+.dashboard-scope .bg-mint\/35 { background-color: color-mix(in srgb, var(--color-mint) 35%, transparent); }
+.dashboard-scope .bg-mint\/40 { background-color: color-mix(in srgb, var(--color-mint) 40%, transparent); }
+.dashboard-scope .bg-mint\/50 { background-color: color-mix(in srgb, var(--color-mint) 50%, transparent); }
+.dashboard-scope .bg-mint\/60 { background-color: color-mix(in srgb, var(--color-mint) 60%, transparent); }
+.dashboard-scope .bg-mint\/70 { background-color: color-mix(in srgb, var(--color-mint) 70%, transparent); }
+.dashboard-scope .bg-mint\/80 { background-color: color-mix(in srgb, var(--color-mint) 80%, transparent); }
+.dashboard-scope .bg-mint\/90 { background-color: color-mix(in srgb, var(--color-mint) 90%, transparent); }
+.dashboard-scope .bg-mint\/95 { background-color: color-mix(in srgb, var(--color-mint) 95%, transparent); }
+.dashboard-scope .text-mint { color: var(--color-mint); }
+.dashboard-scope .text-mint\/5 { color: color-mix(in srgb, var(--color-mint) 5%, transparent); }
+.dashboard-scope .text-mint\/8 { color: color-mix(in srgb, var(--color-mint) 8%, transparent); }
+.dashboard-scope .text-mint\/10 { color: color-mix(in srgb, var(--color-mint) 10%, transparent); }
+.dashboard-scope .text-mint\/12 { color: color-mix(in srgb, var(--color-mint) 12%, transparent); }
+.dashboard-scope .text-mint\/15 { color: color-mix(in srgb, var(--color-mint) 15%, transparent); }
+.dashboard-scope .text-mint\/20 { color: color-mix(in srgb, var(--color-mint) 20%, transparent); }
+.dashboard-scope .text-mint\/22 { color: color-mix(in srgb, var(--color-mint) 22%, transparent); }
+.dashboard-scope .text-mint\/25 { color: color-mix(in srgb, var(--color-mint) 25%, transparent); }
+.dashboard-scope .text-mint\/30 { color: color-mix(in srgb, var(--color-mint) 30%, transparent); }
+.dashboard-scope .text-mint\/35 { color: color-mix(in srgb, var(--color-mint) 35%, transparent); }
+.dashboard-scope .text-mint\/40 { color: color-mix(in srgb, var(--color-mint) 40%, transparent); }
+.dashboard-scope .text-mint\/50 { color: color-mix(in srgb, var(--color-mint) 50%, transparent); }
+.dashboard-scope .text-mint\/60 { color: color-mix(in srgb, var(--color-mint) 60%, transparent); }
+.dashboard-scope .text-mint\/70 { color: color-mix(in srgb, var(--color-mint) 70%, transparent); }
+.dashboard-scope .text-mint\/80 { color: color-mix(in srgb, var(--color-mint) 80%, transparent); }
+.dashboard-scope .text-mint\/90 { color: color-mix(in srgb, var(--color-mint) 90%, transparent); }
+.dashboard-scope .text-mint\/95 { color: color-mix(in srgb, var(--color-mint) 95%, transparent); }
+.dashboard-scope .border-mint { border-color: var(--color-mint); }
+.dashboard-scope .border-mint\/5 { border-color: color-mix(in srgb, var(--color-mint) 5%, transparent); }
+.dashboard-scope .border-mint\/8 { border-color: color-mix(in srgb, var(--color-mint) 8%, transparent); }
+.dashboard-scope .border-mint\/10 { border-color: color-mix(in srgb, var(--color-mint) 10%, transparent); }
+.dashboard-scope .border-mint\/12 { border-color: color-mix(in srgb, var(--color-mint) 12%, transparent); }
+.dashboard-scope .border-mint\/15 { border-color: color-mix(in srgb, var(--color-mint) 15%, transparent); }
+.dashboard-scope .border-mint\/20 { border-color: color-mix(in srgb, var(--color-mint) 20%, transparent); }
+.dashboard-scope .border-mint\/22 { border-color: color-mix(in srgb, var(--color-mint) 22%, transparent); }
+.dashboard-scope .border-mint\/25 { border-color: color-mix(in srgb, var(--color-mint) 25%, transparent); }
+.dashboard-scope .border-mint\/30 { border-color: color-mix(in srgb, var(--color-mint) 30%, transparent); }
+.dashboard-scope .border-mint\/35 { border-color: color-mix(in srgb, var(--color-mint) 35%, transparent); }
+.dashboard-scope .border-mint\/40 { border-color: color-mix(in srgb, var(--color-mint) 40%, transparent); }
+.dashboard-scope .border-mint\/50 { border-color: color-mix(in srgb, var(--color-mint) 50%, transparent); }
+.dashboard-scope .border-mint\/60 { border-color: color-mix(in srgb, var(--color-mint) 60%, transparent); }
+.dashboard-scope .border-mint\/70 { border-color: color-mix(in srgb, var(--color-mint) 70%, transparent); }
+.dashboard-scope .border-mint\/80 { border-color: color-mix(in srgb, var(--color-mint) 80%, transparent); }
+.dashboard-scope .border-mint\/90 { border-color: color-mix(in srgb, var(--color-mint) 90%, transparent); }
+.dashboard-scope .border-mint\/95 { border-color: color-mix(in srgb, var(--color-mint) 95%, transparent); }
+.dashboard-scope .bg-status-active { background-color: var(--color-status-active); }
+.dashboard-scope .bg-status-active\/5 { background-color: color-mix(in srgb, var(--color-status-active) 5%, transparent); }
+.dashboard-scope .bg-status-active\/8 { background-color: color-mix(in srgb, var(--color-status-active) 8%, transparent); }
+.dashboard-scope .bg-status-active\/10 { background-color: color-mix(in srgb, var(--color-status-active) 10%, transparent); }
+.dashboard-scope .bg-status-active\/12 { background-color: color-mix(in srgb, var(--color-status-active) 12%, transparent); }
+.dashboard-scope .bg-status-active\/15 { background-color: color-mix(in srgb, var(--color-status-active) 15%, transparent); }
+.dashboard-scope .bg-status-active\/20 { background-color: color-mix(in srgb, var(--color-status-active) 20%, transparent); }
+.dashboard-scope .bg-status-active\/22 { background-color: color-mix(in srgb, var(--color-status-active) 22%, transparent); }
+.dashboard-scope .bg-status-active\/25 { background-color: color-mix(in srgb, var(--color-status-active) 25%, transparent); }
+.dashboard-scope .bg-status-active\/30 { background-color: color-mix(in srgb, var(--color-status-active) 30%, transparent); }
+.dashboard-scope .bg-status-active\/35 { background-color: color-mix(in srgb, var(--color-status-active) 35%, transparent); }
+.dashboard-scope .bg-status-active\/40 { background-color: color-mix(in srgb, var(--color-status-active) 40%, transparent); }
+.dashboard-scope .bg-status-active\/50 { background-color: color-mix(in srgb, var(--color-status-active) 50%, transparent); }
+.dashboard-scope .bg-status-active\/60 { background-color: color-mix(in srgb, var(--color-status-active) 60%, transparent); }
+.dashboard-scope .bg-status-active\/70 { background-color: color-mix(in srgb, var(--color-status-active) 70%, transparent); }
+.dashboard-scope .bg-status-active\/80 { background-color: color-mix(in srgb, var(--color-status-active) 80%, transparent); }
+.dashboard-scope .bg-status-active\/90 { background-color: color-mix(in srgb, var(--color-status-active) 90%, transparent); }
+.dashboard-scope .bg-status-active\/95 { background-color: color-mix(in srgb, var(--color-status-active) 95%, transparent); }
+.dashboard-scope .text-status-active { color: var(--color-status-active); }
+.dashboard-scope .text-status-active\/5 { color: color-mix(in srgb, var(--color-status-active) 5%, transparent); }
+.dashboard-scope .text-status-active\/8 { color: color-mix(in srgb, var(--color-status-active) 8%, transparent); }
+.dashboard-scope .text-status-active\/10 { color: color-mix(in srgb, var(--color-status-active) 10%, transparent); }
+.dashboard-scope .text-status-active\/12 { color: color-mix(in srgb, var(--color-status-active) 12%, transparent); }
+.dashboard-scope .text-status-active\/15 { color: color-mix(in srgb, var(--color-status-active) 15%, transparent); }
+.dashboard-scope .text-status-active\/20 { color: color-mix(in srgb, var(--color-status-active) 20%, transparent); }
+.dashboard-scope .text-status-active\/22 { color: color-mix(in srgb, var(--color-status-active) 22%, transparent); }
+.dashboard-scope .text-status-active\/25 { color: color-mix(in srgb, var(--color-status-active) 25%, transparent); }
+.dashboard-scope .text-status-active\/30 { color: color-mix(in srgb, var(--color-status-active) 30%, transparent); }
+.dashboard-scope .text-status-active\/35 { color: color-mix(in srgb, var(--color-status-active) 35%, transparent); }
+.dashboard-scope .text-status-active\/40 { color: color-mix(in srgb, var(--color-status-active) 40%, transparent); }
+.dashboard-scope .text-status-active\/50 { color: color-mix(in srgb, var(--color-status-active) 50%, transparent); }
+.dashboard-scope .text-status-active\/60 { color: color-mix(in srgb, var(--color-status-active) 60%, transparent); }
+.dashboard-scope .text-status-active\/70 { color: color-mix(in srgb, var(--color-status-active) 70%, transparent); }
+.dashboard-scope .text-status-active\/80 { color: color-mix(in srgb, var(--color-status-active) 80%, transparent); }
+.dashboard-scope .text-status-active\/90 { color: color-mix(in srgb, var(--color-status-active) 90%, transparent); }
+.dashboard-scope .text-status-active\/95 { color: color-mix(in srgb, var(--color-status-active) 95%, transparent); }
+.dashboard-scope .border-status-active { border-color: var(--color-status-active); }
+.dashboard-scope .border-status-active\/5 { border-color: color-mix(in srgb, var(--color-status-active) 5%, transparent); }
+.dashboard-scope .border-status-active\/8 { border-color: color-mix(in srgb, var(--color-status-active) 8%, transparent); }
+.dashboard-scope .border-status-active\/10 { border-color: color-mix(in srgb, var(--color-status-active) 10%, transparent); }
+.dashboard-scope .border-status-active\/12 { border-color: color-mix(in srgb, var(--color-status-active) 12%, transparent); }
+.dashboard-scope .border-status-active\/15 { border-color: color-mix(in srgb, var(--color-status-active) 15%, transparent); }
+.dashboard-scope .border-status-active\/20 { border-color: color-mix(in srgb, var(--color-status-active) 20%, transparent); }
+.dashboard-scope .border-status-active\/22 { border-color: color-mix(in srgb, var(--color-status-active) 22%, transparent); }
+.dashboard-scope .border-status-active\/25 { border-color: color-mix(in srgb, var(--color-status-active) 25%, transparent); }
+.dashboard-scope .border-status-active\/30 { border-color: color-mix(in srgb, var(--color-status-active) 30%, transparent); }
+.dashboard-scope .border-status-active\/35 { border-color: color-mix(in srgb, var(--color-status-active) 35%, transparent); }
+.dashboard-scope .border-status-active\/40 { border-color: color-mix(in srgb, var(--color-status-active) 40%, transparent); }
+.dashboard-scope .border-status-active\/50 { border-color: color-mix(in srgb, var(--color-status-active) 50%, transparent); }
+.dashboard-scope .border-status-active\/60 { border-color: color-mix(in srgb, var(--color-status-active) 60%, transparent); }
+.dashboard-scope .border-status-active\/70 { border-color: color-mix(in srgb, var(--color-status-active) 70%, transparent); }
+.dashboard-scope .border-status-active\/80 { border-color: color-mix(in srgb, var(--color-status-active) 80%, transparent); }
+.dashboard-scope .border-status-active\/90 { border-color: color-mix(in srgb, var(--color-status-active) 90%, transparent); }
+.dashboard-scope .border-status-active\/95 { border-color: color-mix(in srgb, var(--color-status-active) 95%, transparent); }
+.dashboard-scope .bg-status-success { background-color: var(--color-status-success); }
+.dashboard-scope .bg-status-success\/5 { background-color: color-mix(in srgb, var(--color-status-success) 5%, transparent); }
+.dashboard-scope .bg-status-success\/8 { background-color: color-mix(in srgb, var(--color-status-success) 8%, transparent); }
+.dashboard-scope .bg-status-success\/10 { background-color: color-mix(in srgb, var(--color-status-success) 10%, transparent); }
+.dashboard-scope .bg-status-success\/12 { background-color: color-mix(in srgb, var(--color-status-success) 12%, transparent); }
+.dashboard-scope .bg-status-success\/15 { background-color: color-mix(in srgb, var(--color-status-success) 15%, transparent); }
+.dashboard-scope .bg-status-success\/20 { background-color: color-mix(in srgb, var(--color-status-success) 20%, transparent); }
+.dashboard-scope .bg-status-success\/22 { background-color: color-mix(in srgb, var(--color-status-success) 22%, transparent); }
+.dashboard-scope .bg-status-success\/25 { background-color: color-mix(in srgb, var(--color-status-success) 25%, transparent); }
+.dashboard-scope .bg-status-success\/30 { background-color: color-mix(in srgb, var(--color-status-success) 30%, transparent); }
+.dashboard-scope .bg-status-success\/35 { background-color: color-mix(in srgb, var(--color-status-success) 35%, transparent); }
+.dashboard-scope .bg-status-success\/40 { background-color: color-mix(in srgb, var(--color-status-success) 40%, transparent); }
+.dashboard-scope .bg-status-success\/50 { background-color: color-mix(in srgb, var(--color-status-success) 50%, transparent); }
+.dashboard-scope .bg-status-success\/60 { background-color: color-mix(in srgb, var(--color-status-success) 60%, transparent); }
+.dashboard-scope .bg-status-success\/70 { background-color: color-mix(in srgb, var(--color-status-success) 70%, transparent); }
+.dashboard-scope .bg-status-success\/80 { background-color: color-mix(in srgb, var(--color-status-success) 80%, transparent); }
+.dashboard-scope .bg-status-success\/90 { background-color: color-mix(in srgb, var(--color-status-success) 90%, transparent); }
+.dashboard-scope .bg-status-success\/95 { background-color: color-mix(in srgb, var(--color-status-success) 95%, transparent); }
+.dashboard-scope .text-status-success { color: var(--color-status-success); }
+.dashboard-scope .text-status-success\/5 { color: color-mix(in srgb, var(--color-status-success) 5%, transparent); }
+.dashboard-scope .text-status-success\/8 { color: color-mix(in srgb, var(--color-status-success) 8%, transparent); }
+.dashboard-scope .text-status-success\/10 { color: color-mix(in srgb, var(--color-status-success) 10%, transparent); }
+.dashboard-scope .text-status-success\/12 { color: color-mix(in srgb, var(--color-status-success) 12%, transparent); }
+.dashboard-scope .text-status-success\/15 { color: color-mix(in srgb, var(--color-status-success) 15%, transparent); }
+.dashboard-scope .text-status-success\/20 { color: color-mix(in srgb, var(--color-status-success) 20%, transparent); }
+.dashboard-scope .text-status-success\/22 { color: color-mix(in srgb, var(--color-status-success) 22%, transparent); }
+.dashboard-scope .text-status-success\/25 { color: color-mix(in srgb, var(--color-status-success) 25%, transparent); }
+.dashboard-scope .text-status-success\/30 { color: color-mix(in srgb, var(--color-status-success) 30%, transparent); }
+.dashboard-scope .text-status-success\/35 { color: color-mix(in srgb, var(--color-status-success) 35%, transparent); }
+.dashboard-scope .text-status-success\/40 { color: color-mix(in srgb, var(--color-status-success) 40%, transparent); }
+.dashboard-scope .text-status-success\/50 { color: color-mix(in srgb, var(--color-status-success) 50%, transparent); }
+.dashboard-scope .text-status-success\/60 { color: color-mix(in srgb, var(--color-status-success) 60%, transparent); }
+.dashboard-scope .text-status-success\/70 { color: color-mix(in srgb, var(--color-status-success) 70%, transparent); }
+.dashboard-scope .text-status-success\/80 { color: color-mix(in srgb, var(--color-status-success) 80%, transparent); }
+.dashboard-scope .text-status-success\/90 { color: color-mix(in srgb, var(--color-status-success) 90%, transparent); }
+.dashboard-scope .text-status-success\/95 { color: color-mix(in srgb, var(--color-status-success) 95%, transparent); }
+.dashboard-scope .border-status-success { border-color: var(--color-status-success); }
+.dashboard-scope .border-status-success\/5 { border-color: color-mix(in srgb, var(--color-status-success) 5%, transparent); }
+.dashboard-scope .border-status-success\/8 { border-color: color-mix(in srgb, var(--color-status-success) 8%, transparent); }
+.dashboard-scope .border-status-success\/10 { border-color: color-mix(in srgb, var(--color-status-success) 10%, transparent); }
+.dashboard-scope .border-status-success\/12 { border-color: color-mix(in srgb, var(--color-status-success) 12%, transparent); }
+.dashboard-scope .border-status-success\/15 { border-color: color-mix(in srgb, var(--color-status-success) 15%, transparent); }
+.dashboard-scope .border-status-success\/20 { border-color: color-mix(in srgb, var(--color-status-success) 20%, transparent); }
+.dashboard-scope .border-status-success\/22 { border-color: color-mix(in srgb, var(--color-status-success) 22%, transparent); }
+.dashboard-scope .border-status-success\/25 { border-color: color-mix(in srgb, var(--color-status-success) 25%, transparent); }
+.dashboard-scope .border-status-success\/30 { border-color: color-mix(in srgb, var(--color-status-success) 30%, transparent); }
+.dashboard-scope .border-status-success\/35 { border-color: color-mix(in srgb, var(--color-status-success) 35%, transparent); }
+.dashboard-scope .border-status-success\/40 { border-color: color-mix(in srgb, var(--color-status-success) 40%, transparent); }
+.dashboard-scope .border-status-success\/50 { border-color: color-mix(in srgb, var(--color-status-success) 50%, transparent); }
+.dashboard-scope .border-status-success\/60 { border-color: color-mix(in srgb, var(--color-status-success) 60%, transparent); }
+.dashboard-scope .border-status-success\/70 { border-color: color-mix(in srgb, var(--color-status-success) 70%, transparent); }
+.dashboard-scope .border-status-success\/80 { border-color: color-mix(in srgb, var(--color-status-success) 80%, transparent); }
+.dashboard-scope .border-status-success\/90 { border-color: color-mix(in srgb, var(--color-status-success) 90%, transparent); }
+.dashboard-scope .border-status-success\/95 { border-color: color-mix(in srgb, var(--color-status-success) 95%, transparent); }
+.dashboard-scope .bg-status-pending { background-color: var(--color-status-pending); }
+.dashboard-scope .bg-status-pending\/5 { background-color: color-mix(in srgb, var(--color-status-pending) 5%, transparent); }
+.dashboard-scope .bg-status-pending\/8 { background-color: color-mix(in srgb, var(--color-status-pending) 8%, transparent); }
+.dashboard-scope .bg-status-pending\/10 { background-color: color-mix(in srgb, var(--color-status-pending) 10%, transparent); }
+.dashboard-scope .bg-status-pending\/12 { background-color: color-mix(in srgb, var(--color-status-pending) 12%, transparent); }
+.dashboard-scope .bg-status-pending\/15 { background-color: color-mix(in srgb, var(--color-status-pending) 15%, transparent); }
+.dashboard-scope .bg-status-pending\/20 { background-color: color-mix(in srgb, var(--color-status-pending) 20%, transparent); }
+.dashboard-scope .bg-status-pending\/22 { background-color: color-mix(in srgb, var(--color-status-pending) 22%, transparent); }
+.dashboard-scope .bg-status-pending\/25 { background-color: color-mix(in srgb, var(--color-status-pending) 25%, transparent); }
+.dashboard-scope .bg-status-pending\/30 { background-color: color-mix(in srgb, var(--color-status-pending) 30%, transparent); }
+.dashboard-scope .bg-status-pending\/35 { background-color: color-mix(in srgb, var(--color-status-pending) 35%, transparent); }
+.dashboard-scope .bg-status-pending\/40 { background-color: color-mix(in srgb, var(--color-status-pending) 40%, transparent); }
+.dashboard-scope .bg-status-pending\/50 { background-color: color-mix(in srgb, var(--color-status-pending) 50%, transparent); }
+.dashboard-scope .bg-status-pending\/60 { background-color: color-mix(in srgb, var(--color-status-pending) 60%, transparent); }
+.dashboard-scope .bg-status-pending\/70 { background-color: color-mix(in srgb, var(--color-status-pending) 70%, transparent); }
+.dashboard-scope .bg-status-pending\/80 { background-color: color-mix(in srgb, var(--color-status-pending) 80%, transparent); }
+.dashboard-scope .bg-status-pending\/90 { background-color: color-mix(in srgb, var(--color-status-pending) 90%, transparent); }
+.dashboard-scope .bg-status-pending\/95 { background-color: color-mix(in srgb, var(--color-status-pending) 95%, transparent); }
+.dashboard-scope .text-status-pending { color: var(--color-status-pending); }
+.dashboard-scope .text-status-pending\/5 { color: color-mix(in srgb, var(--color-status-pending) 5%, transparent); }
+.dashboard-scope .text-status-pending\/8 { color: color-mix(in srgb, var(--color-status-pending) 8%, transparent); }
+.dashboard-scope .text-status-pending\/10 { color: color-mix(in srgb, var(--color-status-pending) 10%, transparent); }
+.dashboard-scope .text-status-pending\/12 { color: color-mix(in srgb, var(--color-status-pending) 12%, transparent); }
+.dashboard-scope .text-status-pending\/15 { color: color-mix(in srgb, var(--color-status-pending) 15%, transparent); }
+.dashboard-scope .text-status-pending\/20 { color: color-mix(in srgb, var(--color-status-pending) 20%, transparent); }
+.dashboard-scope .text-status-pending\/22 { color: color-mix(in srgb, var(--color-status-pending) 22%, transparent); }
+.dashboard-scope .text-status-pending\/25 { color: color-mix(in srgb, var(--color-status-pending) 25%, transparent); }
+.dashboard-scope .text-status-pending\/30 { color: color-mix(in srgb, var(--color-status-pending) 30%, transparent); }
+.dashboard-scope .text-status-pending\/35 { color: color-mix(in srgb, var(--color-status-pending) 35%, transparent); }
+.dashboard-scope .text-status-pending\/40 { color: color-mix(in srgb, var(--color-status-pending) 40%, transparent); }
+.dashboard-scope .text-status-pending\/50 { color: color-mix(in srgb, var(--color-status-pending) 50%, transparent); }
+.dashboard-scope .text-status-pending\/60 { color: color-mix(in srgb, var(--color-status-pending) 60%, transparent); }
+.dashboard-scope .text-status-pending\/70 { color: color-mix(in srgb, var(--color-status-pending) 70%, transparent); }
+.dashboard-scope .text-status-pending\/80 { color: color-mix(in srgb, var(--color-status-pending) 80%, transparent); }
+.dashboard-scope .text-status-pending\/90 { color: color-mix(in srgb, var(--color-status-pending) 90%, transparent); }
+.dashboard-scope .text-status-pending\/95 { color: color-mix(in srgb, var(--color-status-pending) 95%, transparent); }
+.dashboard-scope .border-status-pending { border-color: var(--color-status-pending); }
+.dashboard-scope .border-status-pending\/5 { border-color: color-mix(in srgb, var(--color-status-pending) 5%, transparent); }
+.dashboard-scope .border-status-pending\/8 { border-color: color-mix(in srgb, var(--color-status-pending) 8%, transparent); }
+.dashboard-scope .border-status-pending\/10 { border-color: color-mix(in srgb, var(--color-status-pending) 10%, transparent); }
+.dashboard-scope .border-status-pending\/12 { border-color: color-mix(in srgb, var(--color-status-pending) 12%, transparent); }
+.dashboard-scope .border-status-pending\/15 { border-color: color-mix(in srgb, var(--color-status-pending) 15%, transparent); }
+.dashboard-scope .border-status-pending\/20 { border-color: color-mix(in srgb, var(--color-status-pending) 20%, transparent); }
+.dashboard-scope .border-status-pending\/22 { border-color: color-mix(in srgb, var(--color-status-pending) 22%, transparent); }
+.dashboard-scope .border-status-pending\/25 { border-color: color-mix(in srgb, var(--color-status-pending) 25%, transparent); }
+.dashboard-scope .border-status-pending\/30 { border-color: color-mix(in srgb, var(--color-status-pending) 30%, transparent); }
+.dashboard-scope .border-status-pending\/35 { border-color: color-mix(in srgb, var(--color-status-pending) 35%, transparent); }
+.dashboard-scope .border-status-pending\/40 { border-color: color-mix(in srgb, var(--color-status-pending) 40%, transparent); }
+.dashboard-scope .border-status-pending\/50 { border-color: color-mix(in srgb, var(--color-status-pending) 50%, transparent); }
+.dashboard-scope .border-status-pending\/60 { border-color: color-mix(in srgb, var(--color-status-pending) 60%, transparent); }
+.dashboard-scope .border-status-pending\/70 { border-color: color-mix(in srgb, var(--color-status-pending) 70%, transparent); }
+.dashboard-scope .border-status-pending\/80 { border-color: color-mix(in srgb, var(--color-status-pending) 80%, transparent); }
+.dashboard-scope .border-status-pending\/90 { border-color: color-mix(in srgb, var(--color-status-pending) 90%, transparent); }
+.dashboard-scope .border-status-pending\/95 { border-color: color-mix(in srgb, var(--color-status-pending) 95%, transparent); }
+.dashboard-scope .bg-status-idle { background-color: var(--color-status-idle); }
+.dashboard-scope .bg-status-idle\/5 { background-color: color-mix(in srgb, var(--color-status-idle) 5%, transparent); }
+.dashboard-scope .bg-status-idle\/8 { background-color: color-mix(in srgb, var(--color-status-idle) 8%, transparent); }
+.dashboard-scope .bg-status-idle\/10 { background-color: color-mix(in srgb, var(--color-status-idle) 10%, transparent); }
+.dashboard-scope .bg-status-idle\/12 { background-color: color-mix(in srgb, var(--color-status-idle) 12%, transparent); }
+.dashboard-scope .bg-status-idle\/15 { background-color: color-mix(in srgb, var(--color-status-idle) 15%, transparent); }
+.dashboard-scope .bg-status-idle\/20 { background-color: color-mix(in srgb, var(--color-status-idle) 20%, transparent); }
+.dashboard-scope .bg-status-idle\/22 { background-color: color-mix(in srgb, var(--color-status-idle) 22%, transparent); }
+.dashboard-scope .bg-status-idle\/25 { background-color: color-mix(in srgb, var(--color-status-idle) 25%, transparent); }
+.dashboard-scope .bg-status-idle\/30 { background-color: color-mix(in srgb, var(--color-status-idle) 30%, transparent); }
+.dashboard-scope .bg-status-idle\/35 { background-color: color-mix(in srgb, var(--color-status-idle) 35%, transparent); }
+.dashboard-scope .bg-status-idle\/40 { background-color: color-mix(in srgb, var(--color-status-idle) 40%, transparent); }
+.dashboard-scope .bg-status-idle\/50 { background-color: color-mix(in srgb, var(--color-status-idle) 50%, transparent); }
+.dashboard-scope .bg-status-idle\/60 { background-color: color-mix(in srgb, var(--color-status-idle) 60%, transparent); }
+.dashboard-scope .bg-status-idle\/70 { background-color: color-mix(in srgb, var(--color-status-idle) 70%, transparent); }
+.dashboard-scope .bg-status-idle\/80 { background-color: color-mix(in srgb, var(--color-status-idle) 80%, transparent); }
+.dashboard-scope .bg-status-idle\/90 { background-color: color-mix(in srgb, var(--color-status-idle) 90%, transparent); }
+.dashboard-scope .bg-status-idle\/95 { background-color: color-mix(in srgb, var(--color-status-idle) 95%, transparent); }
+.dashboard-scope .text-status-idle { color: var(--color-status-idle); }
+.dashboard-scope .text-status-idle\/5 { color: color-mix(in srgb, var(--color-status-idle) 5%, transparent); }
+.dashboard-scope .text-status-idle\/8 { color: color-mix(in srgb, var(--color-status-idle) 8%, transparent); }
+.dashboard-scope .text-status-idle\/10 { color: color-mix(in srgb, var(--color-status-idle) 10%, transparent); }
+.dashboard-scope .text-status-idle\/12 { color: color-mix(in srgb, var(--color-status-idle) 12%, transparent); }
+.dashboard-scope .text-status-idle\/15 { color: color-mix(in srgb, var(--color-status-idle) 15%, transparent); }
+.dashboard-scope .text-status-idle\/20 { color: color-mix(in srgb, var(--color-status-idle) 20%, transparent); }
+.dashboard-scope .text-status-idle\/22 { color: color-mix(in srgb, var(--color-status-idle) 22%, transparent); }
+.dashboard-scope .text-status-idle\/25 { color: color-mix(in srgb, var(--color-status-idle) 25%, transparent); }
+.dashboard-scope .text-status-idle\/30 { color: color-mix(in srgb, var(--color-status-idle) 30%, transparent); }
+.dashboard-scope .text-status-idle\/35 { color: color-mix(in srgb, var(--color-status-idle) 35%, transparent); }
+.dashboard-scope .text-status-idle\/40 { color: color-mix(in srgb, var(--color-status-idle) 40%, transparent); }
+.dashboard-scope .text-status-idle\/50 { color: color-mix(in srgb, var(--color-status-idle) 50%, transparent); }
+.dashboard-scope .text-status-idle\/60 { color: color-mix(in srgb, var(--color-status-idle) 60%, transparent); }
+.dashboard-scope .text-status-idle\/70 { color: color-mix(in srgb, var(--color-status-idle) 70%, transparent); }
+.dashboard-scope .text-status-idle\/80 { color: color-mix(in srgb, var(--color-status-idle) 80%, transparent); }
+.dashboard-scope .text-status-idle\/90 { color: color-mix(in srgb, var(--color-status-idle) 90%, transparent); }
+.dashboard-scope .text-status-idle\/95 { color: color-mix(in srgb, var(--color-status-idle) 95%, transparent); }
+.dashboard-scope .border-status-idle { border-color: var(--color-status-idle); }
+.dashboard-scope .border-status-idle\/5 { border-color: color-mix(in srgb, var(--color-status-idle) 5%, transparent); }
+.dashboard-scope .border-status-idle\/8 { border-color: color-mix(in srgb, var(--color-status-idle) 8%, transparent); }
+.dashboard-scope .border-status-idle\/10 { border-color: color-mix(in srgb, var(--color-status-idle) 10%, transparent); }
+.dashboard-scope .border-status-idle\/12 { border-color: color-mix(in srgb, var(--color-status-idle) 12%, transparent); }
+.dashboard-scope .border-status-idle\/15 { border-color: color-mix(in srgb, var(--color-status-idle) 15%, transparent); }
+.dashboard-scope .border-status-idle\/20 { border-color: color-mix(in srgb, var(--color-status-idle) 20%, transparent); }
+.dashboard-scope .border-status-idle\/22 { border-color: color-mix(in srgb, var(--color-status-idle) 22%, transparent); }
+.dashboard-scope .border-status-idle\/25 { border-color: color-mix(in srgb, var(--color-status-idle) 25%, transparent); }
+.dashboard-scope .border-status-idle\/30 { border-color: color-mix(in srgb, var(--color-status-idle) 30%, transparent); }
+.dashboard-scope .border-status-idle\/35 { border-color: color-mix(in srgb, var(--color-status-idle) 35%, transparent); }
+.dashboard-scope .border-status-idle\/40 { border-color: color-mix(in srgb, var(--color-status-idle) 40%, transparent); }
+.dashboard-scope .border-status-idle\/50 { border-color: color-mix(in srgb, var(--color-status-idle) 50%, transparent); }
+.dashboard-scope .border-status-idle\/60 { border-color: color-mix(in srgb, var(--color-status-idle) 60%, transparent); }
+.dashboard-scope .border-status-idle\/70 { border-color: color-mix(in srgb, var(--color-status-idle) 70%, transparent); }
+.dashboard-scope .border-status-idle\/80 { border-color: color-mix(in srgb, var(--color-status-idle) 80%, transparent); }
+.dashboard-scope .border-status-idle\/90 { border-color: color-mix(in srgb, var(--color-status-idle) 90%, transparent); }
+.dashboard-scope .border-status-idle\/95 { border-color: color-mix(in srgb, var(--color-status-idle) 95%, transparent); }
+.dashboard-scope .bg-status-warning { background-color: var(--color-status-warning); }
+.dashboard-scope .bg-status-warning\/5 { background-color: color-mix(in srgb, var(--color-status-warning) 5%, transparent); }
+.dashboard-scope .bg-status-warning\/8 { background-color: color-mix(in srgb, var(--color-status-warning) 8%, transparent); }
+.dashboard-scope .bg-status-warning\/10 { background-color: color-mix(in srgb, var(--color-status-warning) 10%, transparent); }
+.dashboard-scope .bg-status-warning\/12 { background-color: color-mix(in srgb, var(--color-status-warning) 12%, transparent); }
+.dashboard-scope .bg-status-warning\/15 { background-color: color-mix(in srgb, var(--color-status-warning) 15%, transparent); }
+.dashboard-scope .bg-status-warning\/20 { background-color: color-mix(in srgb, var(--color-status-warning) 20%, transparent); }
+.dashboard-scope .bg-status-warning\/22 { background-color: color-mix(in srgb, var(--color-status-warning) 22%, transparent); }
+.dashboard-scope .bg-status-warning\/25 { background-color: color-mix(in srgb, var(--color-status-warning) 25%, transparent); }
+.dashboard-scope .bg-status-warning\/30 { background-color: color-mix(in srgb, var(--color-status-warning) 30%, transparent); }
+.dashboard-scope .bg-status-warning\/35 { background-color: color-mix(in srgb, var(--color-status-warning) 35%, transparent); }
+.dashboard-scope .bg-status-warning\/40 { background-color: color-mix(in srgb, var(--color-status-warning) 40%, transparent); }
+.dashboard-scope .bg-status-warning\/50 { background-color: color-mix(in srgb, var(--color-status-warning) 50%, transparent); }
+.dashboard-scope .bg-status-warning\/60 { background-color: color-mix(in srgb, var(--color-status-warning) 60%, transparent); }
+.dashboard-scope .bg-status-warning\/70 { background-color: color-mix(in srgb, var(--color-status-warning) 70%, transparent); }
+.dashboard-scope .bg-status-warning\/80 { background-color: color-mix(in srgb, var(--color-status-warning) 80%, transparent); }
+.dashboard-scope .bg-status-warning\/90 { background-color: color-mix(in srgb, var(--color-status-warning) 90%, transparent); }
+.dashboard-scope .bg-status-warning\/95 { background-color: color-mix(in srgb, var(--color-status-warning) 95%, transparent); }
+.dashboard-scope .text-status-warning { color: var(--color-status-warning); }
+.dashboard-scope .text-status-warning\/5 { color: color-mix(in srgb, var(--color-status-warning) 5%, transparent); }
+.dashboard-scope .text-status-warning\/8 { color: color-mix(in srgb, var(--color-status-warning) 8%, transparent); }
+.dashboard-scope .text-status-warning\/10 { color: color-mix(in srgb, var(--color-status-warning) 10%, transparent); }
+.dashboard-scope .text-status-warning\/12 { color: color-mix(in srgb, var(--color-status-warning) 12%, transparent); }
+.dashboard-scope .text-status-warning\/15 { color: color-mix(in srgb, var(--color-status-warning) 15%, transparent); }
+.dashboard-scope .text-status-warning\/20 { color: color-mix(in srgb, var(--color-status-warning) 20%, transparent); }
+.dashboard-scope .text-status-warning\/22 { color: color-mix(in srgb, var(--color-status-warning) 22%, transparent); }
+.dashboard-scope .text-status-warning\/25 { color: color-mix(in srgb, var(--color-status-warning) 25%, transparent); }
+.dashboard-scope .text-status-warning\/30 { color: color-mix(in srgb, var(--color-status-warning) 30%, transparent); }
+.dashboard-scope .text-status-warning\/35 { color: color-mix(in srgb, var(--color-status-warning) 35%, transparent); }
+.dashboard-scope .text-status-warning\/40 { color: color-mix(in srgb, var(--color-status-warning) 40%, transparent); }
+.dashboard-scope .text-status-warning\/50 { color: color-mix(in srgb, var(--color-status-warning) 50%, transparent); }
+.dashboard-scope .text-status-warning\/60 { color: color-mix(in srgb, var(--color-status-warning) 60%, transparent); }
+.dashboard-scope .text-status-warning\/70 { color: color-mix(in srgb, var(--color-status-warning) 70%, transparent); }
+.dashboard-scope .text-status-warning\/80 { color: color-mix(in srgb, var(--color-status-warning) 80%, transparent); }
+.dashboard-scope .text-status-warning\/90 { color: color-mix(in srgb, var(--color-status-warning) 90%, transparent); }
+.dashboard-scope .text-status-warning\/95 { color: color-mix(in srgb, var(--color-status-warning) 95%, transparent); }
+.dashboard-scope .border-status-warning { border-color: var(--color-status-warning); }
+.dashboard-scope .border-status-warning\/5 { border-color: color-mix(in srgb, var(--color-status-warning) 5%, transparent); }
+.dashboard-scope .border-status-warning\/8 { border-color: color-mix(in srgb, var(--color-status-warning) 8%, transparent); }
+.dashboard-scope .border-status-warning\/10 { border-color: color-mix(in srgb, var(--color-status-warning) 10%, transparent); }
+.dashboard-scope .border-status-warning\/12 { border-color: color-mix(in srgb, var(--color-status-warning) 12%, transparent); }
+.dashboard-scope .border-status-warning\/15 { border-color: color-mix(in srgb, var(--color-status-warning) 15%, transparent); }
+.dashboard-scope .border-status-warning\/20 { border-color: color-mix(in srgb, var(--color-status-warning) 20%, transparent); }
+.dashboard-scope .border-status-warning\/22 { border-color: color-mix(in srgb, var(--color-status-warning) 22%, transparent); }
+.dashboard-scope .border-status-warning\/25 { border-color: color-mix(in srgb, var(--color-status-warning) 25%, transparent); }
+.dashboard-scope .border-status-warning\/30 { border-color: color-mix(in srgb, var(--color-status-warning) 30%, transparent); }
+.dashboard-scope .border-status-warning\/35 { border-color: color-mix(in srgb, var(--color-status-warning) 35%, transparent); }
+.dashboard-scope .border-status-warning\/40 { border-color: color-mix(in srgb, var(--color-status-warning) 40%, transparent); }
+.dashboard-scope .border-status-warning\/50 { border-color: color-mix(in srgb, var(--color-status-warning) 50%, transparent); }
+.dashboard-scope .border-status-warning\/60 { border-color: color-mix(in srgb, var(--color-status-warning) 60%, transparent); }
+.dashboard-scope .border-status-warning\/70 { border-color: color-mix(in srgb, var(--color-status-warning) 70%, transparent); }
+.dashboard-scope .border-status-warning\/80 { border-color: color-mix(in srgb, var(--color-status-warning) 80%, transparent); }
+.dashboard-scope .border-status-warning\/90 { border-color: color-mix(in srgb, var(--color-status-warning) 90%, transparent); }
+.dashboard-scope .border-status-warning\/95 { border-color: color-mix(in srgb, var(--color-status-warning) 95%, transparent); }
+.dashboard-scope .bg-status-error { background-color: var(--color-status-error); }
+.dashboard-scope .bg-status-error\/5 { background-color: color-mix(in srgb, var(--color-status-error) 5%, transparent); }
+.dashboard-scope .bg-status-error\/8 { background-color: color-mix(in srgb, var(--color-status-error) 8%, transparent); }
+.dashboard-scope .bg-status-error\/10 { background-color: color-mix(in srgb, var(--color-status-error) 10%, transparent); }
+.dashboard-scope .bg-status-error\/12 { background-color: color-mix(in srgb, var(--color-status-error) 12%, transparent); }
+.dashboard-scope .bg-status-error\/15 { background-color: color-mix(in srgb, var(--color-status-error) 15%, transparent); }
+.dashboard-scope .bg-status-error\/20 { background-color: color-mix(in srgb, var(--color-status-error) 20%, transparent); }
+.dashboard-scope .bg-status-error\/22 { background-color: color-mix(in srgb, var(--color-status-error) 22%, transparent); }
+.dashboard-scope .bg-status-error\/25 { background-color: color-mix(in srgb, var(--color-status-error) 25%, transparent); }
+.dashboard-scope .bg-status-error\/30 { background-color: color-mix(in srgb, var(--color-status-error) 30%, transparent); }
+.dashboard-scope .bg-status-error\/35 { background-color: color-mix(in srgb, var(--color-status-error) 35%, transparent); }
+.dashboard-scope .bg-status-error\/40 { background-color: color-mix(in srgb, var(--color-status-error) 40%, transparent); }
+.dashboard-scope .bg-status-error\/50 { background-color: color-mix(in srgb, var(--color-status-error) 50%, transparent); }
+.dashboard-scope .bg-status-error\/60 { background-color: color-mix(in srgb, var(--color-status-error) 60%, transparent); }
+.dashboard-scope .bg-status-error\/70 { background-color: color-mix(in srgb, var(--color-status-error) 70%, transparent); }
+.dashboard-scope .bg-status-error\/80 { background-color: color-mix(in srgb, var(--color-status-error) 80%, transparent); }
+.dashboard-scope .bg-status-error\/90 { background-color: color-mix(in srgb, var(--color-status-error) 90%, transparent); }
+.dashboard-scope .bg-status-error\/95 { background-color: color-mix(in srgb, var(--color-status-error) 95%, transparent); }
+.dashboard-scope .text-status-error { color: var(--color-status-error); }
+.dashboard-scope .text-status-error\/5 { color: color-mix(in srgb, var(--color-status-error) 5%, transparent); }
+.dashboard-scope .text-status-error\/8 { color: color-mix(in srgb, var(--color-status-error) 8%, transparent); }
+.dashboard-scope .text-status-error\/10 { color: color-mix(in srgb, var(--color-status-error) 10%, transparent); }
+.dashboard-scope .text-status-error\/12 { color: color-mix(in srgb, var(--color-status-error) 12%, transparent); }
+.dashboard-scope .text-status-error\/15 { color: color-mix(in srgb, var(--color-status-error) 15%, transparent); }
+.dashboard-scope .text-status-error\/20 { color: color-mix(in srgb, var(--color-status-error) 20%, transparent); }
+.dashboard-scope .text-status-error\/22 { color: color-mix(in srgb, var(--color-status-error) 22%, transparent); }
+.dashboard-scope .text-status-error\/25 { color: color-mix(in srgb, var(--color-status-error) 25%, transparent); }
+.dashboard-scope .text-status-error\/30 { color: color-mix(in srgb, var(--color-status-error) 30%, transparent); }
+.dashboard-scope .text-status-error\/35 { color: color-mix(in srgb, var(--color-status-error) 35%, transparent); }
+.dashboard-scope .text-status-error\/40 { color: color-mix(in srgb, var(--color-status-error) 40%, transparent); }
+.dashboard-scope .text-status-error\/50 { color: color-mix(in srgb, var(--color-status-error) 50%, transparent); }
+.dashboard-scope .text-status-error\/60 { color: color-mix(in srgb, var(--color-status-error) 60%, transparent); }
+.dashboard-scope .text-status-error\/70 { color: color-mix(in srgb, var(--color-status-error) 70%, transparent); }
+.dashboard-scope .text-status-error\/80 { color: color-mix(in srgb, var(--color-status-error) 80%, transparent); }
+.dashboard-scope .text-status-error\/90 { color: color-mix(in srgb, var(--color-status-error) 90%, transparent); }
+.dashboard-scope .text-status-error\/95 { color: color-mix(in srgb, var(--color-status-error) 95%, transparent); }
+.dashboard-scope .border-status-error { border-color: var(--color-status-error); }
+.dashboard-scope .border-status-error\/5 { border-color: color-mix(in srgb, var(--color-status-error) 5%, transparent); }
+.dashboard-scope .border-status-error\/8 { border-color: color-mix(in srgb, var(--color-status-error) 8%, transparent); }
+.dashboard-scope .border-status-error\/10 { border-color: color-mix(in srgb, var(--color-status-error) 10%, transparent); }
+.dashboard-scope .border-status-error\/12 { border-color: color-mix(in srgb, var(--color-status-error) 12%, transparent); }
+.dashboard-scope .border-status-error\/15 { border-color: color-mix(in srgb, var(--color-status-error) 15%, transparent); }
+.dashboard-scope .border-status-error\/20 { border-color: color-mix(in srgb, var(--color-status-error) 20%, transparent); }
+.dashboard-scope .border-status-error\/22 { border-color: color-mix(in srgb, var(--color-status-error) 22%, transparent); }
+.dashboard-scope .border-status-error\/25 { border-color: color-mix(in srgb, var(--color-status-error) 25%, transparent); }
+.dashboard-scope .border-status-error\/30 { border-color: color-mix(in srgb, var(--color-status-error) 30%, transparent); }
+.dashboard-scope .border-status-error\/35 { border-color: color-mix(in srgb, var(--color-status-error) 35%, transparent); }
+.dashboard-scope .border-status-error\/40 { border-color: color-mix(in srgb, var(--color-status-error) 40%, transparent); }
+.dashboard-scope .border-status-error\/50 { border-color: color-mix(in srgb, var(--color-status-error) 50%, transparent); }
+.dashboard-scope .border-status-error\/60 { border-color: color-mix(in srgb, var(--color-status-error) 60%, transparent); }
+.dashboard-scope .border-status-error\/70 { border-color: color-mix(in srgb, var(--color-status-error) 70%, transparent); }
+.dashboard-scope .border-status-error\/80 { border-color: color-mix(in srgb, var(--color-status-error) 80%, transparent); }
+.dashboard-scope .border-status-error\/90 { border-color: color-mix(in srgb, var(--color-status-error) 90%, transparent); }
+.dashboard-scope .border-status-error\/95 { border-color: color-mix(in srgb, var(--color-status-error) 95%, transparent); }
+.dashboard-scope .bg-status-danger { background-color: var(--color-status-danger); }
+.dashboard-scope .bg-status-danger\/5 { background-color: color-mix(in srgb, var(--color-status-danger) 5%, transparent); }
+.dashboard-scope .bg-status-danger\/8 { background-color: color-mix(in srgb, var(--color-status-danger) 8%, transparent); }
+.dashboard-scope .bg-status-danger\/10 { background-color: color-mix(in srgb, var(--color-status-danger) 10%, transparent); }
+.dashboard-scope .bg-status-danger\/12 { background-color: color-mix(in srgb, var(--color-status-danger) 12%, transparent); }
+.dashboard-scope .bg-status-danger\/15 { background-color: color-mix(in srgb, var(--color-status-danger) 15%, transparent); }
+.dashboard-scope .bg-status-danger\/20 { background-color: color-mix(in srgb, var(--color-status-danger) 20%, transparent); }
+.dashboard-scope .bg-status-danger\/22 { background-color: color-mix(in srgb, var(--color-status-danger) 22%, transparent); }
+.dashboard-scope .bg-status-danger\/25 { background-color: color-mix(in srgb, var(--color-status-danger) 25%, transparent); }
+.dashboard-scope .bg-status-danger\/30 { background-color: color-mix(in srgb, var(--color-status-danger) 30%, transparent); }
+.dashboard-scope .bg-status-danger\/35 { background-color: color-mix(in srgb, var(--color-status-danger) 35%, transparent); }
+.dashboard-scope .bg-status-danger\/40 { background-color: color-mix(in srgb, var(--color-status-danger) 40%, transparent); }
+.dashboard-scope .bg-status-danger\/50 { background-color: color-mix(in srgb, var(--color-status-danger) 50%, transparent); }
+.dashboard-scope .bg-status-danger\/60 { background-color: color-mix(in srgb, var(--color-status-danger) 60%, transparent); }
+.dashboard-scope .bg-status-danger\/70 { background-color: color-mix(in srgb, var(--color-status-danger) 70%, transparent); }
+.dashboard-scope .bg-status-danger\/80 { background-color: color-mix(in srgb, var(--color-status-danger) 80%, transparent); }
+.dashboard-scope .bg-status-danger\/90 { background-color: color-mix(in srgb, var(--color-status-danger) 90%, transparent); }
+.dashboard-scope .bg-status-danger\/95 { background-color: color-mix(in srgb, var(--color-status-danger) 95%, transparent); }
+.dashboard-scope .text-status-danger { color: var(--color-status-danger); }
+.dashboard-scope .text-status-danger\/5 { color: color-mix(in srgb, var(--color-status-danger) 5%, transparent); }
+.dashboard-scope .text-status-danger\/8 { color: color-mix(in srgb, var(--color-status-danger) 8%, transparent); }
+.dashboard-scope .text-status-danger\/10 { color: color-mix(in srgb, var(--color-status-danger) 10%, transparent); }
+.dashboard-scope .text-status-danger\/12 { color: color-mix(in srgb, var(--color-status-danger) 12%, transparent); }
+.dashboard-scope .text-status-danger\/15 { color: color-mix(in srgb, var(--color-status-danger) 15%, transparent); }
+.dashboard-scope .text-status-danger\/20 { color: color-mix(in srgb, var(--color-status-danger) 20%, transparent); }
+.dashboard-scope .text-status-danger\/22 { color: color-mix(in srgb, var(--color-status-danger) 22%, transparent); }
+.dashboard-scope .text-status-danger\/25 { color: color-mix(in srgb, var(--color-status-danger) 25%, transparent); }
+.dashboard-scope .text-status-danger\/30 { color: color-mix(in srgb, var(--color-status-danger) 30%, transparent); }
+.dashboard-scope .text-status-danger\/35 { color: color-mix(in srgb, var(--color-status-danger) 35%, transparent); }
+.dashboard-scope .text-status-danger\/40 { color: color-mix(in srgb, var(--color-status-danger) 40%, transparent); }
+.dashboard-scope .text-status-danger\/50 { color: color-mix(in srgb, var(--color-status-danger) 50%, transparent); }
+.dashboard-scope .text-status-danger\/60 { color: color-mix(in srgb, var(--color-status-danger) 60%, transparent); }
+.dashboard-scope .text-status-danger\/70 { color: color-mix(in srgb, var(--color-status-danger) 70%, transparent); }
+.dashboard-scope .text-status-danger\/80 { color: color-mix(in srgb, var(--color-status-danger) 80%, transparent); }
+.dashboard-scope .text-status-danger\/90 { color: color-mix(in srgb, var(--color-status-danger) 90%, transparent); }
+.dashboard-scope .text-status-danger\/95 { color: color-mix(in srgb, var(--color-status-danger) 95%, transparent); }
+.dashboard-scope .border-status-danger { border-color: var(--color-status-danger); }
+.dashboard-scope .border-status-danger\/5 { border-color: color-mix(in srgb, var(--color-status-danger) 5%, transparent); }
+.dashboard-scope .border-status-danger\/8 { border-color: color-mix(in srgb, var(--color-status-danger) 8%, transparent); }
+.dashboard-scope .border-status-danger\/10 { border-color: color-mix(in srgb, var(--color-status-danger) 10%, transparent); }
+.dashboard-scope .border-status-danger\/12 { border-color: color-mix(in srgb, var(--color-status-danger) 12%, transparent); }
+.dashboard-scope .border-status-danger\/15 { border-color: color-mix(in srgb, var(--color-status-danger) 15%, transparent); }
+.dashboard-scope .border-status-danger\/20 { border-color: color-mix(in srgb, var(--color-status-danger) 20%, transparent); }
+.dashboard-scope .border-status-danger\/22 { border-color: color-mix(in srgb, var(--color-status-danger) 22%, transparent); }
+.dashboard-scope .border-status-danger\/25 { border-color: color-mix(in srgb, var(--color-status-danger) 25%, transparent); }
+.dashboard-scope .border-status-danger\/30 { border-color: color-mix(in srgb, var(--color-status-danger) 30%, transparent); }
+.dashboard-scope .border-status-danger\/35 { border-color: color-mix(in srgb, var(--color-status-danger) 35%, transparent); }
+.dashboard-scope .border-status-danger\/40 { border-color: color-mix(in srgb, var(--color-status-danger) 40%, transparent); }
+.dashboard-scope .border-status-danger\/50 { border-color: color-mix(in srgb, var(--color-status-danger) 50%, transparent); }
+.dashboard-scope .border-status-danger\/60 { border-color: color-mix(in srgb, var(--color-status-danger) 60%, transparent); }
+.dashboard-scope .border-status-danger\/70 { border-color: color-mix(in srgb, var(--color-status-danger) 70%, transparent); }
+.dashboard-scope .border-status-danger\/80 { border-color: color-mix(in srgb, var(--color-status-danger) 80%, transparent); }
+.dashboard-scope .border-status-danger\/90 { border-color: color-mix(in srgb, var(--color-status-danger) 90%, transparent); }
+.dashboard-scope .border-status-danger\/95 { border-color: color-mix(in srgb, var(--color-status-danger) 95%, transparent); }
+.dashboard-scope .bg-status-info { background-color: var(--color-status-info); }
+.dashboard-scope .bg-status-info\/5 { background-color: color-mix(in srgb, var(--color-status-info) 5%, transparent); }
+.dashboard-scope .bg-status-info\/8 { background-color: color-mix(in srgb, var(--color-status-info) 8%, transparent); }
+.dashboard-scope .bg-status-info\/10 { background-color: color-mix(in srgb, var(--color-status-info) 10%, transparent); }
+.dashboard-scope .bg-status-info\/12 { background-color: color-mix(in srgb, var(--color-status-info) 12%, transparent); }
+.dashboard-scope .bg-status-info\/15 { background-color: color-mix(in srgb, var(--color-status-info) 15%, transparent); }
+.dashboard-scope .bg-status-info\/20 { background-color: color-mix(in srgb, var(--color-status-info) 20%, transparent); }
+.dashboard-scope .bg-status-info\/22 { background-color: color-mix(in srgb, var(--color-status-info) 22%, transparent); }
+.dashboard-scope .bg-status-info\/25 { background-color: color-mix(in srgb, var(--color-status-info) 25%, transparent); }
+.dashboard-scope .bg-status-info\/30 { background-color: color-mix(in srgb, var(--color-status-info) 30%, transparent); }
+.dashboard-scope .bg-status-info\/35 { background-color: color-mix(in srgb, var(--color-status-info) 35%, transparent); }
+.dashboard-scope .bg-status-info\/40 { background-color: color-mix(in srgb, var(--color-status-info) 40%, transparent); }
+.dashboard-scope .bg-status-info\/50 { background-color: color-mix(in srgb, var(--color-status-info) 50%, transparent); }
+.dashboard-scope .bg-status-info\/60 { background-color: color-mix(in srgb, var(--color-status-info) 60%, transparent); }
+.dashboard-scope .bg-status-info\/70 { background-color: color-mix(in srgb, var(--color-status-info) 70%, transparent); }
+.dashboard-scope .bg-status-info\/80 { background-color: color-mix(in srgb, var(--color-status-info) 80%, transparent); }
+.dashboard-scope .bg-status-info\/90 { background-color: color-mix(in srgb, var(--color-status-info) 90%, transparent); }
+.dashboard-scope .bg-status-info\/95 { background-color: color-mix(in srgb, var(--color-status-info) 95%, transparent); }
+.dashboard-scope .text-status-info { color: var(--color-status-info); }
+.dashboard-scope .text-status-info\/5 { color: color-mix(in srgb, var(--color-status-info) 5%, transparent); }
+.dashboard-scope .text-status-info\/8 { color: color-mix(in srgb, var(--color-status-info) 8%, transparent); }
+.dashboard-scope .text-status-info\/10 { color: color-mix(in srgb, var(--color-status-info) 10%, transparent); }
+.dashboard-scope .text-status-info\/12 { color: color-mix(in srgb, var(--color-status-info) 12%, transparent); }
+.dashboard-scope .text-status-info\/15 { color: color-mix(in srgb, var(--color-status-info) 15%, transparent); }
+.dashboard-scope .text-status-info\/20 { color: color-mix(in srgb, var(--color-status-info) 20%, transparent); }
+.dashboard-scope .text-status-info\/22 { color: color-mix(in srgb, var(--color-status-info) 22%, transparent); }
+.dashboard-scope .text-status-info\/25 { color: color-mix(in srgb, var(--color-status-info) 25%, transparent); }
+.dashboard-scope .text-status-info\/30 { color: color-mix(in srgb, var(--color-status-info) 30%, transparent); }
+.dashboard-scope .text-status-info\/35 { color: color-mix(in srgb, var(--color-status-info) 35%, transparent); }
+.dashboard-scope .text-status-info\/40 { color: color-mix(in srgb, var(--color-status-info) 40%, transparent); }
+.dashboard-scope .text-status-info\/50 { color: color-mix(in srgb, var(--color-status-info) 50%, transparent); }
+.dashboard-scope .text-status-info\/60 { color: color-mix(in srgb, var(--color-status-info) 60%, transparent); }
+.dashboard-scope .text-status-info\/70 { color: color-mix(in srgb, var(--color-status-info) 70%, transparent); }
+.dashboard-scope .text-status-info\/80 { color: color-mix(in srgb, var(--color-status-info) 80%, transparent); }
+.dashboard-scope .text-status-info\/90 { color: color-mix(in srgb, var(--color-status-info) 90%, transparent); }
+.dashboard-scope .text-status-info\/95 { color: color-mix(in srgb, var(--color-status-info) 95%, transparent); }
+.dashboard-scope .border-status-info { border-color: var(--color-status-info); }
+.dashboard-scope .border-status-info\/5 { border-color: color-mix(in srgb, var(--color-status-info) 5%, transparent); }
+.dashboard-scope .border-status-info\/8 { border-color: color-mix(in srgb, var(--color-status-info) 8%, transparent); }
+.dashboard-scope .border-status-info\/10 { border-color: color-mix(in srgb, var(--color-status-info) 10%, transparent); }
+.dashboard-scope .border-status-info\/12 { border-color: color-mix(in srgb, var(--color-status-info) 12%, transparent); }
+.dashboard-scope .border-status-info\/15 { border-color: color-mix(in srgb, var(--color-status-info) 15%, transparent); }
+.dashboard-scope .border-status-info\/20 { border-color: color-mix(in srgb, var(--color-status-info) 20%, transparent); }
+.dashboard-scope .border-status-info\/22 { border-color: color-mix(in srgb, var(--color-status-info) 22%, transparent); }
+.dashboard-scope .border-status-info\/25 { border-color: color-mix(in srgb, var(--color-status-info) 25%, transparent); }
+.dashboard-scope .border-status-info\/30 { border-color: color-mix(in srgb, var(--color-status-info) 30%, transparent); }
+.dashboard-scope .border-status-info\/35 { border-color: color-mix(in srgb, var(--color-status-info) 35%, transparent); }
+.dashboard-scope .border-status-info\/40 { border-color: color-mix(in srgb, var(--color-status-info) 40%, transparent); }
+.dashboard-scope .border-status-info\/50 { border-color: color-mix(in srgb, var(--color-status-info) 50%, transparent); }
+.dashboard-scope .border-status-info\/60 { border-color: color-mix(in srgb, var(--color-status-info) 60%, transparent); }
+.dashboard-scope .border-status-info\/70 { border-color: color-mix(in srgb, var(--color-status-info) 70%, transparent); }
+.dashboard-scope .border-status-info\/80 { border-color: color-mix(in srgb, var(--color-status-info) 80%, transparent); }
+.dashboard-scope .border-status-info\/90 { border-color: color-mix(in srgb, var(--color-status-info) 90%, transparent); }
+.dashboard-scope .border-status-info\/95 { border-color: color-mix(in srgb, var(--color-status-info) 95%, transparent); }
